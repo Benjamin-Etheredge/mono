@@ -1,0 +1,12 @@
+- hosts: all
+  roles:
+    - role: 'ansible_role_microk8s'
+      vars:
+        microk8s_plugins:
+          ingress: true
+          dns: true
+          metrics-server: false
+          cert-manager: true
+          openebs: false       
+          portainer: true
+          helm3: true

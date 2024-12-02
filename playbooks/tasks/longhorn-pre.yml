@@ -1,0 +1,25 @@
+- name: Setup for longhorn
+  hosts: microk8s_HA, microk8s_WORKERS
+  tasks:
+  - name: Install pacakges
+    become: true
+    ansible.builtin.apt:
+      pkg:
+      - open-iscsi
+      - curl
+
+  - name: Add module
+    become: true
+    ansible.builtin.copy:
+      content: |
+        iscsi_tcp
+      dest: /etc/modules-load.d/iscsi_tcai.conf
+    register: modules
+
+  - name: Reload modules
+    become: true
+    ansible.builtin.systemd_service:
+      state: restarted
+      daemon_reload: true
+      name: systemd-modules-load.service
+    when: modules.changed

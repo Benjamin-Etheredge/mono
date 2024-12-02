@@ -1,0 +1,66 @@
+- name: Setup kube-vip
+  hosts: microk8s_HA, microk8s_WORKERS
+  vars_prompt:
+    - name: vip
+      prompt: What vip to use?
+      private: false
+
+  tasks:
+    - name: Install nfs-common
+      become: true
+      ansible.builtin.apt:
+        name: nfs-common
+        state: present
+        update_cache: true
+
+    - name: Install ipvsadm
+      become: true
+      ansible.builtin.apt:
+        name: ipvsadm
+        state: present
+        update_cache: true
+
+    - name: Add modules
+      become: true
+      ansible.builtin.copy:
+        content: |
+          ip_vs
+          ip_vs_rr
+          ip_vs_wrr
+          ip_vs_sh
+          nf_conntrack
+        dest: /etc/modules-load.d/ipvs.conf
+      register: modules
+
+    - name: Reload modules
+      become: true
+      ansible.builtin.systemd_service:
+        state: restarted
+        daemon_reload: true
+        name: systemd-modules-load.service
+      when: modules.changed
+
+    - name: Configure IPs and domains (1)
+      become: true
+      ansible.builtin.lineinfile:
+        path: /var/snap/microk8s/current/certs/csr.conf.template
+        insertafter: '^DNS.5 = '
+        line: 'DNS.11 = k8s.etheredge.dev'
+
+    - name: Configure IPs and domains (2)
+      become: true
+      ansible.builtin.lineinfile:
+        path: /var/snap/microk8s/current/certs/csr.conf.template
+        insertafter: '^DNS.11 = '
+        line: 'DNS.12 = k8s.lan'
+
+    - name: Configure IPs and domains (3)
+      become: true
+      ansible.builtin.lineinfile:
+        path: /var/snap/microk8s/current/certs/csr.conf.template
+        insertafter: '^IP.2 = '
+        line: "IP.11 = {{ vip }}"
+
+    - name: Referesh certs
+      become: true
+      shell: sudo microk8s refresh-certs --cert server.crt
