@@ -13,7 +13,7 @@
     ansible.builtin.copy:
       content: |
         iscsi_tcp
-      dest: /etc/modules-load.d/iscsi_tcai.conf
+      dest: /etc/modules-load.d/iscsi_tcp.conf
     register: modules
 
   - name: Reload modules
