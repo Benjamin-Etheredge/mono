@@ -7,3 +7,5 @@ secretGenerator:
     namespace: kube-system
     files:
       - values.yaml=values.enc.yaml
+configurations:
+  - kustomizeconfig.yaml
