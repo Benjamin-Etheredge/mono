@@ -13,4 +13,8 @@ spec:
         kind: HelmRepository
         name: longhorn-repo
       version: v1.7.2
+    values:
+      ingress:
+        enabled: true
+        host: longhorn.k8s.lan
   interval: 1m0s
