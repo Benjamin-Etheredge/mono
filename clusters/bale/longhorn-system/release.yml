@@ -17,4 +17,5 @@ spec:
     ingress:
       enabled: true
       host: longhorn.k8s.lan
+      ingressClassName: nginx
   interval: 1m0s
