@@ -1,0 +1,9 @@
+{
+    "name": "Install Pantsbuild",
+    "id": "pants",
+    "version": "0.1.0",
+    "description": "A simple feature to install pantsbuild",
+    "installAfter": [
+		  "ghcr.io/devcontainers/features/python"
+    ]
+}

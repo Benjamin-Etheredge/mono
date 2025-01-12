@@ -1,0 +1,42 @@
+[GLOBAL]
+pants_version = "2.23.0"
+dynamic_ui = true
+colors = true
+
+backend_packages = [
+    "pants.core",
+    # python
+    "pants.backend.python",
+    "pants.backend.build_files.fmt.ruff",
+    "pants.backend.experimental.python.lint.ruff.check",
+    "pants.backend.experimental.python.lint.ruff.format",
+    # shell
+    "pants.backend.shell",
+    "pants.backend.shell.lint.shfmt",
+    # docker
+    "pants.backend.docker",
+    "pants.backend.docker.lint.hadolint",
+    # misc.
+    "pants.backend.experimental.bsp",
+    "pants.backend.experimental.tools.yamllint",
+    
+]
+
+# Include macros
+build_file_prelude_globs = [
+    "pants-plugins/*.py",
+]
+
+pants_ignore = [
+    "/.devcontainer",
+]
+
+[python]
+interpreter_constraints = ['==3.12.*']
+enable_resolves = true
+
+[python-infer]
+assets = true
+
+[docker]
+default_repository = "etheredgeb/{directory}"

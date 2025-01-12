@@ -1,0 +1,28 @@
+---
+extends: default
+ignore: |
+  *.enc.yaml
+rules:
+  truthy:
+    allowed-values: ['true', 'false', 'on', 'yes']
+  comments:
+    min-spaces-from-content: 1
+  line-length: disable
+  braces:
+    min-spaces-inside: 0
+    max-spaces-inside: 1
+  brackets:
+    min-spaces-inside: 0
+    max-spaces-inside: 1
+  indentation:
+    spaces: 2
+    indent-sequences: consistent
+  empty-lines:
+    max: 2
+    max-start: 0
+    max-end: 0
+  document-start:
+    present: false
+    ignore: 
+      - /clusters/**/*.yaml
+      - /clusters/**/*.yml
