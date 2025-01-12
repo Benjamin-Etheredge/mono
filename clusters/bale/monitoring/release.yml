@@ -13,10 +13,10 @@ spec:
         kind: HelmRepository
         name: prometheus-community
       version: 66.3.0
-    values:
-      grafana:
-        ingress:
-          enabled: true
-          hosts:
-            - grafana.k8s.lan
+  values:
+    grafana:
+      ingress:
+        enabled: true
+        hosts:
+          - grafana.k8s.lan
   interval: 1m0s
