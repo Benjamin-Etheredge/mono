@@ -45,7 +45,17 @@ metadata:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-    - host: whoami.*
+    - host: whoami.k8s.lan
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: whoami
+                port:
+                  number: 80
+    - host: whoami.etheredge.dev
       http:
         paths:
           - path: /
