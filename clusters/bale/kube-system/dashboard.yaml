@@ -2,10 +2,17 @@
 kind: Ingress
 apiVersion: networking.k8s.io/v1
 metadata:
-  name: dashboard
+  name: kubernetes-dashboard
   namespace: kube-system
+  annotations:
+  kubernetes.io/ingress.class: "nginx"
+  nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
   ingressClassName: nginx
+  tls:
+    - hosts:
+        - dashboard.k8s.lan
+      secretName: kubernetes-dashboard-certs
   rules:
     - host: dashboard.k8s.lan
       http:
