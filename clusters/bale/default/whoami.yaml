@@ -44,6 +44,7 @@ metadata:
   # annotations:
   #   kubernetes.io/ingress.class: nginx
 spec:
+  ingressClassName: nginx
   rules:
     - host: whoami.k8s.lan
       http:
