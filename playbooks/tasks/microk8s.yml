@@ -7,6 +7,6 @@
           dns: true
           metrics-server: false
           cert-manager: true
-          openebs: false       
+          openebs: false
           portainer: true
           helm3: true
