@@ -1,3 +1,12 @@
+# ---
+# apiVersion: v1
+# kind: Secret
+# metadata:
+#   name: vip
+#   namespace: kube-system
+# type: Opaque
+# stringData:
+#   config.address: <IP>
 ---
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
@@ -23,3 +32,18 @@ spec:
         name: kube-vip
       version: 0.6.4
   interval: 1m0s
+  valuesFrom:
+    - kind: Secret
+      name: vip
+  values:
+    # config:
+      # address: <secret>
+    env:
+      vip_arp: "true"  # mandatory for L2 mode
+      lb_enable: "true"
+      lb_port: "16443" # changed as microk8s uses 16443 instead of 6443
+      vip_cidr: "24"
+      cp_enable: "true" # enable control plane load balancing
+      svc_enable: "true" # enable user plane load balancing
+      vip_leaderelection: "true" # mandatory for L2 mode
+      svc_election: "true"
