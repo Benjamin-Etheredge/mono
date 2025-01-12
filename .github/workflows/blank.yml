@@ -25,9 +25,19 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12' 
+
+      - name: Initialize Pants
+        uses: pantsbuild/actions/init-pants@main
+        with:
+          # cache0 makes it easy to bust the cache if needed
+          gha-cache-key: cache0-py${{ matrix.python_version }}
+          named-caches-hash: ${{ hashFiles('lockfiles/*.json', '**/something-else.lock') }}
+
+      - name: Lint
+        run: pants lint ::
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
