@@ -41,9 +41,9 @@ apiVersion: networking.k8s.io/v1
 metadata:
   name: whoami
   namespace: default
-  annotations:
-    kubernetes.io/ingress.class: nginx
-spec:
+  # annotations:
+  #   kubernetes.io/ingress.class: nginx
+ec:
   rules:
     - host: whoami.k8s.lan
       http:
