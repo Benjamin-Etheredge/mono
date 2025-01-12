@@ -3,7 +3,7 @@ kind: Ingress
 apiVersion: networking.k8s.io/v1
 metadata:
   name: dashboard
-  namespace: default
+  namespace: kube-system
 spec:
   ingressClassName: nginx
   rules:
