@@ -43,7 +43,7 @@ metadata:
   namespace: default
   # annotations:
   #   kubernetes.io/ingress.class: nginx
-ec:
+spec:
   rules:
     - host: whoami.k8s.lan
       http:
