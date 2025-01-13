@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: air-vibrations
+  namespace: apps
   labels:
     app: air-vibrations
 spec:
