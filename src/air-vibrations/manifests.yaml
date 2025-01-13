@@ -19,6 +19,11 @@ spec:
       containers:
         - name: air-vibrations
           image: docker.io/etheredgeb/air-vibrations:1.0.0 # {"$imagepolicy": "flux-system:air-vibrations"}
+          env:
+            - name: GRADIO_SERVER_NAME
+              value: "0.0.0.0"
+            - name: GRADIO_SERVER_PORT
+              value: "7860"
           ports:
             - containerPort: 7860
 ---
