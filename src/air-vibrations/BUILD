@@ -13,6 +13,7 @@ docker_image(
     extra_run_args=["--network=host"],
     instructions=[
         "FROM python:3.12-slim",
+        "ENV PYTHONUNBUFFERED=1",
         'ENTRYPOINT ["/usr/local/bin/python3.12", "/bin/app"]',
         "COPY src.air-vibrations/binary.pex /bin/app",
     ],
