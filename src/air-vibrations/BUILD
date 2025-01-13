@@ -8,11 +8,6 @@ pex_binary(
     execution_mode="venv",
 )
 
-file(
-    name="manifest",
-    source="deployment.yaml",
-)
-
 docker_image(
     name="img",
     extra_run_args=["--network=host"],
