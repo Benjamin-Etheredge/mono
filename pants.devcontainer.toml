@@ -1,0 +1,5 @@
+[docker]
+env_vars = [
+    "PATH",
+    "REMOTE_CONTINERS_IPC",
+]

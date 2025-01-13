@@ -38,13 +38,18 @@
 			"extensions": [
 				"GitHub.copilot",
 				"GitHub.copilot-chat",
-				"robotpajamas.vscode-suspenders@prerelease"
+				"robotpajamas.vscode-suspenders@prerelease",
+				"tamasfe.even-better-toml",
+				"charliermarsh.ruff"
 			]
 		}
-	}
+	},
 
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
+	"containerEnv": {
+		"PANTS_CONFIG_FILES": "/workspaces/mono/pants.devcontainer.toml"
+	},
+
+	"workspaceFolder": "/workspaces/mono"
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],

@@ -19,6 +19,7 @@ backend_packages = [
     # misc.
     "pants.backend.experimental.bsp",
     "pants.backend.experimental.tools.yamllint",
+    "pants.backend.tools.taplo",
     
 ]
 
@@ -34,9 +35,19 @@ pants_ignore = [
 [python]
 interpreter_constraints = ['==3.12.*']
 enable_resolves = true
+default_resolve = "python-default"
 
 [python-infer]
 assets = true
 
 [docker]
 default_repository = "etheredgeb/{directory}"
+
+[docker.registries.dockerhub]
+address = "docker.io"
+default = true
+# extra_image_tags = ["%(env.VERSION)s"]
+
+
+[cli.alias]
+pip-compile = "--tag='pip-compile' run ::"

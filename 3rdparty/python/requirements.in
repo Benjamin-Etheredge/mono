@@ -1,3 +1,4 @@
 gradio
 numpy
-transformers
+torch
+transformers[torch]

@@ -1,0 +1,86 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: air-vibrations
+  labels:
+    app: air-vibrations
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: air-vibrations
+  template:
+    metadata:
+      labels:
+        app: air-vibrations
+    spec:
+      containers:
+        - name: air-vibrations
+          image: docker.io/etheredgeb/air-vibrations:1.0.0 # {"$imagepolicy": "app:air-vibrations"}
+          ports:
+            - containerPort: 7980
+---
+# NOTES: use specific version and let flex auto update it to force updates
+apiVersion: v1
+kind: Service
+metadata:
+  name: air-vibrations
+spec:
+  selector:
+    app: air-vibrations
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 7980
+  type: LoadBalancer
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: air-vibrations
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: air-vibrations.k8s.lan
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: air-vibrations
+                port:
+                  number: 80
+    - host: air-vibrations.etheredge.dev
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: air-vibrations
+                port:
+                  number: 80
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: air-vibrations
+  namespace: app
+spec:
+  image: docker.io/etheredgeb/air-vibrations
+  interval: 5m
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: air-vibrations
+  namespace: app
+spec:
+  imageRepositoryRef:
+    name: air-vibrations
+  policy:
+    semver:
+      range: '>=1.0.0'
+
