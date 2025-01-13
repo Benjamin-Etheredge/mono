@@ -1,6 +1,6 @@
 import gradio as gr
-from transformers import pipeline
 import numpy as np
+from transformers import pipeline
 
 transcriber = pipeline("automatic-speech-recognition", model="openai/whisper-base.en")
 
