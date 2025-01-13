@@ -64,24 +64,24 @@ spec:
                 name: air-vibrations
                 port:
                   number: 80
-# ---
-# apiVersion: image.toolkit.fluxcd.io/v1beta2
-# kind: ImageRepository
-# metadata:
-#   name: air-vibrations
-#   namespace: flux-system
-# spec:
-#   image: docker.io/etheredgeb/air-vibrations
-#   interval: 5m
-# ---
-# apiVersion: image.toolkit.fluxcd.io/v1beta2
-# kind: ImagePolicy
-# metadata:
-#   name: air-vibrations
-#   namespace: flux-system
-# spec:
-#   imageRepositoryRef:
-#     name: air-vibrations
-#   policy:
-#     semver:
-#       range: '>=1.0.0'
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: air-vibrations
+  namespace: flux-system
+spec:
+  image: docker.io/etheredgeb/air-vibrations
+  interval: 5m
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: air-vibrations
+  namespace: flux-system
+spec:
+  imageRepositoryRef:
+    name: air-vibrations
+  policy:
+    semver:
+      range: '>=1.0.0'
