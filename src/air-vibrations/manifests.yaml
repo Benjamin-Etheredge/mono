@@ -21,7 +21,6 @@ spec:
           ports:
             - containerPort: 7980
 ---
-# NOTES: use specific version and let flex auto update it to force updates
 apiVersion: v1
 kind: Service
 metadata:
