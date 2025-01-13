@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: air-vibrations
-          image: docker.io/etheredgeb/air-vibrations:1.0.0 # {"$imagepolicy": "app:air-vibrations"}
+          image: docker.io/etheredgeb/air-vibrations:1.0.0 # {"$imagepolicy": "flux-system:air-vibrations"}
           ports:
             - containerPort: 7980
 ---
@@ -69,7 +69,7 @@ apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageRepository
 metadata:
   name: air-vibrations
-  namespace: app
+  namespace: flux-system
 spec:
   image: docker.io/etheredgeb/air-vibrations
   interval: 5m
@@ -78,7 +78,7 @@ apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImagePolicy
 metadata:
   name: air-vibrations
-  namespace: app
+  namespace: flux-system
 spec:
   imageRepositoryRef:
     name: air-vibrations
