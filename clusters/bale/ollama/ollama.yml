@@ -40,7 +40,6 @@ spec:
     ingress:
       enabled: true
       hosts:
-        # TODO
         # - host: ollama.etheredge.dev
         #   paths:
         #     - path: /
