@@ -19,5 +19,6 @@ spec:
       host: longhorn.k8s.lan
       ingressClassName: nginx
     csi:
+      # needed fro microk8s
       kubeletRootDir: /var/snap/microk8s/common/var/lib/kubelet
   interval: 1m0s
