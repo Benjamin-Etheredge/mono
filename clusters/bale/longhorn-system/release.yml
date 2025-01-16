@@ -18,4 +18,6 @@ spec:
       enabled: true
       host: longhorn.k8s.lan
       ingressClassName: nginx
+    csi:
+      kubeletRootDir: /var/snap/microk8s/common/var/lib/kubelet
   interval: 1m0s
