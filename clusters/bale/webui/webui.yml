@@ -28,7 +28,7 @@ spec:
     ollama:
       enabled: false
     ollamaUrls: 
-      - url: "http://ollama.k8s.lan"
+      - "http://ollama.k8s.lan"
     pipelines:
       enabled: false
     ingress:
