@@ -1,0 +1,48 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: ollama-helm
+  namespace: ollama
+spec:
+  interval: 30m0s
+  url: https://otwld.github.io/ollama-helm/
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: ollama
+  namespace: ollama
+spec:
+  interval: 10m0s
+  chart:
+    spec:
+      chart: ollama
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: ollama-helm
+      version: 1.2.0
+  values:
+    ollama:
+      gpu:
+        enabled: disabled
+        type: 'nvidia'
+        number: 1
+      models:
+        pull:
+          - llama3.2
+      persistentVolume:
+        enabled: true
+        size: 30Gi
+      ingress:
+        enabled: true
+        hosts:
+          # - host: ollama.etheredge.dev
+          #   paths:
+          #     - path: /
+          #       pathType: Prefix
+          - host: ollama.k8s.lan
+            paths:
+              - path: /
+                pathType: Prefix

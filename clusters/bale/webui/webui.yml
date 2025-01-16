@@ -1,0 +1,37 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: open-webui
+  namespace: webui
+spec:
+  interval: 30m0s
+  url: https://helm.openwebui.com/
+
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: open-webui
+  namespace: webui
+spec:
+  interval: 10m0s
+  chart:
+    spec:
+      chart: open-webui
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: open-webui
+      version: 1.2.0
+  values:
+    ollama:
+      enabled: false
+    ollamaUrls: 
+      - url: "http://ollama.k8s.lan"
+    pipelines:
+      enabled: false
+    ingress:
+      enabled: true
+      class: nginx
+      host: "webui.k8s.lan"
