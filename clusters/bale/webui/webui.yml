@@ -27,7 +27,7 @@ spec:
   values:
     ollama:
       enabled: false
-    ollamaUrls: 
+    ollamaUrls:
       - "http://ollama.k8s.lan"
     pipelines:
       enabled: false
@@ -35,5 +35,5 @@ spec:
       enabled: true
       class: nginx
       host: "webui.k8s.lan"
-      additionalHosts: 
+      additionalHosts:
         - "webui.etheredge.dev"
