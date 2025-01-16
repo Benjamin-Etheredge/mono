@@ -33,7 +33,7 @@ spec:
         pull:
           - llama3.2
           - nomic-embed-text
-          - qwen2.5-coder
+          - qwen2.5-coder:7b
     persistentVolume:
       enabled: true
       size: 30Gi
