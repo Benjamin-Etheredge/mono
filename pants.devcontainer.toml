@@ -1,6 +1,2 @@
 [docker]
-env_vars = [
-    "PATH", 
-    "DOCKER_CONFIG=~/.docker",
-    "REMOTE_CONTINERS_IPC"
-]
+env_vars = ["PATH", "DOCKER_CONFIG=~/.docker", "REMOTE_CONTINERS_IPC"]
