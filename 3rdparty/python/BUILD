@@ -1,6 +1,6 @@
 run_shell_command(
     name="pip-compile",
-    command="uv pip compile -v --output-file=requirements.txt requirements.in",
+    command="uv --python-preference only-system pip compile -v --output-file=requirements.txt requirements.in",
     tags=["pip-compile"],
 )
 

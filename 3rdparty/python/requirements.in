@@ -1,4 +1,12 @@
 gradio
+gradio-webrtc
+huggingface_hub
+inference>=0.30.0
 numpy
+onnxruntime-gpu
+opencv-python
+pillow
+spaces
 torch
 transformers[torch]
+twilio

@@ -13,3 +13,4 @@ select = [
   # isort
   "I",
 ]
+line-length = 120
