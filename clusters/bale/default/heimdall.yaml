@@ -79,14 +79,14 @@ spec:
                 name: heimdall
                 port:
                   number: 80
-    # - host: heimdall.etheredge.dev
-    #   http:
-    #     paths:
-    #       - path: /
-    #         pathType: Prefix
-    #         backend:
-    #           service:
-    #             name: heimdall
-    #             port:
-    #               number: 80
+    - host: heimdall.etheredge.dev
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: heimdall
+                port:
+                  number: 80
                   
