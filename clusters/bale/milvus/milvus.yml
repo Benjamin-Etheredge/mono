@@ -42,6 +42,8 @@ spec:
             size: 40Gi
       broker:
         replicaCount: 1
+      proxy:
+        replicaCount: 1
 
     ingress:
       enabled: true
