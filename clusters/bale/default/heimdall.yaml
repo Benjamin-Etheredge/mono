@@ -43,10 +43,10 @@ spec:
           volumeMounts:
             - name: heimdall
               mountPath: /config
-        volumes:
-          - name: heimdall
-            persistentVolumeClaim:
-              claimName: heimdall
+      volumes:
+        - name: heimdall
+          persistentVolumeClaim:
+            claimName: heimdall
 ---
 apiVersion: v1
 kind: Service
