@@ -24,12 +24,16 @@ spec:
         name: zilliztech
       version: 4.2.36
   values:
+    cluster:
+      enabled: false
     minio:
       mode: standalone
       persistence:
         size: 100Gi
     etcd:
       replicaCount: 1
+    pulsar:
+      enabled: false
     pulsarv3:
       zookeeper:
         replicaCount: 1
@@ -44,7 +48,6 @@ spec:
         replicaCount: 1
       proxy:
         replicaCount: 1
-
     ingress:
       enabled: true
       ingresssClassName: nginx
