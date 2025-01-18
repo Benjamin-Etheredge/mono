@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: webcam-demo
-          image: docker.io/etheredgeb/webcam-demo
+          image: docker.io/etheredgeb/webcam-demo:1.0.0
           env:
             - name: GRADIO_SERVER_NAME
               value: "0.0.0.0"
