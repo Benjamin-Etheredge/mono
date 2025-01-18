@@ -27,7 +27,7 @@ spec:
     minio:
       mode: standalone
       persistence:
-        size: 80Gi
+        size: 100Gi
     etcd:
       replicaCount: 1
     pulsarv3:
