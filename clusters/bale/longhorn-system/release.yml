@@ -19,6 +19,16 @@ spec:
       host: longhorn.k8s.lan
       ingressClassName: nginx
     csi:
-      # needed fro microk8s
+      # needed for microk8s
       kubeletRootDir: /var/snap/microk8s/common/var/lib/kubelet
+    persistence:
+      defaultClassReplicaCount: 2
+      defaultDataLocality: "best-effort"
+      # TODO
+      # recurringJobSelector:
+      #   enabled: true
+      #   jobList:
+      #     - name: trim
+      #       cron: "0 0 * * *"
+      #       interval: 1d
   interval: 1m0s
