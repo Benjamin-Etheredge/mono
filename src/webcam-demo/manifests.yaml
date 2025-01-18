@@ -65,6 +65,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: air-vibrations
+                name: webcam-demo
                 port:
                   number: 80
