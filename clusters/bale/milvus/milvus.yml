@@ -24,6 +24,8 @@ spec:
         name: zilliztech
       version: 4.2.36
   values:
+    minio:
+      mode: standalone
     ingress:
       enabled: true
       ingresssClassName: nginx
