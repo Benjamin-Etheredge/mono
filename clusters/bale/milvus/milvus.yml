@@ -1,0 +1,33 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: zilliztech
+  namespace: milvus
+spec:
+  interval: 30m0s
+  url: https://zilliztech.github.io/milvus-helm/
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: milvus
+  namespace: milvus
+spec:
+  interval: 5m0s
+  chart:
+    spec:
+      chart: milvus
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: zilliztech
+      version: 4.2.36
+  values:
+    ingress:
+      enabled: true
+      ingresssClassName: nginx
+      rules:
+        - host: milvus.k8s.lan
+          path: "/"
+          pathType: "Prefix"
