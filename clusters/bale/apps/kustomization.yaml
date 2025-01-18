@@ -5,3 +5,4 @@ resources:
   - namespace.yaml
   - ../../../src/air-vibrations/manifests.yaml
   - ../../../src/webcam-demo/manifests.yaml
+  - tremap.yaml

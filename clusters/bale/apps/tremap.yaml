@@ -1,0 +1,66 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tremap
+  namespace: default
+  labels:
+    app: tremap
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tremap
+  template:
+    metadata:
+      labels:
+        app: tremap
+    spec:
+      containers:
+        - name: tremap
+          image: docker.io/etheredge/tremap:latest
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tremap
+  namespace: default
+spec:
+  selector:
+    app: tremap
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: tremap
+  namespace: default
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: tremap.k8s.lan
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: tremap
+                port:
+                  number: 80
+    - host: tremap.etheredge.dev
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: tremap
+                port:
+                  number: 80
+                  
