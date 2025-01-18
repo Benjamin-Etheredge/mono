@@ -19,6 +19,13 @@ spec:
       containers:
         - name: heimdall
           image: lscr.io/linuxserver/heimdall:2.6.3
+          env:
+            - name: PUID
+              value: "1000"
+            - name: PGID
+              value: "1000"
+            - name: TZ
+              value: "America/Chicago"
           ports:
             - containerPort: 80
 ---
