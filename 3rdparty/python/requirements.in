@@ -1,3 +1,4 @@
+fastapi
 gradio
 gradio-webrtc
 huggingface_hub
@@ -5,8 +6,18 @@ inference>=0.30.0
 numpy
 onnxruntime-gpu
 opencv-python
+pandas
 pillow
+pydantic
+pymilvus[model]
+redis
+scikit-learn
+scipy
 spaces
+streamlit
 torch>=2.5.0
+torchvision
+tqdm
 transformers
 twilio
+uvicorn
