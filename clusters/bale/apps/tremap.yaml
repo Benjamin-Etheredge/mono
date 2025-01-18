@@ -2,8 +2,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: semantic
-  namespace: default
+  name: tremap
+  namespace: apps
   labels:
     app: tremap
 spec:
@@ -26,7 +26,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: tremap
-  namespace: default
+  namespace: apps
 spec:
   selector:
     app: tremap
@@ -39,7 +39,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: tremap
-  namespace: default
+  namespace: apps
 spec:
   ingressClassName: nginx
   rules:
