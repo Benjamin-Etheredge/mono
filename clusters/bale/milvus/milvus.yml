@@ -26,6 +26,8 @@ spec:
   values:
     minio:
       mode: standalone
+      persistence:
+        size: 80Gi
     etcd:
       replicaCount: 1
     pulsarv3:
@@ -33,8 +35,13 @@ spec:
         replicaCount: 1
       bookkeeper:
         replicaCount: 1
+        volumes:
+          journal:
+            size: 20Gi
+          ledgers:
+            size: 40Gi
       broker:
-        replicaCount: 2
+        replicaCount: 1
 
     ingress:
       enabled: true
