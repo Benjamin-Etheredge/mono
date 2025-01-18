@@ -34,20 +34,20 @@ spec:
       replicaCount: 1
     pulsar:
       enabled: false
-    pulsarv3:
-      zookeeper:
-        replicaCount: 1
-      bookkeeper:
-        replicaCount: 1
-        volumes:
-          journal:
-            size: 20Gi
-          ledgers:
-            size: 40Gi
-      broker:
-        replicaCount: 1
-      proxy:
-        replicaCount: 1
+    # pulsarv3:
+    #   zookeeper:
+    #     replicaCount: 1
+    #   bookkeeper:
+    #     replicaCount: 1
+    #     volumes:
+    #       journal:
+    #         size: 20Gi
+    #       ledgers:
+    #         size: 40Gi
+    #   broker:
+    #     replicaCount: 1
+    #   proxy:
+    #     replicaCount: 1
     ingress:
       enabled: true
       ingresssClassName: nginx
