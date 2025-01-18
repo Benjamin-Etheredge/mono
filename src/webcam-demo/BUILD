@@ -13,7 +13,7 @@ docker_image(
     instructions=[
         "FROM python:3.12-slim",
         "ENV PYTHONUNBUFFERED=1",
-        "RUN apt-get update && apt-get install -y libgl1 && apt-get clean",
+        "RUN apt-get update && apt-get install -y libgl1 libglib2.0-0 libsm6 libxrender1 libxext6 && apt-get clean",
         'ENTRYPOINT ["/usr/local/bin/python3.12", "/bin/app"]',
         "COPY src.webcam-demo/binary.pex /bin/app",
     ],
