@@ -26,6 +26,16 @@ spec:
   values:
     minio:
       mode: standalone
+    etcd:
+      replicaCount: 1
+    pulsarv3:
+      zookeeper:
+        replicaCount: 1
+      bookkeeper:
+        replicaCount: 1
+      broker:
+        replicaCount: 2
+
     ingress:
       enabled: true
       ingresssClassName: nginx
