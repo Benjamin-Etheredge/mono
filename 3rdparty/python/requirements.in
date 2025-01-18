@@ -7,6 +7,6 @@ onnxruntime-gpu
 opencv-python
 pillow
 spaces
-torch
-transformers[torch]
+torch>=2.5.0
+transformers
 twilio

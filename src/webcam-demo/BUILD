@@ -15,7 +15,7 @@ docker_image(
         "ENV PYTHONUNBUFFERED=1",
         "RUN apt-get update && apt-get install -y libgl1 && apt-get clean",
         'ENTRYPOINT ["/usr/local/bin/python3.12", "/bin/app"]',
-        "COPY src.air-vibrations/binary.pex /bin/app",
+        "COPY src.webcam-demo/binary.pex /bin/app",
     ],
     image_tags=["1.0.0"],
 )

@@ -32,7 +32,7 @@ pants_ignore = ["/.devcontainer"]
 interpreter_constraints = ['==3.12.*']
 enable_resolves = true
 default_resolve = "python-default"
-interpreter_versions_universe =  ["3.12.*"]
+# interpreter_versions_universe =  ["3.12.*"]
 
 [python-infer]
 assets = true
