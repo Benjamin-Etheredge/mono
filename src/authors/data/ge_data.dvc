@@ -1,0 +1,6 @@
+outs:
+- md5: c9462c59f6a879cb286e53ee79d1bf4d.dir
+  size: 3400291
+  nfiles: 39
+  hash: md5
+  path: ge_data

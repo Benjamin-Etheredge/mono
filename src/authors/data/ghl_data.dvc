@@ -1,0 +1,6 @@
+outs:
+- md5: 3aed9056dc7454f239a563b27ce5a5b4.dir
+  size: 5631945
+  nfiles: 11
+  hash: md5
+  path: ghl_data

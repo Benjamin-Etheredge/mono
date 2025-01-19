@@ -1,0 +1,6 @@
+outs:
+- md5: 5fec7d0ee8aa80e24100cdee957e7f38.dir
+  size: 3891816
+  nfiles: 68
+  hash: md5
+  path: ge
