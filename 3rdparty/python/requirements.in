@@ -1,5 +1,6 @@
 chromadb
 datasets
+dvc
 fastapi
 gradio
 gradio-webrtc
@@ -24,3 +25,4 @@ tqdm
 transformers
 twilio
 uvicorn
+wandb
