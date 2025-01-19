@@ -55,3 +55,11 @@ spec:
         - host: milvus.k8s.lan
           path: "/"
           pathType: "Prefix"
+    attu:
+      enabled: true
+      ingress:
+        enabled: true
+        ingressClassName: nginx
+        rules:
+          - host: attu.k8s.lan
+          

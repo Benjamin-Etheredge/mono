@@ -4,4 +4,3 @@ kind: Kustomization
 resources:
   - namespace.yml
   - milvus.yml
-  - attu.yml
