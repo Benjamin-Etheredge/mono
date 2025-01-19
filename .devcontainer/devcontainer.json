@@ -41,13 +41,19 @@
 				"GitHub.copilot-chat",
 				"robotpajamas.vscode-suspenders@prerelease",
 				"tamasfe.even-better-toml",
-				"charliermarsh.ruff"
+				"charliermarsh.ruff",
+				"Iterative.dvc",
+				"redhat.vscode-yaml",
+				"bierner.markdown-mermaid",
+				"eamodio.gitlens"
 			]
 		}
 	},
 
 	"containerEnv": {
-		"PANTS_CONFIG_FILES": "/workspaces/mono/pants.devcontainer.toml"
+		"PANTS_CONFIG_FILES": "/workspaces/mono/pants.devcontainer.toml",
+		"AWS_ACCESS_KEY_ID": "${localEnv:AWS_ACCESS_KEY}",
+		"AWS_SECRET_ACCESS_KEY": "${localEnv:AWS_SECRET_ACCESS_KEY}"
 	},
 
 	"workspaceFolder": "/workspaces/mono",
