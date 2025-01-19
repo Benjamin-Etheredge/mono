@@ -2,8 +2,8 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-  name: nvidia-gpu-operator
-  namespace: nvidia-gpu-operator
+  name: nvidia
+  namespace: nvidia
 spec:
   interval: 30m0s
   url: https://otwld.github.io/ollama-helm/
@@ -11,13 +11,13 @@ spec:
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: nvidia-gpu-operator
-  namespace: nvidia-gpu-operator
+  name: nvidia
+  namespace: nvidia
 spec:
   interval: 5m0s
   chart:
     spec:
-      chart: nvidia/gpu-operator
+      chart: gpu-operator
       reconcileStrategy: ChartVersion
       sourceRef:
         kind: HelmRepository
