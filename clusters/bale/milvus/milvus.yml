@@ -51,6 +51,8 @@ spec:
     ingress:
       enabled: true
       ingresssClassName: nginx
+      annotations:
+        nginx.ingress.kubernetes.io/proxy-body-size: "4096m"
       rules:
         - host: milvus.k8s.lan
           path: "/"
