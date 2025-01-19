@@ -31,6 +31,7 @@
 		"ghcr.io/devcontainers-extra/features/sops:1": {},
 		"ghcr.io/devcontainers-extra/features/terracognita:1": {},
 		"ghcr.io/devcontainers-extra/features/tmux-apt-get:1": {},
+		"ghcr.io/iterative/features/dvc": {},
 		"./features/pants": {}
 	},
 	"customizations": {

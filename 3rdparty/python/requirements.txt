@@ -9,6 +9,8 @@ aiohappyeyeballs==2.4.4
 aiohttp==3.10.11
     # via
     #   aiohttp-retry
+    #   datasets
+    #   fsspec
     #   inference
     #   twilio
 aiohttp-retry==2.8.3
@@ -36,8 +38,11 @@ anyio==4.8.0
     #   httpx
     #   openai
     #   starlette
+    #   watchfiles
 apscheduler==3.11.0
     # via inference
+asgiref==3.8.1
+    # via opentelemetry-instrumentation-asgi
 asyncua==1.1.5
     # via inference
 attrs==24.3.0
@@ -48,7 +53,11 @@ attrs==24.3.0
 av==12.3.0
     # via aiortc
 backoff==2.2.1
-    # via inference
+    # via
+    #   inference
+    #   posthog
+bcrypt==4.2.1
+    # via chromadb
 blinker==1.9.0
     # via streamlit
 boto3==1.35.60
@@ -57,12 +66,17 @@ botocore==1.35.99
     # via
     #   boto3
     #   s3transfer
+build==1.2.2.post1
+    # via chromadb
 cachetools==5.5.0
-    # via streamlit
+    # via
+    #   google-auth
+    #   streamlit
 certifi==2024.12.14
     # via
     #   httpcore
     #   httpx
+    #   kubernetes
     #   requests
 cffi==1.17.1
     # via
@@ -71,6 +85,10 @@ cffi==1.17.1
     #   pylibsrtp
 charset-normalizer==3.4.1
     # via requests
+chroma-hnswlib==0.7.6
+    # via chromadb
+chromadb==0.6.3
+    # via -r requirements.in
 click==8.1.8
     # via
     #   streamlit
@@ -97,8 +115,19 @@ cython==3.0.11
     # via inference
 dataclasses-json==0.6.7
     # via inference
+datasets==3.2.0
+    # via -r requirements.in
 defusedxml==0.7.1
     # via supervision
+deprecated==1.2.15
+    # via
+    #   opentelemetry-api
+    #   opentelemetry-exporter-otlp-proto-grpc
+    #   opentelemetry-semantic-conventions
+dill==0.3.8
+    # via
+    #   datasets
+    #   multiprocess
 distro==1.9.0
     # via
     #   anthropic
@@ -107,9 +136,12 @@ dnspython==2.7.0
     # via aioice
 docker==7.1.0
     # via inference
+durationpy==0.9
+    # via kubernetes
 fastapi==0.110.3
     # via
     #   -r requirements.in
+    #   chromadb
     #   gradio
     #   inference
     #   prometheus-fastapi-instrumentator
@@ -117,6 +149,7 @@ ffmpy==0.5.0
     # via gradio
 filelock==3.16.1
     # via
+    #   datasets
     #   huggingface-hub
     #   tldextract
     #   torch
@@ -132,8 +165,9 @@ frozenlist==1.5.0
     # via
     #   aiohttp
     #   aiosignal
-fsspec==2024.12.0
+fsspec==2024.9.0
     # via
+    #   datasets
     #   gradio-client
     #   huggingface-hub
     #   torch
@@ -141,8 +175,12 @@ gitdb==4.0.12
     # via gitpython
 gitpython==3.1.44
     # via streamlit
+google-auth==2.37.0
+    # via kubernetes
 google-crc32c==1.6.0
     # via aiortc
+googleapis-common-protos==1.66.0
+    # via opentelemetry-exporter-otlp-proto-grpc
 gradio==5.1.0
     # via
     #   -r requirements.in
@@ -153,24 +191,32 @@ gradio-client==1.4.0
 gradio-webrtc==0.0.29
     # via -r requirements.in
 grpcio==1.67.1
-    # via pymilvus
+    # via
+    #   chromadb
+    #   opentelemetry-exporter-otlp-proto-grpc
+    #   pymilvus
 h11==0.14.0
     # via
     #   httpcore
     #   uvicorn
 httpcore==1.0.7
     # via httpx
+httptools==0.6.4
+    # via uvicorn
 httpx==0.27.2
     # via
     #   anthropic
+    #   chromadb
     #   gradio
     #   gradio-client
     #   inference
+    #   ollama
     #   openai
     #   spaces
 huggingface-hub==0.27.1
     # via
     #   -r requirements.in
+    #   datasets
     #   gradio
     #   gradio-client
     #   tokenizers
@@ -188,6 +234,10 @@ ifaddr==0.2.0
     # via aioice
 imageio==2.36.1
     # via scikit-image
+importlib-metadata==8.5.0
+    # via opentelemetry-api
+importlib-resources==6.5.2
+    # via chromadb
 inference==0.34.0
     # via -r requirements.in
 iniconfig==2.0.0
@@ -214,6 +264,8 @@ jsonschema-specifications==2024.10.1
     # via jsonschema
 kiwisolver==1.4.8
     # via matplotlib
+kubernetes==31.0.0
+    # via chromadb
 lazy-loader==0.4
     # via scikit-image
 markupsafe==2.1.5
@@ -228,12 +280,18 @@ milvus-lite==2.4.11
     # via pymilvus
 milvus-model==0.2.12
     # via pymilvus
+mmh3==5.0.1
+    # via chromadb
+monotonic==1.6
+    # via posthog
 mpmath==1.3.0
     # via sympy
 multidict==6.1.0
     # via
     #   aiohttp
     #   yarl
+multiprocess==0.70.16
+    # via datasets
 mypy-extensions==1.0.0
     # via typing-inspect
 narwhals==1.22.0
@@ -246,7 +304,10 @@ networkx==3.4.2
 numpy==1.26.4
     # via
     #   -r requirements.in
+    #   chroma-hnswlib
+    #   chromadb
     #   contourpy
+    #   datasets
     #   gradio
     #   imageio
     #   inference
@@ -300,8 +361,15 @@ nvidia-nvjitlink-cu12==12.4.127
     #   torch
 nvidia-nvtx-cu12==12.4.127
     # via torch
+oauthlib==3.2.2
+    # via
+    #   kubernetes
+    #   requests-oauthlib
+ollama==0.4.6
+    # via -r requirements.in
 onnxruntime==1.19.2
     # via
+    #   chromadb
     #   inference
     #   milvus-model
 onnxruntime-gpu==1.20.1
@@ -313,11 +381,56 @@ opencv-python==4.10.0.84
     #   -r requirements.in
     #   inference
     #   supervision
+opentelemetry-api==1.29.0
+    # via
+    #   chromadb
+    #   opentelemetry-exporter-otlp-proto-grpc
+    #   opentelemetry-instrumentation
+    #   opentelemetry-instrumentation-asgi
+    #   opentelemetry-instrumentation-fastapi
+    #   opentelemetry-sdk
+    #   opentelemetry-semantic-conventions
+opentelemetry-exporter-otlp-proto-common==1.29.0
+    # via opentelemetry-exporter-otlp-proto-grpc
+opentelemetry-exporter-otlp-proto-grpc==1.29.0
+    # via chromadb
+opentelemetry-instrumentation==0.50b0
+    # via
+    #   opentelemetry-instrumentation-asgi
+    #   opentelemetry-instrumentation-fastapi
+opentelemetry-instrumentation-asgi==0.50b0
+    # via opentelemetry-instrumentation-fastapi
+opentelemetry-instrumentation-fastapi==0.50b0
+    # via chromadb
+opentelemetry-proto==1.29.0
+    # via
+    #   opentelemetry-exporter-otlp-proto-common
+    #   opentelemetry-exporter-otlp-proto-grpc
+opentelemetry-sdk==1.29.0
+    # via
+    #   chromadb
+    #   opentelemetry-exporter-otlp-proto-grpc
+opentelemetry-semantic-conventions==0.50b0
+    # via
+    #   opentelemetry-instrumentation
+    #   opentelemetry-instrumentation-asgi
+    #   opentelemetry-instrumentation-fastapi
+    #   opentelemetry-sdk
+opentelemetry-util-http==0.50b0
+    # via
+    #   opentelemetry-instrumentation-asgi
+    #   opentelemetry-instrumentation-fastapi
 orjson==3.10.14
-    # via gradio
+    # via
+    #   chromadb
+    #   gradio
+overrides==7.7.0
+    # via chromadb
 packaging==24.2
     # via
     #   altair
+    #   build
+    #   datasets
     #   gradio
     #   gradio-client
     #   huggingface-hub
@@ -327,6 +440,7 @@ packaging==24.2
     #   matplotlib
     #   onnxruntime
     #   onnxruntime-gpu
+    #   opentelemetry-instrumentation
     #   pytest
     #   scikit-image
     #   spaces
@@ -337,6 +451,7 @@ paho-mqtt==1.6.1
 pandas==2.2.3
     # via
     #   -r requirements.in
+    #   datasets
     #   gradio
     #   inference
     #   pymilvus
@@ -354,6 +469,8 @@ pillow==10.4.0
     #   torchvision
 pluggy==1.5.0
     # via pytest
+posthog==3.8.3
+    # via chromadb
 prometheus-client==0.21.1
     # via prometheus-fastapi-instrumentator
 prometheus-fastapi-instrumentator==6.0.0
@@ -362,9 +479,11 @@ propcache==0.2.1
     # via yarl
 protobuf==5.29.3
     # via
+    #   googleapis-common-protos
     #   milvus-model
     #   onnxruntime
     #   onnxruntime-gpu
+    #   opentelemetry-proto
     #   pymilvus
     #   streamlit
 psutil==5.9.8
@@ -372,7 +491,15 @@ psutil==5.9.8
 py-cpuinfo==9.0.0
     # via inference
 pyarrow==19.0.0
-    # via streamlit
+    # via
+    #   datasets
+    #   streamlit
+pyasn1==0.6.1
+    # via
+    #   pyasn1-modules
+    #   rsa
+pyasn1-modules==0.4.1
+    # via google-auth
 pybase64==1.0.2
     # via inference
 pycparser==2.22
@@ -381,9 +508,11 @@ pydantic==2.10.5
     # via
     #   -r requirements.in
     #   anthropic
+    #   chromadb
     #   fastapi
     #   gradio
     #   inference
+    #   ollama
     #   openai
     #   pydantic-settings
     #   spaces
@@ -417,19 +546,26 @@ pyparsing==3.2.1
     # via
     #   matplotlib
     #   pydot
+pypika==0.48.9
+    # via chromadb
+pyproject-hooks==1.2.0
+    # via build
 pytest==8.3.4
     # via inference
 python-dateutil==2.9.0.post0
     # via
     #   asyncua
     #   botocore
+    #   kubernetes
     #   matplotlib
     #   pandas
+    #   posthog
 python-dotenv==1.0.1
     # via
     #   inference
     #   pydantic-settings
     #   pymilvus
+    #   uvicorn
 python-multipart==0.0.20
     # via gradio
 pytz==2024.2
@@ -438,11 +574,15 @@ pytz==2024.2
     #   pandas
 pyyaml==6.0.2
     # via
+    #   chromadb
+    #   datasets
     #   gradio
     #   huggingface-hub
     #   inference
+    #   kubernetes
     #   supervision
     #   transformers
+    #   uvicorn
 redis==5.0.8
     # via
     #   -r requirements.in
@@ -455,10 +595,14 @@ regex==2024.11.6
     # via transformers
 requests==2.32.3
     # via
+    #   datasets
     #   docker
     #   huggingface-hub
     #   inference
+    #   kubernetes
+    #   posthog
     #   requests-file
+    #   requests-oauthlib
     #   requests-toolbelt
     #   spaces
     #   streamlit
@@ -468,10 +612,13 @@ requests==2.32.3
     #   twilio
 requests-file==2.1.0
     # via tldextract
+requests-oauthlib==2.0.0
+    # via kubernetes
 requests-toolbelt==1.0.0
     # via inference
 rich==13.0.1
     # via
+    #   chromadb
     #   inference
     #   streamlit
     #   typer
@@ -479,6 +626,8 @@ rpds-py==0.22.3
     # via
     #   jsonschema
     #   referencing
+rsa==4.9
+    # via google-auth
 ruff==0.9.2
     # via gradio
 s3transfer==0.10.4
@@ -508,7 +657,10 @@ shapely==2.0.6
 shellingham==1.5.4
     # via typer
 six==1.17.0
-    # via python-dateutil
+    # via
+    #   kubernetes
+    #   posthog
+    #   python-dateutil
 slack-sdk==3.33.5
     # via inference
 smmap==5.0.2
@@ -537,7 +689,9 @@ sympy==1.13.1
     #   onnxruntime-gpu
     #   torch
 tenacity==9.0.0
-    # via streamlit
+    # via
+    #   chromadb
+    #   streamlit
 threadpoolctl==3.5.0
     # via scikit-learn
 tifffile==2025.1.10
@@ -547,6 +701,7 @@ tldextract==5.1.3
 tokenizers==0.20.3
     # via
     #   anthropic
+    #   chromadb
     #   inference
     #   transformers
 toml==0.10.2
@@ -564,6 +719,8 @@ tornado==6.4.2
 tqdm==4.67.1
     # via
     #   -r requirements.in
+    #   chromadb
+    #   datasets
     #   huggingface-hub
     #   inference
     #   milvus-lite
@@ -582,6 +739,7 @@ twilio==9.3.8
     #   inference
 typer==0.12.5
     # via
+    #   chromadb
     #   gradio
     #   inference
 typing-extensions==4.12.2
@@ -591,12 +749,14 @@ typing-extensions==4.12.2
     #   anthropic
     #   anyio
     #   asyncua
+    #   chromadb
     #   fastapi
     #   gradio
     #   gradio-client
     #   huggingface-hub
     #   inference
     #   openai
+    #   opentelemetry-sdk
     #   pydantic
     #   pydantic-core
     #   pyee
@@ -619,18 +779,36 @@ urllib3==2.3.0
     # via
     #   botocore
     #   docker
+    #   kubernetes
     #   requests
 uvicorn==0.34.0
     # via
     #   -r requirements.in
+    #   chromadb
     #   gradio
+uvloop==0.21.0
+    # via uvicorn
 watchdog==6.0.0
     # via streamlit
+watchfiles==1.0.4
+    # via uvicorn
+websocket-client==1.8.0
+    # via kubernetes
 websockets==12.0
-    # via gradio-client
+    # via
+    #   gradio-client
+    #   uvicorn
 wheel==0.45.0
     # via inference
+wrapt==1.17.2
+    # via
+    #   deprecated
+    #   opentelemetry-instrumentation
+xxhash==3.5.0
+    # via datasets
 yarl==1.18.3
     # via aiohttp
+zipp==3.21.0
+    # via importlib-metadata
 zxing-cpp==2.2.0
     # via inference

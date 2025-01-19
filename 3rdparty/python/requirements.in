@@ -1,9 +1,12 @@
+chromadb
+datasets
 fastapi
 gradio
 gradio-webrtc
 huggingface_hub
 inference>=0.30.0
 numpy
+ollama
 onnxruntime-gpu
 opencv-python
 pandas
