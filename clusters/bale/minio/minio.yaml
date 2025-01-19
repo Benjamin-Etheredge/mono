@@ -31,11 +31,13 @@ spec:
     replicas: 1
     ingress:
       enabled: true
+      ingressClassName: nginx
       hosts: 
         - minio.k8s.lan
         # - minio.etheredge.dev
     consoleIngress:
       enabled: true
+      ingressClassName: nginx
       hosts:
         - console-minio.k8s.lan
         # - console-minio.etheredge.dev
