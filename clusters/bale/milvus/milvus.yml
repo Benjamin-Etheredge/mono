@@ -60,6 +60,5 @@ spec:
       ingress:
         enabled: true
         ingressClassName: nginx
-        rules:
-          - host: attu.k8s.lan
-          
+        hosts:
+          - attu.k8s.lan
