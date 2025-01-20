@@ -26,9 +26,9 @@ spec:
   values:
     ollama:
       gpu:
-        enabled: false
-        # type: 'nvidia'
-        # number: 2
+        enabled: true
+        type: 'nvidia'
+        number: 2
       models:
         pull:
           - llama3.2
