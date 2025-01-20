@@ -29,7 +29,6 @@ spec:
       enabled: false
     toolkit:
       enabled: false
-    toolkit:
       env:
       - name: CONTAINERD_CONFIG
         value: var/snap/microk8s/current/args/containerd-template.toml
