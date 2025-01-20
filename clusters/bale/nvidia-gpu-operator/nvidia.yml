@@ -25,8 +25,8 @@ spec:
       version: v24.9.1
   values:
     # microk8s specific stuff: https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/getting-started.html#microk8s
-    # driver:
-      # enabled: false
+    driver:
+      enabled: false
     toolkit:
       env:
       - name: CONTAINERD_CONFIG
