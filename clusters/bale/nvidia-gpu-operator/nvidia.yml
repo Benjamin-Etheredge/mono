@@ -24,9 +24,9 @@ spec:
         name: nvidia
       version: v24.9.1
   values:
-    # microk8s specific stuff: https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/getting-started.html#microk8s
     driver:
       enabled: false
+    # microk8s specific stuff: https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/getting-started.html#microk8s
     toolkit:
       enabled: true
       env:
