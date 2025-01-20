@@ -28,7 +28,7 @@ spec:
       gpu:
         enabled: true
         type: 'nvidia'
-        number: 2
+        number: 1
       models:
         pull:
           - llama3.2
