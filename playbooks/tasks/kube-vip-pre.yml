@@ -42,6 +42,7 @@
 
     - name: Configure IPs and domains (1)
       become: true
+      notify: Referesh certs
       ansible.builtin.lineinfile:
         path: /var/snap/microk8s/current/certs/csr.conf.template
         insertafter: '^DNS.5 = '
@@ -49,6 +50,7 @@
 
     - name: Configure IPs and domains (2)
       become: true
+      notify: Referesh certs
       ansible.builtin.lineinfile:
         path: /var/snap/microk8s/current/certs/csr.conf.template
         insertafter: '^DNS.11 = '
@@ -56,11 +58,13 @@
 
     - name: Configure IPs and domains (3)
       become: true
+      notify: Referesh certs
       ansible.builtin.lineinfile:
         path: /var/snap/microk8s/current/certs/csr.conf.template
         insertafter: '^IP.2 = '
         line: "IP.11 = {{ vip }}"
 
+  handlers:
     - name: Referesh certs
       become: true
       shell: sudo microk8s refresh-certs --cert server.crt
