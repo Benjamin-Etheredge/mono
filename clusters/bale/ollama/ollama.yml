@@ -33,7 +33,7 @@ spec:
         pull:
           - llama3.2
           - nomic-embed-text
-          - qwen2.5-coder:7b
+          - qwen2.5-coder:14b
           - deepseek-r1:14b
     persistentVolume:
       enabled: true
