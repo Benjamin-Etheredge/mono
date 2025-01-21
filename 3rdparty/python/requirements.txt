@@ -54,6 +54,8 @@ apscheduler==3.11.0
     # via inference
 asgiref==3.8.1
     # via opentelemetry-instrumentation-asgi
+asttokens==3.0.0
+    # via stack-data
 asyncssh==2.19.0
     # via scmrepo
 asyncua==1.1.5
@@ -159,6 +161,8 @@ dataclasses-json==0.6.7
     # via inference
 datasets==3.2.0
     # via -r requirements.in
+decorator==5.1.1
+    # via ipython
 defusedxml==0.7.1
     # via supervision
 deprecated==1.2.15
@@ -213,6 +217,8 @@ dvc-task==0.40.2
     # via dvc
 entrypoints==0.4
     # via gto
+executing==2.1.0
+    # via stack-data
 fastapi==0.110.3
     # via
     #   -r requirements.in
@@ -342,13 +348,18 @@ inference==0.34.0
     # via -r requirements.in
 iniconfig==2.0.0
     # via pytest
+ipython==8.31.0
+    # via pyvis
 iterative-telemetry==0.0.9
     # via dvc
+jedi==0.19.2
+    # via ipython
 jinja2==3.1.5
     # via
     #   altair
     #   gradio
     #   pydeck
+    #   pyvis
     #   torch
 jiter==0.8.2
     # via
@@ -360,6 +371,8 @@ jmespath==1.0.1
     #   botocore
 joblib==1.4.2
     # via scikit-learn
+jsonpickle==4.0.1
+    # via pyvis
 jsonschema==4.23.0
     # via altair
 jsonschema-specifications==2024.10.1
@@ -382,7 +395,12 @@ markupsafe==2.1.5
 marshmallow==3.25.1
     # via dataclasses-json
 matplotlib==3.10.0
-    # via supervision
+    # via
+    #   -r requirements.in
+    #   seaborn
+    #   supervision
+matplotlib-inline==0.1.7
+    # via ipython
 milvus-lite==2.4.11
     # via pymilvus
 milvus-model==0.2.12
@@ -407,6 +425,7 @@ networkx==3.4.2
     # via
     #   dvc
     #   inference
+    #   pyvis
     #   scikit-image
     #   torch
 numpy==1.26.4
@@ -429,6 +448,7 @@ numpy==1.26.4
     #   scikit-image
     #   scikit-learn
     #   scipy
+    #   seaborn
     #   shapely
     #   streamlit
     #   supervision
@@ -557,6 +577,7 @@ packaging==24.2
     #   onnxruntime
     #   onnxruntime-gpu
     #   opentelemetry-instrumentation
+    #   plotly
     #   pytest
     #   scikit-image
     #   spaces
@@ -571,11 +592,16 @@ pandas==2.2.3
     #   gradio
     #   inference
     #   pymilvus
+    #   seaborn
     #   streamlit
+parso==0.8.4
+    # via jedi
 pathspec==0.12.1
     # via
     #   dvc
     #   scmrepo
+pexpect==4.9.0
+    # via ipython
 pillow==10.4.0
     # via
     #   -r requirements.in
@@ -591,6 +617,8 @@ platformdirs==4.3.6
     # via
     #   dvc
     #   wandb
+plotly==5.24.1
+    # via -r requirements.in
 pluggy==1.5.0
     # via pytest
 posthog==3.8.3
@@ -600,7 +628,9 @@ prometheus-client==0.21.1
 prometheus-fastapi-instrumentator==6.0.0
     # via inference
 prompt-toolkit==3.0.48
-    # via click-repl
+    # via
+    #   click-repl
+    #   ipython
 propcache==0.2.1
     # via yarl
 protobuf==5.29.3
@@ -619,6 +649,10 @@ psutil==5.9.8
     #   flufl-lock
     #   spaces
     #   wandb
+ptyprocess==0.7.0
+    # via pexpect
+pure-eval==0.2.3
+    # via stack-data
 py-cpuinfo==9.0.0
     # via inference
 pyarrow==19.0.0
@@ -666,7 +700,9 @@ pyee==12.1.1
 pygit2==1.17.0
     # via scmrepo
 pygments==2.19.1
-    # via rich
+    # via
+    #   ipython
+    #   rich
 pygtrie==2.5.0
     # via
     #   dvc
@@ -718,6 +754,8 @@ pytz==2024.2
     # via
     #   asyncua
     #   pandas
+pyvis==0.3.2
+    # via -r requirements.in
 pyyaml==6.0.2
     # via
     #   chromadb
@@ -809,6 +847,8 @@ scmrepo==3.3.9
     # via
     #   dvc
     #   gto
+seaborn==0.13.2
+    # via -r requirements.in
 semantic-version==2.10.0
     # via gradio
 semver==3.0.3
@@ -857,6 +897,8 @@ spaces==0.32.0
     # via -r requirements.in
 sqltrie==0.11.1
     # via dvc-data
+stack-data==0.6.3
+    # via ipython
 starlette==0.37.2
     # via fastapi
 streamlit==1.41.1
@@ -877,6 +919,7 @@ tabulate==0.9.0
 tenacity==9.0.0
     # via
     #   chromadb
+    #   plotly
     #   streamlit
 threadpoolctl==3.5.0
     # via scikit-learn
@@ -919,6 +962,10 @@ tqdm==4.67.1
     #   scmrepo
     #   supervision
     #   transformers
+traitlets==5.14.3
+    # via
+    #   ipython
+    #   matplotlib-inline
 transformers==4.46.3
     # via
     #   -r requirements.in
