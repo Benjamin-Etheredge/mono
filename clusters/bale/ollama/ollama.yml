@@ -37,6 +37,7 @@ spec:
           - qwen2.5-coder:32b
           - deepseek-r1:14b
           - deepseek-r1:32b
+          - deepseek-r1:70b
     persistentVolume:
       enabled: true
       size: 128Gi
