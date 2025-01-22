@@ -32,6 +32,7 @@ spec:
         type: 'nvidia'
         number: 1
       models:
+        insecure: true
         pull:
           - llama3.2
           - nomic-embed-text
