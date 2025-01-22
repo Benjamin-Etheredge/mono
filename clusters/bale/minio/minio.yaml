@@ -35,6 +35,9 @@ spec:
       hosts: 
         - minio.k8s.lan
         - minio.etheredge.dev
+    persistence:
+      enabled: true
+      storageClass: "nfs-csi"
     consoleIngress:
       enabled: true
       ingressClassName: nginx

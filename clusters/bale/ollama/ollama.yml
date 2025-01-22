@@ -41,6 +41,7 @@ spec:
     persistentVolume:
       enabled: true
       size: 128Gi
+      storageClass: "nfs-csi"
     ingress:
       enabled: true
       annotations:
