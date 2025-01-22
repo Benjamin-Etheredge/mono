@@ -4,6 +4,7 @@ resources:
   - dashboard.yaml
   - kube-vip.yaml
   - csi-driver-nfs.yaml
+  - sc-nfs.yaml
 secretGenerator:
   - name: kube-vip-values
     namespace: kube-system
