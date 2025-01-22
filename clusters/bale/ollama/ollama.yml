@@ -35,6 +35,7 @@ spec:
           - nomic-embed-text
           - qwen2.5-coder:14b
           - deepseek-r1:14b
+          - deepseek-r1:32b
     persistentVolume:
       enabled: true
       size: 128Gi
