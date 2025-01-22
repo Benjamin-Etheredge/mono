@@ -15,6 +15,7 @@ metadata:
   namespace: ollama
 spec:
   interval: 5m0s
+  # increasing timeout for model pulling
   timeout: 20m
   chart:
     spec:
