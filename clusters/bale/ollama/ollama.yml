@@ -43,7 +43,6 @@ spec:
     ingress:
       enabled: true
       annotations:
-        # nginx.ingress.kubernetes.io/proxy-buffer-size: "512M"
         nginx.ingress.kubernetes.io/proxy-body-size: "4096m"
       hosts:
         # - host: ollama.etheredge.dev
