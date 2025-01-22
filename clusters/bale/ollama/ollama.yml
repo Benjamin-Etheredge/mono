@@ -15,6 +15,7 @@ metadata:
   namespace: ollama
 spec:
   interval: 5m0s
+  timeout: 20m
   chart:
     spec:
       chart: ollama
