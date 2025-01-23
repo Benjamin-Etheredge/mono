@@ -31,6 +31,9 @@ spec:
       - "http://ollama.k8s.lan"
     pipelines:
       enabled: true
+    service:
+      type: NodePort
+      nodePort: 31435
     ingress:
       enabled: true
       class: nginx
