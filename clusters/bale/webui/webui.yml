@@ -30,7 +30,7 @@ spec:
     ollamaUrls:
       - "http://ollama.k8s.lan"
     pipelines:
-      enabled: false
+      enabled: true
     ingress:
       enabled: true
       class: nginx
