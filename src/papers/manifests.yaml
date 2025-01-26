@@ -1,0 +1,105 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: papers
+  namespace: apps
+  labels:
+    app: papers
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: papers
+  template:
+    metadata:
+      labels:
+        app: papers
+    spec:
+      containers:
+        - name: papers
+          image: docker.io/etheredgeb/papers:1.0.0 # {"$imagepolicy": "flux-system:papers"}
+          env:
+            - name: GRADIO_SERVER_NAME
+              value: "0.0.0.0"
+            - name: GRADIO_SERVER_PORT
+              value: "7860"
+          ports:
+            - containerPort: 7860
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: papers
+  namespace: apps
+spec:
+  selector:
+    app: papers
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 7860
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: papers
+  namespace: apps
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: papers.k8s.lan
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: papers
+                port:
+                  number: 80
+    - host: papers.etheredge.dev
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: papers
+                port:
+                  number: 80
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: papers-harvest
+  namespace: apps
+spec:
+  schedule: "0 0 * * *"  # Every day at midnight UTC
+  concurrentPolicy: Forbid  # Skip job if previous one is still running
+  template:
+    spec:
+      containers:
+        - name: papers-harvest
+          image: docker.io/etheredgeb/papers-harvest:1.0.0
+# ---
+# apiVersion: image.toolkit.fluxcd.io/v1beta2
+# kind: ImageRepository
+# metadata:
+#   name: papers
+#   namespace: flux-system
+# spec:
+#   image: docker.io/etheredgeb/papers
+#   interval: 5m
+# ---
+# apiVersion: image.toolkit.fluxcd.io/v1beta2
+# kind: ImagePolicy
+# metadata:
+#   name: papers
+#   namespace: flux-system
+# spec:
+#   imageRepositoryRef:
+#     name: papers
+#   policy:
+#     semver:
+#       range: '>=1.0.0'
