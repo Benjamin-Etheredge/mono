@@ -49,6 +49,7 @@ spec:
       enabled: true
       annotations:
         nginx.ingress.kubernetes.io/proxy-body-size: "4096m"
+        nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
       hosts:
         # - host: ollama.etheredge.dev
         #   paths:
