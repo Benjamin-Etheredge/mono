@@ -82,6 +82,7 @@ spec:
       containers:
         - name: papers-harvest
           image: docker.io/etheredgeb/papers-harvest:1.0.0
+          restartPolicy: Never
 # ---
 # apiVersion: image.toolkit.fluxcd.io/v1beta2
 # kind: ImageRepository

@@ -69,6 +69,6 @@ docker_image(
         'ENTRYPOINT ["/usr/local/bin/python3.12", "/bin/app"]',
         "COPY src.papers/harvest-binary.pex /bin/app",
     ],
-    registries=["etheredgeb/papers-harvest"],
+    repository="etheredgeb/papers-harvest",
     image_tags=["1.0.0"],
 )
