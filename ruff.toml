@@ -1,3 +1,16 @@
+line-length = 120
+indent-width = 4
+exclude = [
+  ".git",
+  "__pycache__",
+  "*.egg-info",
+  "build",
+  "dist",
+  "docs/source/conf.py",
+  "tests/data/*",
+  "examples/*",
+]
+
 [lint]
 select = [
   # pycodestyle
@@ -13,4 +26,6 @@ select = [
   # isort
   "I",
 ]
-line-length = 120
+
+[format]
+indent-style = "space"

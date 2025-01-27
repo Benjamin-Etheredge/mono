@@ -33,8 +33,8 @@ spec:
         - name: CONTAINERD_CONFIG
           value: /var/snap/microk8s/current/args/containerd-template.toml
         - name: CONTAINERD_SOCKET
-          value: /var/snap/microk8s/common/run/containerd.sock 
-        - name: CONTAINERD_RUNTIME_CLASS 
+          value: /var/snap/microk8s/common/run/containerd.sock
+        - name: CONTAINERD_RUNTIME_CLASS
           value: nvidia
         - name: CONTAINERD_SET_AS_DEFAULT
           value: "true"

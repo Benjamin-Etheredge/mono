@@ -1,14 +1,14 @@
-import gradio as gr
-import cv2
-from huggingface_hub import hf_hub_download
-from gradio_webrtc import WebRTC
-from twilio.rest import Client
 import os
+
+import cv2
+import gradio as gr
+from gradio_webrtc import WebRTC
+from huggingface_hub import hf_hub_download
+from twilio.rest import Client
+
 from .inference import YOLOv10
 
-model_file = hf_hub_download(
-    repo_id="onnx-community/yolov10n", filename="onnx/model.onnx"
-)
+model_file = hf_hub_download(repo_id="onnx-community/yolov10n", filename="onnx/model.onnx")
 
 model = YOLOv10(model_file)
 
@@ -35,7 +35,7 @@ def detection(image, conf_threshold=0.3):
 
 
 css = """.my-group {max-width: 600px !important; max-height: 600 !important;}
-                      .my-column {display: flex !important; justify-content: center !important; align-items: center !important};"""
+                      .my-column {display: flex !important; justify-content: center !important; align-items: center !important};""" # noqa: E501
 
 
 with gr.Blocks(css=css) as demo:
@@ -51,7 +51,7 @@ with gr.Blocks(css=css) as demo:
         <h3 style='text-align: center'>
         <a href='https://arxiv.org/abs/2405.14458' target='_blank'>arXiv</a> | <a href='https://github.com/THU-MIG/yolov10' target='_blank'>github</a>
         </h3>
-        """
+        """ # noqa: E501
     )
     with gr.Column(elem_classes=["my-column"]):
         with gr.Group(elem_classes=["my-group"]):
@@ -64,9 +64,7 @@ with gr.Blocks(css=css) as demo:
                 value=0.30,
             )
 
-        image.stream(
-            fn=detection, inputs=[image, conf_threshold], outputs=[image], time_limit=10
-        )
+        image.stream(fn=detection, inputs=[image, conf_threshold], outputs=[image], time_limit=10)
 
 if __name__ == "__main__":
     demo.launch()

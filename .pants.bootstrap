@@ -1,11 +1,11 @@
 if [ -f $HOME/.docker/config.json ]; then
     dev_cont_id=$(grep -E -o 'dev-containers-[^"]*' $HOME/.docker/config.json | sed -E "s/.*dev-containers-//") || true
-    echo $dev_cont_id
+    #echo $dev_cont_id
     if [ -n "$dev_cont_id" ]; then
         #export REMOTE_CONTAINERS_IPC="/run/user/$(id -u)/docker-dev-containers/$dev_cont_id.sock"
         export PANTS_DOCKER_TOOLS=docker-credential-dev-containers-$dev_cont_id
     fi
 fi
 
-VERSION="${VERSION:-$(git describe --tags --dirty --match "[0-9\.]*" || echo 0.0.1)}"
-export VERSION
+#VERSION="${VERSION:-$(git describe --tags --dirty --match "[0-9\.]*" || echo 0.0.1)}"
+#export VERSION

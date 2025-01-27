@@ -89,4 +89,3 @@ spec:
                 name: heimdall
                 port:
                   number: 80
-                  

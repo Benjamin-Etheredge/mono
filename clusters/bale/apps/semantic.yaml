@@ -63,4 +63,3 @@ spec:
                 name: tremap
                 port:
                   number: 80
-                  

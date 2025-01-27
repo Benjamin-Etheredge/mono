@@ -25,4 +25,3 @@ spec:
       version: 4.9.0
   values:
     kubeletDir: /var/snap/microk8s/common/var/lib/kubelet
-    

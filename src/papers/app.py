@@ -1,13 +1,13 @@
 # Streamlit app for connecting to milvus and exploring data
 
-import streamlit as st
-import pymilvus
-from pymilvus import connections, FieldSchema, CollectionSchema, DataType, Collection
-from pymilvus import utility
-import pandas as pd
-import numpy as np
 import os
+
+import numpy as np
 import ollama
+import pymilvus
+import streamlit as st
+from pymilvus import Collection
+
 
 # Connect to Milvus
 @st.cache_resource(ttl=3600)  # Cache connection for 1 hour to avoid repeated connections.
@@ -15,19 +15,21 @@ def connect_to_milvus(uri):
     client = pymilvus.connections.connect(uri=MILVUS_URI)
     return client
 
+
 @st.cache_resource(ttl=3600)  # Cache connection for 1 hour to avoid repeated connections.
 def connect_to_ollama(uri):
     return ollama.Client(OLLAMA_URI)
 
-MILVUS_URI = os.getenv('MILVUS_URI', 'http://milvus.k8s.lan:80')
-OLLAMA_URI = os.getenv('OLLAMA_URI', 'http://ollama.k8s.lan')
-EMBED_MODEL = os.getenv('EMBED_MODEL', 'nomic-embed-text')
-GEN_MODEL = os.getenv('GEN_MODEL', 'deepseek-r1:14b')
+
+MILVUS_URI = os.getenv("MILVUS_URI", "http://milvus.k8s.lan:80")
+OLLAMA_URI = os.getenv("OLLAMA_URI", "http://ollama.k8s.lan")
+EMBED_MODEL = os.getenv("EMBED_MODEL", "nomic-embed-text")
+GEN_MODEL = os.getenv("GEN_MODEL", "deepseek-r1:14b")
 
 client_milvus = connect_to_milvus(MILVUS_URI)
 client_ollama = connect_to_ollama(OLLAMA_URI)
 
-MAX_RESULTS = os.environ.get('MAX_RESULTS', 10)
+MAX_RESULTS = os.environ.get("MAX_RESULTS", 10)
 
 RAG_TEMPLATE = """### Task:
 Respond to the user query using the provided context, incorporating inline citations in the format [source_id] **only when the <source_id> tag is explicitly provided** in the context.
@@ -58,7 +60,8 @@ Provide a clear and direct response to the user's query, including inline citati
 <user_query>
 {}
 </user_query>
-"""
+""" # noqa: E501
+
 
 def fill_in_template(query, context):
     return RAG_TEMPLATE.format(context, query)
@@ -79,18 +82,18 @@ def embed_text(text):
         model=EMBED_MODEL,
         prompt=text,
     )
-    return np.array(response['embedding'])
+    return np.array(response["embedding"])
 
 
 def generate_text(prompt):
     # Text generation function using Ollama
     stream = client_ollama.chat(
         model=GEN_MODEL,
-        messages=[{'role': 'user', 'content': prompt}],
+        messages=[{"role": "user", "content": prompt}],
         stream=True,
     )
     for chunk in stream:
-        yield chunk['message']['content']
+        yield chunk["message"]["content"]
 
 
 # We don't cache since papers in DB will be updating
@@ -98,16 +101,14 @@ def search_papers(query_text, query_field, num_results):
     # Convert the query text to a vector (this is just an example, you would need a proper embedding model)
     query_vector = embed_text(query_text)
     query_vector = np.array([query_vector]).astype(np.float32)  # Ensure the vector is in the correct format
-    search_params = {
-        "metric_type": "L2",
-        "params": {"nprobe": 10}
-    }
+    search_params = {"metric_type": "L2", "params": {"nprobe": 10}}
     results = col.search(
-        data=query_vector, 
-        anns_field=query_field, 
-        param=search_params, 
+        data=query_vector,
+        anns_field=query_field,
+        param=search_params,
         output_fields=["title", "summary", "authors", "date"],
-        limit=num_results)
+        limit=num_results,
+    )
     return results
 
 
@@ -147,7 +148,9 @@ The system will search for relevant papers and answer your questions based on th
 sidebar = st.sidebar
 sidebar.title("Search Options")
 sidebar.markdown("Select your search parameters:")
-query_field = sidebar.selectbox("Select field to search:", [field.name for field in col.schema.fields if "embedding" in field.name])
+query_field = sidebar.selectbox(
+    "Select field to search:", [field.name for field in col.schema.fields if "embedding" in field.name]
+)
 num_results = sidebar.number_input("Number of results to return:", min_value=1, max_value=10, value=3)
 
 query_text = st.text_input("Enter a query text:")
@@ -160,13 +163,12 @@ if query_text:
 if results:
     context = get_context(results)
     prompt = fill_in_template(query_text, context)
-    
-    with st.chat_message("ai"):
-        with st.spinner("Generating response..."):
+
+    with st.chat_message("ai") as _, st.spinner("Generating response...") as _:
             st.write_stream(generate_text(prompt))
 else:
     st.write("No results to generate a response from.")
-    
+
 st.write("---")
 
 st.subheader("Implementation Details")
@@ -174,7 +176,7 @@ st.subheader("Implementation Details")
 if results:
     with st.expander("Search Results", expanded=False):
         st.subheader("Search Results")  # Add a subheader for clarity
-        display_results(results) 
+        display_results(results)
 
 if prompt:
     with st.expander("Prompt", expanded=False):

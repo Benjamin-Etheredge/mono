@@ -32,7 +32,7 @@ spec:
     ingress:
       enabled: true
       ingressClassName: nginx
-      hosts: 
+      hosts:
         - minio.k8s.lan
         - minio.etheredge.dev
     persistence:
@@ -44,4 +44,3 @@ spec:
       hosts:
         - console-minio.k8s.lan
         - console-minio.etheredge.dev
-    

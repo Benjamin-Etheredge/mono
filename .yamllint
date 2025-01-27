@@ -26,5 +26,7 @@ rules:
     ignore: 
       - /clusters/**/*.yaml
       - /clusters/**/*.yml
+      - /playbooks/**/*.yml
+      - /playbooks/**/*.yaml
       - /src/**/*.yaml
       - /src/**/*.yml

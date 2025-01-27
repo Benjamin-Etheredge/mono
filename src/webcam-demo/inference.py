@@ -1,4 +1,5 @@
 import time
+
 import cv2
 import numpy as np
 import onnxruntime
@@ -8,7 +9,6 @@ from .utils import draw_detections
 
 class YOLOv10:
     def __init__(self, path):
-
         # Initialize model
         self.initialize_model(path)
 
@@ -16,9 +16,7 @@ class YOLOv10:
         return self.detect_objects(image)
 
     def initialize_model(self, path):
-        self.session = onnxruntime.InferenceSession(
-            path, providers=onnxruntime.get_available_providers()
-        )
+        self.session = onnxruntime.InferenceSession(path, providers=onnxruntime.get_available_providers())
         # Get model info
         self.get_input_details()
         self.get_output_details()
@@ -48,12 +46,14 @@ class YOLOv10:
 
     def inference(self, image, input_tensor, conf_threshold=0.3):
         start = time.perf_counter()
-        outputs = self.session.run(
-            self.output_names, {self.input_names[0]: input_tensor}
-        )
+        outputs = self.session.run(self.output_names, {self.input_names[0]: input_tensor})
 
         print(f"Inference time: {(time.perf_counter() - start)*1000:.2f} ms")
-        boxes, scores, class_ids, = self.process_output(outputs, conf_threshold)
+        (
+            boxes,
+            scores,
+            class_ids,
+        ) = self.process_output(outputs, conf_threshold)
         return self.draw_detections(image, boxes, scores, class_ids)
 
     def process_output(self, output, conf_threshold=0.3):
@@ -83,25 +83,19 @@ class YOLOv10:
         boxes = self.rescale_boxes(boxes)
 
         # Convert boxes to xyxy format
-        #boxes = xywh2xyxy(boxes)
+        # boxes = xywh2xyxy(boxes)
 
         return boxes
 
     def rescale_boxes(self, boxes):
         # Rescale boxes to original image dimensions
-        input_shape = np.array(
-            [self.input_width, self.input_height, self.input_width, self.input_height]
-        )
+        input_shape = np.array([self.input_width, self.input_height, self.input_width, self.input_height])
         boxes = np.divide(boxes, input_shape, dtype=np.float32)
-        boxes *= np.array(
-            [self.img_width, self.img_height, self.img_width, self.img_height]
-        )
+        boxes *= np.array([self.img_width, self.img_height, self.img_width, self.img_height])
         return boxes
 
     def draw_detections(self, image, boxes, scores, class_ids, draw_scores=True, mask_alpha=0.4):
-        return draw_detections(
-            image, boxes, scores, class_ids, mask_alpha
-        )
+        return draw_detections(image, boxes, scores, class_ids, mask_alpha)
 
     def get_input_details(self):
         model_inputs = self.session.get_inputs()
@@ -117,28 +111,22 @@ class YOLOv10:
 
 
 if __name__ == "__main__":
-    import requests
     import tempfile
+
+    import requests
     from huggingface_hub import hf_hub_download
 
-    model_file = hf_hub_download(
-        repo_id="onnx-community/yolov10s", filename="onnx/model.onnx"
-    )
+    model_file = hf_hub_download(repo_id="onnx-community/yolov10s", filename="onnx/model.onnx")
 
     yolov8_detector = YOLOv10(model_file)
 
     with tempfile.NamedTemporaryFile(suffix=".jpg", delete=False) as f:
-        f.write(
-            requests.get(
-                "https://live.staticflickr.com/13/19041780_d6fd803de0_3k.jpg"
-            ).content
-        )
+        f.write(requests.get("https://live.staticflickr.com/13/19041780_d6fd803de0_3k.jpg").content)
         f.seek(0)
         img = cv2.imread(f.name)
 
     # # Detect Objects
     combined_image = yolov8_detector.detect_objects(img)
-
 
     # Draw detections
     cv2.namedWindow("Output", cv2.WINDOW_NORMAL)
