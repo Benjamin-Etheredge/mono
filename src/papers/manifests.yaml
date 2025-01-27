@@ -77,12 +77,15 @@ metadata:
 spec:
   schedule: "0 0 * * *"  # Every day at midnight UTC
   concurrentPolicy: Forbid  # Skip job if previous one is still running
-  template:
+  jobTemplate:
     spec:
-      restartPolicy: Never
-      containers:
-        - name: papers-harvest
-          image: docker.io/etheredgeb/papers-harvest:1.0.0
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+            - name: papers-harvest
+              image: docker.io/etheredgeb/papers-harvest:1.0.0
+              imagePullPolicy: Always
 # ---
 # apiVersion: image.toolkit.fluxcd.io/v1beta2
 # kind: ImageRepository
