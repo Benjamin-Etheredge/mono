@@ -8,4 +8,4 @@ resources:
   - ../../../src/papers/manifests.yaml
   - tremap.yaml
   - reddit-secret.yaml
-  - ../../../src/redit-sums/manifests.yaml
+  - ../../../src/reddit-sums/manifests.yaml
