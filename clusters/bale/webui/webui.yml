@@ -22,16 +22,17 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: open-webui
-      version: 5.4.0
+      version: 5.10.0
   values:
     ollama:
       enabled: false
     ollamaUrls:
       - "http://ollama.k8s.lan"
-    image:
-      tag: "v0.5.10"
     pipelines:
       enabled: true
+    persistence:
+      enabled: true
+      size: 128Gi
     service:
       type: NodePort
       nodePort: 31435
