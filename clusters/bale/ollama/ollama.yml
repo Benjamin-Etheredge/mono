@@ -42,10 +42,10 @@ spec:
           - deepseek-r1:14b
           - deepseek-r1:32b
           - deepseek-r1:70b
-    autoscaling:
-      enabled: true
-      minReplicas: 2
-      maxReplicas: 2
+    # autoscaling:
+      # enabled: true
+      # minReplicas: 1
+      # maxReplicas: 2
     persistentVolume:
       enabled: true
       size: 200Gi
