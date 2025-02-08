@@ -18,6 +18,8 @@ spec:
         containers:
           - name: reddit-sums # {"$imagepolicy": "apps:reddit-sums"}
             image: docker.io/etheredgeb/reddit-sums:1.0.0
+            ports:
+              - containerPort: 8501
             env:
               - name: CLIENT_ID
                 valueFrom:
@@ -44,8 +46,6 @@ spec:
                   secretKeyRef:
                     name: reddit-secret
                     key: USERNAME
-                  ports:
-                    - containerPort: 8501
 ---
 apiVersion: v1
 kind: Service
