@@ -6,9 +6,8 @@ metadata:
   namespace: home-assistant
 data:
   mosquitto.conf: |
-      allow_anonymous false
+      allow_anonymous true
       listener 1883
-      listener 1885
       set_tcp_nodelay true
       persistence_location /mosquitto/data
 ---
