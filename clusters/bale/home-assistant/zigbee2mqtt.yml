@@ -6,7 +6,7 @@ metadata:
   namespace: home-assistant
 version: 4
 data:
-  configuration.conf: |
+  configuration.yaml: |
       # Home Assistant integration (MQTT discovery)
       homeassistant:
           enabled: false
@@ -75,7 +75,7 @@ spec:
               name: zigbee2mqtt-data
             - mountPath: /app/config
               name: zigbee2mqtt-config
-              command: ['sh', '-c', 'cp /app/config/configuration.conf /app/data/configuration.conf']
+              command: ['sh', '-c', 'cat /app/config/configuration.yaml; cp /app/config/configuration.yaml /app/data/configuration.yaml']
       containers:
         - name: zigbee2mqtt
           image: koenkk/zigbee2mqtt:latest
