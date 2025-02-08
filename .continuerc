@@ -1,0 +1,67 @@
+{
+  "mergeBehavior": "overwrite",
+  "models": [
+    {
+      "model": "quen2.5-coder:14b",
+      "provider": "ollama",
+      "title": "Local Ollama",
+      "apiBase": "http://ollama.k8s.local"
+    }
+  ],
+  "tabAutocompleteModel": {
+    "title": "Deepseek",
+    "provider": "ollama",
+    "model": "qwen2.5-coder:14b",
+    "apiBase": "http://ollama.k8s.local"
+  },
+  "embeddingsProvider": {
+    "title": "Nomic",
+    "provider": "ollama",
+    "model": "nomic-embed-text",
+    "apiBase": "http://ollama.k8s.local"
+  },
+  "contextProviders": [
+    {
+      "name": "code",
+      "params": {}
+    },
+    {
+      "name": "docs",
+      "params": {}
+    },
+    {
+      "name": "diff",
+      "params": {}
+    },
+    {
+      "name": "terminal",
+      "params": {}
+    },
+    {
+      "name": "problems",
+      "params": {}
+    },
+    {
+      "name": "folder",
+      "params": {}
+    },
+    {
+      "name": "codebase",
+      "params": {}
+    }
+  ],
+  "slashCommands": [
+    {
+      "name": "share",
+      "description": "Export the current chat session to markdown"
+    },
+    {
+      "name": "cmd",
+      "description": "Generate a shell command"
+    },
+    {
+      "name": "commit",
+      "description": "Generate a git commit message"
+    }
+  ]
+}
