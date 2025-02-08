@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: papers
-          image: docker.io/etheredgeb/papers:1.0.1 # {"$imagepolicy": "flux-system:papers"}
+          image: docker.io/etheredgeb/papers:1.0.2 # {"$imagepolicy": "flux-system:papers"}
           # TODO update these to set from env vars
           # env:
           #   - name: GRADIO_SERVER_NAME
