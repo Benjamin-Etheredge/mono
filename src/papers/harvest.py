@@ -104,7 +104,8 @@ def insert_paper(collection, paper):
 
 
 def generate_embedding(text):
-    return ollama_client.embeddings(model=EMBED_MODEL, prompt=text)["embedding"]
+    prompt = f"search_document: {text}"  # nomic requires prefix
+    return ollama_client.embeddings(model=EMBED_MODEL, prompt=prompt)["embedding"]
 
 
 def generate_embedding_kwargs(record):
@@ -315,8 +316,8 @@ def get_last_date(collection: pymilvus.Collection):
                 last_time = min(last_time, hit.to_dict()["entity"]["last_date_epoch"])
 
     last_date = datetime.fromtimestamp(last_time)
-    # Go back 7 days to be sure we don't miss anything on edges
-    last_date_padded = last_date - timedelta(days=7)
+    # Go back 2 days to be sure we don't miss anything on edges
+    last_date_padded = last_date - timedelta(days=2)
     return last_date_padded.strftime("%Y-%m-%d")
 
 

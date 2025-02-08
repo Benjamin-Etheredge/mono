@@ -60,7 +60,7 @@ Provide a clear and direct response to the user's query, including inline citati
 <user_query>
 {}
 </user_query>
-""" # noqa: E501
+"""  # noqa: E501
 
 
 def fill_in_template(query, context):
@@ -80,7 +80,7 @@ def embed_text(text):
     # Embedding function using Ollama
     response = client_ollama.embeddings(
         model=EMBED_MODEL,
-        prompt=text,
+        prompt=f"search_query: {text}", # nomic requires prefixes
     )
     return np.array(response["embedding"])
 
@@ -165,7 +165,7 @@ if results:
     prompt = fill_in_template(query_text, context)
 
     with st.chat_message("ai") as _, st.spinner("Generating response...") as _:
-            st.write_stream(generate_text(prompt))
+        st.write_stream(generate_text(prompt))
 else:
     st.write("No results to generate a response from.")
 
