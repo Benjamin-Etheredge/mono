@@ -1,4 +1,3 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -18,7 +17,7 @@ spec:
     spec:
       containers:
         - name: papers
-          image: docker.io/etheredgeb/papers:1.0.0 # {"$imagepolicy": "flux-system:papers"}
+          image: docker.io/etheredgeb/papers:1.0.1 # {"$imagepolicy": "flux-system:papers"}
           # TODO update these to set from env vars
           # env:
           #   - name: GRADIO_SERVER_NAME
@@ -76,8 +75,8 @@ metadata:
   name: papers-harvest
   namespace: apps
 spec:
-  schedule: "0 0 * * *"  # Every day at midnight UTC
-  concurrentPolicy: Forbid  # Skip job if previous one is still running
+  schedule: "0 0 * * *" # Every day at midnight UTC
+  concurrentPolicy: Forbid # Skip job if previous one is still running
   jobTemplate:
     spec:
       template:
