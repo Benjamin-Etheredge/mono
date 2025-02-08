@@ -53,7 +53,7 @@ Provide a clear and direct response to the user's query, including inline citati
 
 <user_query>
 Summarize the context.
-</user_query>"""
+</user_query>"""  # noqa: E501
 
 SUBMISSION_TEMPLATE = """### Task:
 Summarize the reddit submission in the provided context.
@@ -180,7 +180,7 @@ reddit = praw.Reddit(
 
 st.title("Subreddit Summarizer")
 st.write(
-    "Simple application to visit inputed subreddits, pull X posts from it, summarize the posts, then summarize the summaries."
+    "Simple application to visit inputed subreddits, pull X posts from it, summarize the posts, then summarize the summaries."  # noqa: E501
 )
 st.write("Built by Ben Etheredge")
 

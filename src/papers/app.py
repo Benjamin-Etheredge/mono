@@ -80,7 +80,7 @@ def embed_text(text):
     # Embedding function using Ollama
     response = client_ollama.embeddings(
         model=EMBED_MODEL,
-        prompt=f"search_query: {text}", # nomic requires prefixes
+        prompt=f"search_query: {text}",  # nomic requires prefixes
     )
     return np.array(response["embedding"])
 

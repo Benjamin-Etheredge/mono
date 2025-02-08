@@ -18,4 +18,5 @@ docker_image(
         "COPY src.webcam-demo/binary.pex /bin/app",
     ],
     image_tags=["1.0.0"],
+    skip_hadolint=True,  # not my code
 )

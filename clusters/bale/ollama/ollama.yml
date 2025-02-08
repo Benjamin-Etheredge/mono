@@ -43,10 +43,6 @@ spec:
           - deepseek-r1:14b
           - deepseek-r1:32b
           - deepseek-r1:70b
-    # autoscaling:
-      # enabled: true
-      # minReplicas: 1
-      # maxReplicas: 2
     nodeSelector:
       nvidia.com/gpu.product: NVIDIA-GeForce-RTX-3090-Ti
     persistentVolume:

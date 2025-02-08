@@ -35,7 +35,7 @@ def detection(image, conf_threshold=0.3):
 
 
 css = """.my-group {max-width: 600px !important; max-height: 600 !important;}
-                      .my-column {display: flex !important; justify-content: center !important; align-items: center !important};""" # noqa: E501
+                      .my-column {display: flex !important; justify-content: center !important; align-items: center !important};"""  # noqa: E501
 
 
 with gr.Blocks(css=css) as demo:
@@ -51,7 +51,7 @@ with gr.Blocks(css=css) as demo:
         <h3 style='text-align: center'>
         <a href='https://arxiv.org/abs/2405.14458' target='_blank'>arXiv</a> | <a href='https://github.com/THU-MIG/yolov10' target='_blank'>github</a>
         </h3>
-        """ # noqa: E501
+        """  # noqa: E501
     )
     with gr.Column(elem_classes=["my-column"]):
         with gr.Group(elem_classes=["my-group"]):
