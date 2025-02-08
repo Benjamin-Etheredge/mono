@@ -66,6 +66,16 @@ spec:
       labels:
         app: zigbee2mqtt
     spec:
+      # Setup config
+      initContainers:
+        - name: busybox
+          image: busybox
+          volumeMounts:
+            - mountPath: /app/data
+              name: zigbee2mqtt-data
+            - mountPath: /app/config
+              name: zigbee2mqtt-config
+              command: ['sh', '-c', 'cp /app/config/configuration.conf /app/data/configuration.conf']
       containers:
         - name: zigbee2mqtt
           image: koenkk/zigbee2mqtt:latest
@@ -75,8 +85,6 @@ spec:
           volumeMounts:
             - mountPath: /app/data
               name: zigbee2mqtt-data
-            - mountPath: /app/data
-              name: zigbee2mqtt-config
       volumes:
         - name: zigbee2mqtt-data
           persistentVolumeClaim:
