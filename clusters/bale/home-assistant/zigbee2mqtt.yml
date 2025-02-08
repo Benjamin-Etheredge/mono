@@ -70,12 +70,12 @@ spec:
       initContainers:
         - name: busybox
           image: busybox
+          command: ['sh', '-c', 'echo starting; cat /app/config/configuration.yaml; cp /app/config/configuration.yaml /app/data/configuration.yaml']
           volumeMounts:
             - mountPath: /app/data
               name: zigbee2mqtt-data
             - mountPath: /app/config
               name: zigbee2mqtt-config
-              command: ['sh', '-c', 'echo starting; cat /app/config/configuration.yaml; cp /app/config/configuration.yaml /app/data/configuration.yaml']
       containers:
         - name: zigbee2mqtt
           image: koenkk/zigbee2mqtt:latest
