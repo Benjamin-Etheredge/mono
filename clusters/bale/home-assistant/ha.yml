@@ -35,12 +35,12 @@ spec:
             - path: /
               pathType: Prefix
     resources:
-      limits:
+      requests:
         cpu: 100m
         memory: 128Mi
-      requests:
+      limits:
         cpu: 200m
-        memory: 256Mi
+        memory: 128Mi
     # initContainers:
     #   - name: init-mqtt
     #     image: busybox
