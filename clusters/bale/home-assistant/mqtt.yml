@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: mqqt-config
+  name: mqtt-config
   namespace: home-assistant
 data:
   mosquitto.conf: |
@@ -15,46 +15,46 @@ data:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mqqt
+  name: mqtt
   namespace: home-assistant
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mqqt
+      app: mqtt
   template:
    metadata:
       labels:
-        app: mqqt
+        app: mqtt
    spec:
      containers:
-       - name: mqqt
+       - name: mqtt
          image: eclipse-mosquitto:latest
          ports:
            - containerPort: 1883
              protocol: TCP
          volumeMounts:
           - mountPath: /mosquitto/data
-            name: mqqt-data
+            name: mqtt-data
           - mountPath: /mosquitto/config
-            name: mqqt-config
+            name: mqtt-config
      volumes:
-        - name: mqqt-data
+        - name: mqtt-data
           persistentVolumeClaim:
-            claimName: mqqt-pvc
-        - name: mqqt-config
+            claimName: mqtt-pvc
+        - name: mqtt-config
           configMap:
-            name: mqqt-config
+            name: mqtt-config
             defaultMode: 0777
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: mqqt
+  name: mqtt
   namespace: home-assistant
 spec:
   selector:
-    app: mqqt
+    app: mqtt
   ports:
     - protocol: TCP
       port: 1883
@@ -63,7 +63,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: mqqt-pvc
+  name: mqtt-pvc
   namespace: home-assistant
 spec:
   accessModes:
