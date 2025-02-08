@@ -16,8 +16,7 @@ spec:
           app: reddit-sums
         spec:
           containers:
-            - name: reddit-sums
-              # {"$imagepolicy": "flux-system:reddit-sums"}
+            - name: reddit-sums # {"$imagepolicy": "apps:reddit-sums"}
               image: docker.io/etheredgeb/reddit-sums:1.0.0
               env:
                 - name: CLIENT_ID
