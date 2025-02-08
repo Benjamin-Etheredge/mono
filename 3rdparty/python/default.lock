@@ -189,6 +189,8 @@
 //     "plotly==5.24.1",
 //     "pluggy==1.5.0",
 //     "posthog==3.8.3",
+//     "praw==7.8.1",
+//     "prawcore==2.4.0",
 //     "prometheus-client==0.21.1",
 //     "prometheus-fastapi-instrumentator==6.0.0",
 //     "prompt-toolkit==3.0.48",
@@ -292,6 +294,7 @@
 //     "tzdata==2024.2",
 //     "tzlocal==5.2",
 //     "ujson==5.10.0",
+//     "update-checker==0.18.0",
 //     "urllib3==2.3.0",
 //     "uvicorn==0.34.0",
 //     "uvloop==0.21.0",
@@ -6696,6 +6699,71 @@
           "artifacts": [
             {
               "algorithm": "sha256",
+              "hash": "15917a81a06e20ff0aaaf1358481f4588449fa2421233040cb25e5c8202a3e2f",
+              "url": "https://files.pythonhosted.org/packages/73/ca/60ec131c3b43bff58261167045778b2509b83922ce8f935ac89d871bd3ea/praw-7.8.1-py3-none-any.whl"
+            },
+            {
+              "algorithm": "sha256",
+              "hash": "3c5767909f71e48853eb6335fef7b50a43cbe3da728cdfb16d3be92904b0a4d8",
+              "url": "https://files.pythonhosted.org/packages/4c/52/7dd0b3d9ccb78e90236420ef6c51b6d9b2400a7229442f0cfcf2258cce21/praw-7.8.1.tar.gz"
+            }
+          ],
+          "project_name": "praw",
+          "requires_dists": [
+            "betamax-matchers<0.5,>=0.3.0; extra == \"test\"",
+            "betamax<0.9,>=0.8; extra == \"test\"",
+            "coveralls; extra == \"ci\"",
+            "furo; extra == \"readthedocs\"",
+            "packaging; extra == \"dev\"",
+            "praw[lint]; extra == \"dev\"",
+            "praw[readthedocs]; extra == \"lint\"",
+            "praw[test]; extra == \"dev\"",
+            "prawcore<3,>=2.4",
+            "pre-commit; extra == \"lint\"",
+            "pytest>=2.7.3; extra == \"test\"",
+            "requests<3,>=2.20.1; extra == \"test\"",
+            "ruff>=0.0.291; extra == \"lint\"",
+            "sphinx; extra == \"readthedocs\"",
+            "update_checker>=0.18",
+            "urllib3<2,==1.26.*; extra == \"test\"",
+            "websocket-client>=0.54.0"
+          ],
+          "requires_python": "~=3.8",
+          "version": "7.8.1"
+        },
+        {
+          "artifacts": [
+            {
+              "algorithm": "sha256",
+              "hash": "29af5da58d85704b439ad3c820873ad541f4535e00bb98c66f0fbcc8c603065a",
+              "url": "https://files.pythonhosted.org/packages/96/5c/8af904314e42d5401afcfaff69940dc448e974f80f7aa39b241a4fbf0cf1/prawcore-2.4.0-py3-none-any.whl"
+            },
+            {
+              "algorithm": "sha256",
+              "hash": "b7b2b5a1d04406e086ab4e79988dc794df16059862f329f4c6a43ed09986c335",
+              "url": "https://files.pythonhosted.org/packages/8a/62/d4c99cf472205f1e5da846b058435a6a7c988abf8eb6f7d632a7f32f4a77/prawcore-2.4.0.tar.gz"
+            }
+          ],
+          "project_name": "prawcore",
+          "requires_dists": [
+            "betamax<0.9,>=0.8; extra == \"test\"",
+            "coveralls; extra == \"ci\"",
+            "packaging; extra == \"dev\"",
+            "prawcore[lint]; extra == \"dev\"",
+            "prawcore[test]; extra == \"dev\"",
+            "pre-commit; extra == \"lint\"",
+            "pytest>=2.7.3; extra == \"test\"",
+            "requests<3.0,>=2.6.0",
+            "ruff>=0.0.291; extra == \"lint\"",
+            "urllib3<2,==1.26.*; extra == \"test\""
+          ],
+          "requires_python": "~=3.8",
+          "version": "2.4.0"
+        },
+        {
+          "artifacts": [
+            {
+              "algorithm": "sha256",
               "hash": "594b45c410d6f4f8888940fe80b5cc2521b305a1fafe1c58609ef715a001f301",
               "url": "https://files.pythonhosted.org/packages/ff/c2/ab7d37426c179ceb9aeb109a85cda8948bb269b7561a0be870cc656eefe4/prometheus_client-0.21.1-py3-none-any.whl"
             },
@@ -10488,6 +10556,32 @@
           "artifacts": [
             {
               "algorithm": "sha256",
+              "hash": "cbba64760a36fe2640d80d85306e8fe82b6816659190993b7bdabadee4d4bbfd",
+              "url": "https://files.pythonhosted.org/packages/0c/ba/8dd7fa5f0b1c6a8ac62f8f57f7e794160c1f86f31c6d0fb00f582372a3e4/update_checker-0.18.0-py3-none-any.whl"
+            },
+            {
+              "algorithm": "sha256",
+              "hash": "6a2d45bb4ac585884a6b03f9eade9161cedd9e8111545141e9aa9058932acb13",
+              "url": "https://files.pythonhosted.org/packages/5c/0b/1bec4a6cc60d33ce93d11a7bcf1aeffc7ad0aa114986073411be31395c6f/update_checker-0.18.0.tar.gz"
+            }
+          ],
+          "project_name": "update-checker",
+          "requires_dists": [
+            "black; extra == \"dev\"",
+            "black; extra == \"lint\"",
+            "flake8; extra == \"dev\"",
+            "flake8; extra == \"lint\"",
+            "pytest>=2.7.3; extra == \"dev\"",
+            "pytest>=2.7.3; extra == \"test\"",
+            "requests>=2.3.0"
+          ],
+          "requires_python": null,
+          "version": "0.18.0"
+        },
+        {
+          "artifacts": [
+            {
+              "algorithm": "sha256",
               "hash": "1cee9ad369867bfdbbb48b7dd50374c0967a0bb7710050facf0dd6911440e3df",
               "url": "https://files.pythonhosted.org/packages/c8/19/4ec628951a74043532ca2cf5d97b7b14863931476d117c471e8e2b1eb39f/urllib3-2.3.0-py3-none-any.whl"
             },
@@ -11514,6 +11608,8 @@
     "plotly==5.24.1",
     "pluggy==1.5.0",
     "posthog==3.8.3",
+    "praw==7.8.1",
+    "prawcore==2.4.0",
     "prometheus-client==0.21.1",
     "prometheus-fastapi-instrumentator==6.0.0",
     "prompt-toolkit==3.0.48",
@@ -11617,6 +11713,7 @@
     "tzdata==2024.2",
     "tzlocal==5.2",
     "ujson==5.10.0",
+    "update-checker==0.18.0",
     "urllib3==2.3.0",
     "uvicorn==0.34.0",
     "uvloop==0.21.0",

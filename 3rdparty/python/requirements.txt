@@ -623,6 +623,10 @@ pluggy==1.5.0
     # via pytest
 posthog==3.8.3
     # via chromadb
+praw==7.8.1
+    # via -r requirements.in
+prawcore==2.4.0
+    # via praw
 prometheus-client==0.21.1
     # via prometheus-fastapi-instrumentator
 prometheus-fastapi-instrumentator==6.0.0
@@ -790,6 +794,7 @@ requests==2.32.3
     #   iterative-telemetry
     #   kubernetes
     #   posthog
+    #   prawcore
     #   requests-file
     #   requests-oauthlib
     #   requests-toolbelt
@@ -799,6 +804,7 @@ requests==2.32.3
     #   tldextract
     #   transformers
     #   twilio
+    #   update-checker
     #   wandb
 requests-file==2.1.0
     # via tldextract
@@ -1019,6 +1025,8 @@ tzlocal==5.2
     # via apscheduler
 ujson==5.10.0
     # via pymilvus
+update-checker==0.18.0
+    # via praw
 urllib3==2.3.0
     # via
     #   botocore
@@ -1052,7 +1060,9 @@ watchfiles==1.0.4
 wcwidth==0.2.13
     # via prompt-toolkit
 websocket-client==1.8.0
-    # via kubernetes
+    # via
+    #   kubernetes
+    #   praw
 websockets==12.0
     # via
     #   gradio-client
