@@ -6,16 +6,12 @@ metadata:
   namespace: home-assistant
 data:
   mosquitto.conf: |
-      global_plugin /usr/lib/cedalo_mosquitto_ha.so
       allow_anonymous false
       listener 1883
       listener 1885
       admin_listener true
       set_tcp_nodelay true
       persistence_location /mosquitto/data
-      plugin /usr/lib/cedalo_inspect.so
-      plugin /usr/lib/cedalo_client_control.so
-      plugin /usr/lib/cedalo_certificate_management.so
       enable_control_api true
 ---
 apiVersion: apps/v1
