@@ -5,7 +5,7 @@ metadata:
   name: mqqt-config
   namespace: home-assistant
 data:
-  mqqt.conf: |
+  mosquitto.conf: |
       global_plugin /usr/lib/cedalo_mosquitto_ha.so
       allow_anonymous false
       listener 1883
@@ -24,7 +24,7 @@ metadata:
   name: mqqt
   namespace: home-assistant
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: mqqt
