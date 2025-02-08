@@ -1,5 +1,6 @@
 # Connect to reddit's API and respond to posts on r/roastme.
 
+import contextlib
 import os
 
 import ollama
@@ -224,7 +225,7 @@ subreddit_name = st.text_input(
 )
 st.write("Note: use '+' to join subreddits to fetch multiple subreddits. E.g., 'funny+aww'")
 limit = st.number_input("Number of posts to fetch: ", min_value=1, max_value=100, value=3)
-selected_filter = st.radio("Sort: ", options=["hot", "top", "new"])
+selected_filter = st.radio("Sort: ", options=["hot", "top", "new", "relevance", "comments"])
 if subreddit_name:
     subreddit: praw.models.Subreddit = reddit.subreddit(subreddit_name)
     try:
@@ -240,7 +241,9 @@ if subreddit_name:
         expander = st.expander(f"Post: {submission.title}", expanded=st.session_state[f"expander_{idx}"])
         with expander:
             st.markdown(f"**Title:** {submission.title}")
-            st.markdown(f"**Author:** {submission.author.name}")
+            with contextlib.supress(AttributeError):
+                # sometimes author is none
+                st.markdown(f"**Author:** {submission.author.name}")
             st.markdown(f"**url:** {submission.url}")
             st.markdown("**Summary**")
             with st.chat_message("ai") as _, st.spinner("Generating summary of submission...") as _:
