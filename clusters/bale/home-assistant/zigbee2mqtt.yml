@@ -34,8 +34,8 @@ data:
           # USB adapters - use format "port: /dev/serial/by-id/XXX"
           # Ethernet adapters - use format "port: tcp://192.168.1.12:6638"
           port: mdns://slzb-06
-      #     # Adapter type, allowed values: `zstack`, `ember`, `deconz`, `zigate` or `zboss`
-      #     adapter: zstack
+          # Adapter type, allowed values: `zstack`, `ember`, `deconz`, `zigate` or `zboss`
+          adapter: zstack
 
       # Periodically check whether devices are online/offline
       # availability:
