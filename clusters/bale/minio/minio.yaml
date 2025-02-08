@@ -5,7 +5,7 @@ metadata:
   name: minio
   namespace: minio
 spec:
-  interval: 30m0s
+  interval: 12h
   url: https://charts.min.io/
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2
@@ -14,7 +14,7 @@ metadata:
   name: minio
   namespace: minio
 spec:
-  interval: 5m0s
+  interval: 12h
   chart:
     spec:
       chart: minio
@@ -33,7 +33,7 @@ spec:
       enabled: true
       ingressClassName: nginx
       hosts:
-        - minio.k8s.lan
+        - minio.k8s.local
         - minio.etheredge.dev
     persistence:
       enabled: true
@@ -42,5 +42,5 @@ spec:
       enabled: true
       ingressClassName: nginx
       hosts:
-        - console-minio.k8s.lan
+        - console-minio.k8s.local
         - console-minio.etheredge.dev

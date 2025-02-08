@@ -61,6 +61,14 @@
       notify: Referesh certs
       ansible.builtin.lineinfile:
         path: /var/snap/microk8s/current/certs/csr.conf.template
+        insertafter: '^DNS.12 = '
+        line: 'DNS.13 = k8s.local'
+
+    - name: Configure IPs and domains (4)
+      become: true
+      notify: Referesh certs
+      ansible.builtin.lineinfile:
+        path: /var/snap/microk8s/current/certs/csr.conf.template
         insertafter: '^IP.2 = '
         line: "IP.11 = {{ vip }}"
 

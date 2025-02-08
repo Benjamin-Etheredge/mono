@@ -46,7 +46,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: whoami.k8s.lan
+    - host: whoami.k8s.local
       http:
         paths:
           - path: /

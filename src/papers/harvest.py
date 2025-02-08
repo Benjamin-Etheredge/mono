@@ -16,11 +16,11 @@ END_DATE = os.getenv("END_DATE", datetime.now().strftime("%Y-%m-%d"))  # Current
 SET_NAME = os.getenv("SET_NAME", None)
 # SET_NAME = os.getenv('SET_NAME', 'cs')  # Default to Computer Science Artificial Intelligence
 
-OLLAMA_URI = os.getenv("OLLAMA_URI", "http://ollama.k8s.lan")
+OLLAMA_URI = os.getenv("OLLAMA_URI", "http://ollama.k8s.local")
 ollama_client = Client(host=OLLAMA_URI)
 EMBED_MODEL = os.getenv("EMBED_MODEL", "nomic-embed-text")
 
-MILVUS_URI = os.getenv("MILVUS_URI", "http://milvus.k8s.lan:80")
+MILVUS_URI = os.getenv("MILVUS_URI", "http://milvus.k8s.local:80")
 client = pymilvus.connections.connect(uri=MILVUS_URI)
 
 

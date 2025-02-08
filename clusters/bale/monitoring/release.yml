@@ -18,5 +18,5 @@ spec:
       ingress:
         enabled: true
         hosts:
-          - grafana.k8s.lan
-  interval: 1m0s
+          - grafana.k8s.local
+  interval: 12h

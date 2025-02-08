@@ -48,7 +48,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: webcam-demo.k8s.lan
+    - host: webcam-demo.k8s.local
       http:
         paths:
           - path: /

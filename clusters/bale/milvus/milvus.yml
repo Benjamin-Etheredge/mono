@@ -29,32 +29,32 @@ spec:
     minio:
       mode: standalone
       persistence:
-        size: 100Gi
+        size: 200Gi
     etcd:
       replicaCount: 1
     pulsar:
       enabled: false
-    # pulsarv3:
-    #   zookeeper:
-    #     replicaCount: 1
-    #   bookkeeper:
-    #     replicaCount: 1
-    #     volumes:
-    #       journal:
-    #         size: 20Gi
-    #       ledgers:
-    #         size: 40Gi
-    #   broker:
-    #     replicaCount: 1
-    #   proxy:
-    #     replicaCount: 1
+    pulsarv3:
+      zookeeper:
+        replicaCount: 1
+      bookkeeper:
+        replicaCount: 1
+        volumes:
+          journal:
+            size: 20Gi
+          ledgers:
+            size: 40Gi
+      broker:
+        replicaCount: 1
+      proxy:
+        replicaCount: 1
     ingress:
       enabled: true
       ingresssClassName: nginx
       annotations:
         nginx.ingress.kubernetes.io/proxy-body-size: "4096m"
       rules:
-        - host: milvus.k8s.lan
+        - host: milvus.k8s.local
           path: "/"
           pathType: "Prefix"
     attu:
@@ -63,4 +63,4 @@ spec:
         enabled: true
         ingressClassName: nginx
         hosts:
-          - attu.k8s.lan
+          - attu.k8s.local

@@ -49,7 +49,7 @@ docker_image(
         "COPY src/papers/app.py src/papers/app.py",
         "COPY src.papers/binary.pex /bin/app",
     ],
-    image_tags=["1.0.1"],
+    image_tags=["1.0.2"],
     dependencies=[
         ":binary",
         ":app-file",
@@ -74,5 +74,5 @@ docker_image(
         "COPY src.papers/harvest-binary.pex /bin/app",
     ],
     repository="etheredgeb/papers-harvest",
-    image_tags=["1.0.2"],
+    image_tags=["1.0.3"],
 )

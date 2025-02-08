@@ -21,8 +21,8 @@ def connect_to_ollama(uri):
     return ollama.Client(OLLAMA_URI)
 
 
-MILVUS_URI = os.getenv("MILVUS_URI", "http://milvus.k8s.lan:80")
-OLLAMA_URI = os.getenv("OLLAMA_URI", "http://ollama.k8s.lan")
+MILVUS_URI = os.getenv("MILVUS_URI", "http://milvus.k8s.local:80")
+OLLAMA_URI = os.getenv("OLLAMA_URI", "http://ollama.k8s.local")
 EMBED_MODEL = os.getenv("EMBED_MODEL", "nomic-embed-text")
 GEN_MODEL = os.getenv("GEN_MODEL", "deepseek-r1:14b")
 

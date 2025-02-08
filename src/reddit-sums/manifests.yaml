@@ -68,7 +68,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: reddit-sums.k8s.lan
+    - host: reddit-sums.k8s.local
       http:
       paths:
         - path: /

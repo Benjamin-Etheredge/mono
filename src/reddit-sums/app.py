@@ -8,7 +8,7 @@ import praw.models
 import streamlit as st
 from reddit.utils import download_image_urls, get_images
 
-OLLAMA_URI = os.environ.get("OLLAMA_URI", "http://ollama.k8s.lan")
+OLLAMA_URI = os.environ.get("OLLAMA_URI", "http://ollama.k8s.local")
 client_id = os.environ
 ollama_client = ollama.Client(host=OLLAMA_URI)
 HYBRID_MODEL = os.environ.get("HYBRID_MODEL", "llama3.2-vision:11b")

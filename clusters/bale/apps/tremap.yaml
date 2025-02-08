@@ -43,7 +43,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: tremap.k8s.lan
+    - host: tremap.k8s.local
       http:
         paths:
           - path: /

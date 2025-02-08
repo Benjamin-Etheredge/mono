@@ -43,7 +43,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: semantic.k8s.lan
+    - host: semantic.k8s.local
       http:
         paths:
           - path: /

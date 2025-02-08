@@ -16,7 +16,7 @@ spec:
   values:
     ingress:
       enabled: true
-      host: longhorn.k8s.lan
+      host: longhorn.k8s.local
       ingressClassName: nginx
     csi:
       # needed for microk8s
@@ -31,4 +31,4 @@ spec:
       #     - name: trim
       #       cron: "0 0 * * *"
       #       interval: 1d
-  interval: 1m0s
+  interval: 12h

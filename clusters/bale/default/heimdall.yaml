@@ -69,7 +69,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: heimdall.k8s.lan
+    - host: heimdall.k8s.local
       http:
         paths:
           - path: /
