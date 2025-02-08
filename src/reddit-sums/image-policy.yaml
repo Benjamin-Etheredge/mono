@@ -5,7 +5,7 @@ metadata:
   name: reddit-sums
   namespace: flux-system
 spec:
-  image: docker.io/betheredge/reddit-sums
+  image: docker.io/etheredgeb/reddit-sums
   interval: 5m
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta2
