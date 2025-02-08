@@ -290,6 +290,9 @@ def get_last_date(collection: pymilvus.Collection):
     """
     # Milvus makes this super hard for no reason
     collection.load()
+    if collection.num_entities == 0:
+        return datetime.fromtimestamp(0)
+
     iterator = collection.search_iterator(
         data=[[0.0] * 768],  # Dummy data, not used for aggregation
         anns_field="summary_embedding",

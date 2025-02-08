@@ -74,5 +74,5 @@ docker_image(
         "COPY src.papers/harvest-binary.pex /bin/app",
     ],
     repository="etheredgeb/papers-harvest",
-    image_tags=["1.0.1"],
+    image_tags=["1.0.2"],
 )
