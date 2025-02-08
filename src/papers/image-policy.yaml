@@ -1,0 +1,42 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: papers
+  namespace: flux-system
+spec:
+  image: docker.io/etheredgeb/papers
+  interval: 5m
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: papers
+  namespace: flux-system
+spec:
+  imageRepositoryRef:
+    name: papers
+  policy:
+    semver:
+      range: '>=1.0.0'
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: papers-harvest
+  namespace: flux-system
+spec:
+  image: docker.io/etheredgeb/papers-harvest
+  interval: 5m
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: papers-harvest
+  namespace: flux-system
+spec:
+  imageRepositoryRef:
+    name: papers-harvest
+  policy:
+    semver:
+      range: '>=1.0.0'

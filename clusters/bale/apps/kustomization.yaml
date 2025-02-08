@@ -5,6 +5,6 @@ resources:
   - namespace.yaml
   - ../../../src/air-vibrations/manifests.yaml
   - ../../../src/webcam-demo/manifests.yaml
-  - ../../../src/papers/manifests.yaml
+  - ../../../src/papers
   - tremap.yaml
   - ../../../src/reddit-sums
