@@ -1,0 +1,76 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mqqt-config
+data:
+  mqqt.conf: |
+      global_plugin /usr/lib/cedalo_mosquitto_ha.so
+      allow_anonymous false
+      listener 1883
+      listener 1885
+      admin_listener true
+      set_tcp_nodelay true
+      persistence_location /mosquitto/data
+      plugin /usr/lib/cedalo_inspect.so
+      plugin /usr/lib/cedalo_client_control.so
+      plugin /usr/lib/cedalo_certificate_management.so
+      enable_control_api true
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mqqt
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mqqt
+  template:
+   metadata:
+      labels:
+        app: mqqt
+   spec:
+     containers:
+       - name: mqqt
+         image: eclipse-mosquitto:latest
+         ports:
+           - containerPort: 1883
+             protocol: TCP
+         volumeMounts:
+          - mountPath: /mosquitto/data
+            subPath: data
+            name: mosquitto-data
+          - mountPath: /mosquitto/config
+            subPath: config
+            name: mqqt-config
+     volumes:
+        - name: mqqt-data
+          persistentVolumeClaim:
+            claimName: mqqt-pvc
+        - name: mqqt-config
+          configMap:
+            name: mqqt-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mqqt
+spec:
+  selector:
+    app: mqqt
+  ports:
+    - protocol: TCP
+      port: 1883
+      targetPort: 1883
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mqqt-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
