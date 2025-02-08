@@ -23,22 +23,22 @@ spec:
     matchLabels:
       app: mqtt
   template:
-   metadata:
+    metadata:
       labels:
         app: mqtt
-   spec:
-     containers:
-       - name: mqtt
-         image: eclipse-mosquitto:latest
-         ports:
-           - containerPort: 1883
-             protocol: TCP
-         volumeMounts:
-          - mountPath: /mosquitto/data
-            name: mqtt-data
-          - mountPath: /mosquitto/config
-            name: mqtt-config
-     volumes:
+    spec:
+      containers:
+        - name: mqtt
+          image: eclipse-mosquitto:latest
+          ports:
+            - containerPort: 1883
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /mosquitto/data
+              name: mqtt-data
+            - mountPath: /mosquitto/config
+              name: mqtt-config
+      volumes:
         - name: mqtt-data
           persistentVolumeClaim:
             claimName: mqtt-pvc
