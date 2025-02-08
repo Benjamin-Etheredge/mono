@@ -47,6 +47,7 @@ spec:
         - name: mqqt-config
           configMap:
             name: mqqt-config
+            defaultMode: 0777
 ---
 apiVersion: v1
 kind: Service
