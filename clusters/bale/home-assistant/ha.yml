@@ -44,4 +44,4 @@ spec:
     initContainers:
       - name: init-mqtt
         image: busybox
-        command: ['sh', '-c', 'until nslookup mqtt; do echo waiting for mqtt; sleep 2; done;']
+        command: ['sh', '-c', 'until nslookup mqqt; do echo waiting for mqqt; sleep 2; done;']
