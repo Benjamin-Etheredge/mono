@@ -14,38 +14,38 @@ spec:
       metadata:
         labels:
           app: reddit-sums
-        spec:
-          containers:
-            - name: reddit-sums # {"$imagepolicy": "apps:reddit-sums"}
-              image: docker.io/etheredgeb/reddit-sums:1.0.0
-              env:
-                - name: CLIENT_ID
-                  valueFrom:
-                    secretKeyRef:
-                      name: reddit-secret
-                      key: CLIENT_ID
-                - name: CLIENT_SECRET
-                  valueFrom:
-                    secretKeyRef:
-                      name: reddit-secret
-                      key: CLIENT_SECRET
-                - name: PASSWORD
-                  valueFrom:
-                    secretKeyRef:
-                      name: reddit-secret
-                      key: PASSWORD
-                - name: USER_AGENT
-                  valueFrom:
-                    secretKeyRef:
-                      name: reddit-secret
-                      key: USER_AGENT
-                - name: USERNAME
-                  valueFrom:
-                    secretKeyRef:
-                      name: reddit-secret
-                      key: USERNAME
-                    ports:
-                      - containerPort: 8501
+      spec:
+        containers:
+          - name: reddit-sums # {"$imagepolicy": "apps:reddit-sums"}
+            image: docker.io/etheredgeb/reddit-sums:1.0.0
+            env:
+              - name: CLIENT_ID
+                valueFrom:
+                  secretKeyRef:
+                    name: reddit-secret
+                    key: CLIENT_ID
+              - name: CLIENT_SECRET
+                valueFrom:
+                  secretKeyRef:
+                    name: reddit-secret
+                    key: CLIENT_SECRET
+              - name: PASSWORD
+                valueFrom:
+                  secretKeyRef:
+                    name: reddit-secret
+                    key: PASSWORD
+              - name: USER_AGENT
+                valueFrom:
+                  secretKeyRef:
+                    name: reddit-secret
+                    key: USER_AGENT
+              - name: USERNAME
+                valueFrom:
+                  secretKeyRef:
+                    name: reddit-secret
+                    key: USERNAME
+                  ports:
+                    - containerPort: 8501
 ---
 apiVersion: v1
 kind: Service
