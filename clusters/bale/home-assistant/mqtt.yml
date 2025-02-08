@@ -41,10 +41,8 @@ spec:
              protocol: TCP
          volumeMounts:
           - mountPath: /mosquitto/data
-            subPath: data
             name: mqqt-data
           - mountPath: /mosquitto/config
-            subPath: config
             name: mqqt-config
      volumes:
         - name: mqqt-data
