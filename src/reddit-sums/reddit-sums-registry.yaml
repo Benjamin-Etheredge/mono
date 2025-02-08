@@ -1,9 +1,0 @@
----
-apiVersion: image.toolkit.fluxcd.io/v1beta2
-kind: ImageRepository
-metadata:
-  name: reddit-sums
-  namespace: apps
-spec:
-  image: docker.io/betheredge/reddit-sums
-  interval: 5m0s
