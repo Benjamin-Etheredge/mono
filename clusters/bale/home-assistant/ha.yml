@@ -41,7 +41,7 @@ spec:
       requests:
         cpu: 100m
         memory: 128Mi
-    initContainers:
-      - name: init-mqtt
-        image: busybox
-        command: ['sh', '-c', 'until nslookup mqtt.home-assistant; do echo waiting for mqtt; sleep 2; done;']
+    # initContainers:
+    #   - name: init-mqtt
+    #     image: busybox
+    #     command: ['sh', '-c', 'until nslookup mqtt.home-assistant; do echo waiting for mqtt; sleep 2; done;']
