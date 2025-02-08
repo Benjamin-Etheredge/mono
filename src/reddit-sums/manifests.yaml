@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: reddit-sums
-          image: docker.io/etheredgeb/reddit-sums:1.0.4 # {"$imagepolicy": "flux-system:reddit-sums"}
+          image: docker.io/etheredgeb/reddit-sums:1.0.5 # {"$imagepolicy": "flux-system:reddit-sums"}
           ports:
             - containerPort: 8501
           env:
