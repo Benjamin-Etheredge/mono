@@ -37,7 +37,7 @@ docker_image(
         "COPY src/reddit-sums/app.py src/reddit-sums/app.py",
         "COPY src.reddit-sums/bin.pex /bin/app",
     ],
-    image_tags=["1.0.6"],
+    image_tags=["1.0.7"],
     dependencies=[
         ":bin",
         ":app-file",

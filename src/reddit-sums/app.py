@@ -241,7 +241,7 @@ if subreddit_name:
         expander = st.expander(f"Post: {submission.title}", expanded=st.session_state[f"expander_{idx}"])
         with expander:
             st.markdown(f"**Title:** {submission.title}")
-            with contextlib.supress(AttributeError):
+            with contextlib.suppress(AttributeError):
                 # sometimes author is none
                 st.markdown(f"**Author:** {submission.author.name}")
             st.markdown(f"**url:** {submission.url}")
