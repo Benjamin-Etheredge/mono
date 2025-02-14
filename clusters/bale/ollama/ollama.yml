@@ -43,8 +43,8 @@ spec:
           - deepseek-r1:14b
           - deepseek-r1:32b
           - deepseek-r1:70b
-    nodeSelector:
-      nvidia.com/gpu.product: NVIDIA-GeForce-RTX-3090-Ti
+    # nodeSelector:
+    #   nvidia.com/gpu.product: NVIDIA-GeForce-RTX-3090-Ti
     persistentVolume:
       enabled: true
       size: 200Gi
