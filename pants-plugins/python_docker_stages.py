@@ -38,12 +38,22 @@ def multi_stage_docker(
         docker_image_kwargs = {}
 
     dot_path = ".".join(str(build_file_dir()).split("/"))
+    name = build_file_dir().name
 
     docker_image(
         name="img-deps",
         image_tags=["deps"],
         skip_push=True,
-        # extra_build_args=["--no-cache"],
+        cache_from=[
+            {
+                "type": "registry",
+                "ref": f"etheredgeb/{name}:deps",
+            }
+        ],
+        cache_to={
+            "type": "registry",
+            "ref": f"etheredgeb/{name}:deps",
+        },
         instructions=[
             f"ARG BASE_IMAGE={base_python_target}",
             "# hadolint ignore=DL3006",
@@ -57,7 +67,16 @@ def multi_stage_docker(
         name="img-srcs",
         image_tags=["srcs"],
         skip_push=True,
-        # extra_build_args=["--no-cache"],
+        cache_from=[
+            {
+                "type": "registry",
+                "ref": f"etheredgeb/{name}:srcs",
+            }
+        ],
+        cache_to={
+            "type": "registry",
+            "ref": f"etheredgeb/{name}:srcs",
+        },
         instructions=[
             f"ARG BASE_IMAGE={base_python_target}",
             "# hadolint ignore=DL3006",

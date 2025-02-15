@@ -45,6 +45,7 @@ assets = true
 
 [docker]
 default_repository = "etheredgeb/{directory}"
+use_buildx = true
 
 [docker.registries.dockerhub]
 address = "docker.io"
