@@ -1,10 +1,12 @@
 [GLOBAL]
-pants_version = "2.23.0"
+pants_version = "2.25.0a1"
 dynamic_ui = true
 colors = true
 
 backend_packages = [
   "pants.core",
+  "pants.backend.experimental.adhoc",
+  "pants.backend.shell",
   # python
   "pants.backend.python",
   "pants.backend.build_files.fmt.ruff",
@@ -31,8 +33,12 @@ pants_ignore = ["/.devcontainer", "scratch"]
 [python]
 interpreter_constraints = ['==3.12.*']
 enable_resolves = true
-default_resolve = "python-default"
+default_resolve = "default"
 # interpreter_versions_universe =  ["3.12.*"]
+
+[python.resolves]
+default = "3rdparty/python/default.lock"
+itty = "src/itty/requirements.lock"
 
 [python-infer]
 assets = true
@@ -48,4 +54,4 @@ default = true
 
 [cli.alias]
 pip-compile = "--tag='pip-compile' run ::"
-venv = "export --py-resolve-format=symlinked_immutable_virtualenv --resolve=python-default"
+venv = "export --py-resolve-format=symlinked_immutable_virtualenv --resolve=default"

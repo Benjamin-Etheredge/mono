@@ -1,0 +1,21 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: itty
+  namespace: flux-system
+spec:
+  image: docker.io/etheredgeb/itty
+  interval: 5m
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: itty
+  namespace: flux-system
+spec:
+  imageRepositoryRef:
+    name: itty
+  policy:
+    semver:
+      range: '>=1.0.0'

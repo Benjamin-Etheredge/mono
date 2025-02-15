@@ -7,7 +7,7 @@ run_shell_command(
 python_requirements(
     name="requirements",
     source="requirements.txt",
-    resolve="python-default",
+    resolve="default",
     overrides={
         "transformers": {"dependencies": [":requirements#torch"]},
     },
