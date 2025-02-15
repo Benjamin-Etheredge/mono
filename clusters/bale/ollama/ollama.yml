@@ -36,6 +36,7 @@ spec:
         pull:
           - llama3.2
           - nomic-embed-text
+          - qwen2.5-coder:7b
           - qwen2.5-coder:14b
           - qwen2.5-coder:32b
           - llama3.2-vision:11b
