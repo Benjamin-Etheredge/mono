@@ -7,6 +7,7 @@ import ollama
 import praw
 import praw.models
 import streamlit as st
+
 from reddit.utils import download_image_urls, get_images
 
 OLLAMA_URI = os.environ.get("OLLAMA_URI", "http://ollama.k8s.local")

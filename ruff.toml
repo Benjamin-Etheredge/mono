@@ -1,3 +1,4 @@
+src = ["src"]
 line-length = 120
 indent-width = 4
 exclude = [

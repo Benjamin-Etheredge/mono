@@ -46,9 +46,9 @@ def multi_stage_docker(
         # extra_build_args=["--no-cache"],
         instructions=[
             f"ARG BASE_IMAGE={base_python_target}",
+            "# hadolint ignore=DL3006",
             "FROM $BASE_IMAGE",
             f"COPY {dot_path}/binary-deps.pex /binary-deps.pex",
-            "RUN ls /",
             "RUN PEX_TOOLS=1 python /binary-deps.pex venv --scope=deps --compile /bin/app",
         ],
     )
@@ -60,6 +60,7 @@ def multi_stage_docker(
         # extra_build_args=["--no-cache"],
         instructions=[
             f"ARG BASE_IMAGE={base_python_target}",
+            "# hadolint ignore=DL3006",
             "FROM $BASE_IMAGE",
             f"COPY {dot_path}/binary-srcs.pex /binary-srcs.pex",
             "RUN PEX_TOOLS=1 python /binary-srcs.pex venv --scope=srcs --compile /bin/app",
@@ -73,8 +74,11 @@ def multi_stage_docker(
             "ARG SRC_IMAGE=:img-srcs",
             f"ARG BASE_IMAGE={base_python_target}",
             # Have to do this FROM stuff for pants to catch the targets
+            "# hadolint ignore=DL3006",
             "FROM $DEP_IMAGE as deps",
+            "# hadolint ignore=DL3006",
             "FROM $SRC_IMAGE as srcs",
+            "# hadolint ignore=DL3006",
             "FROM $BASE_IMAGE",
             'ENTRYPOINT ["/bin/app/pex"]',
             "COPY --from=deps /bin/app /bin/app",

@@ -38,12 +38,6 @@ spec:
     configuration:
       enabled: true
       forceInit: true
-      # trusted_proxies:
-      #   - ha.k8s.local
-      #   - 10.0.0.0/8
-      #   - 172.16.0.0/12
-      #   - 192.168.0.0/16
-      #   - 10.0.0.0/8
     resources:
       requests:
         cpu: 100m
@@ -51,7 +45,3 @@ spec:
       limits:
         cpu: 800m
         memory: 1024Mi
-    # initContainers:
-    #   - name: init-mqtt
-    #     image: busybox
-    #     command: ['sh', '-c', 'until nslookup mqtt.home-assistant; do echo waiting for mqtt; sleep 2; done;']
