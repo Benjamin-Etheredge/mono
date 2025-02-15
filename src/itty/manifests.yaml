@@ -20,6 +20,11 @@ spec:
           image: docker.io/etheredgeb/itty:1.0.0 # {"$imagepolicy": "flux-system:itty"}
           ports:
             - containerPort: 8501
+          env:
+            - name: STREAMLIT_SERVER_PORT
+              value: "8501"
+            - name: STREAMLIT_SERVER_ADDRESS
+              value: "0.0.0.0"
 ---
 apiVersion: v1
 kind: Service

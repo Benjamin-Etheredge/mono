@@ -192,3 +192,10 @@ with st.expander("Milvus Info", expanded=False):
     st.write(f"Number of entities: {col.num_entities}")
     st.write("Schema:")
     st.write(col.schema.to_dict())
+
+
+if __name__ == "__main__":
+    if "__streamlitmagic__" not in locals():
+        import streamlit.web.bootstrap
+
+        streamlit.web.bootstrap.run(__file__, False, [], {})
