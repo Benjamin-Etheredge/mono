@@ -1,20 +1,22 @@
 def basic_app(
     entrypoint="app.py",
     base_docker_target="3rdparty/images:python3.12",
+    target_suffix="",
     docker_image_kwargs=None,
 ):
     if docker_image_kwargs is None:
         docker_image_kwargs = dict(extra_run_args=["--network=host"])
 
-    basic_pex(entrypoint)
-    multi_stage_docker(base_docker_target, docker_image_kwargs)
+    basic_pex(entrypoint, target_suffix)
+    multi_stage_docker(base_docker_target, target_suffix, docker_image_kwargs)
 
 
 def basic_pex(
-        entrypoint="app.py", 
+    entrypoint="app.py", 
+    target_suffix="",
 ):
     pex_binary(
-        name="binary-deps",
+        name=f"binary-deps{target_suffix}",
         entry_point=entrypoint,
         layout="packed",
         include_sources=False,
@@ -22,7 +24,7 @@ def basic_pex(
     )
 
     pex_binary(
-        name="binary-srcs",
+        name=f"binary-srcs{target_suffix}",
         entry_point=entrypoint,
         layout="packed",
         include_requirements=False,
@@ -32,27 +34,29 @@ def basic_pex(
 
 def multi_stage_docker(
     base_python_target="3rdparty/images:python3.12",
+    target_suffix="",
     docker_image_kwargs=None,
 ):
     if docker_image_kwargs is None:
         docker_image_kwargs = {}
 
     dot_path = ".".join(str(build_file_dir()).split("/"))
-    name = build_file_dir().name
+    name = build_file_dir().name + target_suffix
 
     docker_image(
-        name="img-deps",
+        name=f"img-deps{target_suffix}",
         image_tags=["deps"],
         skip_push=True,
+        repository=f"{{default_repository}}/{name}",
         cache_from=[
             {
                 "type": "registry",
-                "ref": f"etheredgeb/{name}:deps",
+                "ref": f"etheredgeb/{name}{target_suffix}:deps",
             }
         ],
         cache_to={
             "type": "registry",
-            "ref": f"etheredgeb/{name}:deps",
+            "ref": f"etheredgeb/{name}{target_suffix}:deps",
         },
         instructions=[
             f"ARG BASE_IMAGE={base_python_target}",
@@ -64,9 +68,10 @@ def multi_stage_docker(
     )
 
     docker_image(
-        name="img-srcs",
+        name=f"img-srcs{target_suffix}",
         image_tags=["srcs"],
         skip_push=True,
+        repository=f"{{default_repository}}/{name}",
         cache_from=[
             {
                 "type": "registry",
@@ -87,7 +92,8 @@ def multi_stage_docker(
     )
 
     docker_image(
-        name="img",
+        name=f"img{target_suffix}",
+        repository=f"{{default_repository}}/{name}",
         instructions=[
             "ARG DEP_IMAGE=:img-deps",
             "ARG SRC_IMAGE=:img-srcs",
