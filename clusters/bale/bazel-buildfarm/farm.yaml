@@ -23,7 +23,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: buildfarm
-      version: 0.2.9
+      version: 0.2.6
   values:
     server:
      resources:
