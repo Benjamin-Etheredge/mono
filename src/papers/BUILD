@@ -5,7 +5,7 @@ basic_app(
     docker_image_kwargs=dict(
         extra_run_args=["--network=host"],
         image_tags=["1.0.3"],
-    )
+    ),
 )
 
 basic_app(
@@ -14,7 +14,7 @@ basic_app(
     docker_image_kwargs=dict(
         extra_run_args=["--network=host"],
         image_tags=["1.0.4"],
-    )
+    ),
 )
 
 # # Needed for streamlijt
