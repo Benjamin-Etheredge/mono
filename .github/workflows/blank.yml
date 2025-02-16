@@ -79,8 +79,8 @@ jobs:
         run: "pants package ::"
       - name: Publish
         run: "pants publish ::"
-      - name: Upload pants log
-        uses: actions/upload-artifact@v2
-        with:
-          name: pants-log-lint
-          path: .pants.d/pants.log
+      # - name: Upload pants log
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: pants-log-lint
+      #     path: .pants.d/pants.log
