@@ -27,7 +27,7 @@ jobs:
         uses: pantsbuild/actions/init-pants@main
         with:
           # cache0 makes it easy to bust the cache if needed
-          gha-cache-key: cache0-py3.12
+          gha-cache-key: cache0-lint-py3.12
           # gha-cache-key: cache0-py${{ matrix.python_version }}
           # named-caches-hash: ${{ hashFiles('lockfiles/*.json', '**/something-else.lock') }}
       - name: Lint
@@ -46,7 +46,7 @@ jobs:
         uses: pantsbuild/actions/init-pants@main
         with:
           # cache0 makes it easy to bust the cache if needed
-          gha-cache-key: cache0-py3.12
+          gha-cache-key: cache0-test-py3.12
           # gha-cache-key: cache0-py${{ matrix.python_version }}
           # named-caches-hash: ${{ hashFiles('lockfiles/*.json', '**/something-else.lock') }}
       - name: Test
@@ -71,7 +71,7 @@ jobs:
         uses: pantsbuild/actions/init-pants@main
         with:
           # cache0 makes it easy to bust the cache if needed
-          gha-cache-key: cache0-py3.12
+          gha-cache-key: cache0-publish-py3.12
           # gha-cache-key: cache0-py${{ matrix.python_version }}
       - name: Debug0
         run: "docker info"
