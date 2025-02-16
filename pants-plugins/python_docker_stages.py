@@ -1,6 +1,6 @@
 def basic_app(
     entrypoint="app.py",
-    base_docker_target="3rdparty/images:python3.12",
+    base_docker_target="//3rdparty/images:python3.12",
     target_suffix="",
     docker_image_kwargs=None,
 ):
@@ -33,7 +33,7 @@ def basic_pex(
 
 
 def multi_stage_docker(
-    base_python_target="3rdparty/images:python3.12",
+    base_python_target="//3rdparty/images:python3.12",
     target_suffix="",
     docker_image_kwargs=None,
 ):
@@ -47,7 +47,7 @@ def multi_stage_docker(
         name=f"img-deps{target_suffix}",
         image_tags=["deps"],
         skip_push=True,
-        repository=f"{{default_repository}}/{name}",
+        repository=f"etheredgeb/{name}",
         cache_from=[
             {
                 "type": "registry",
@@ -71,7 +71,7 @@ def multi_stage_docker(
         name=f"img-srcs{target_suffix}",
         image_tags=["srcs"],
         skip_push=True,
-        repository=f"{{default_repository}}/{name}",
+        repository=f"etheredgeb/{name}",
         cache_from=[
             {
                 "type": "registry",
@@ -93,7 +93,7 @@ def multi_stage_docker(
 
     docker_image(
         name=f"img{target_suffix}",
-        repository=f"{{default_repository}}/{name}",
+        repository=f"etheredgeb/{name}",
         instructions=[
             "ARG DEP_IMAGE=:img-deps",
             "ARG SRC_IMAGE=:img-srcs",
