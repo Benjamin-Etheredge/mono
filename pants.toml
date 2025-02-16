@@ -44,7 +44,7 @@ assets = true
 
 [docker]
 default_repository = "etheredgeb/{directory}"
-# use_buildx = true
+use_buildx = true
 
 [dockerfile-parser]
 use_rust_parser = true
