@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: github-token
+    namespace: arc-systems
+type: Opaque
+stringData:
+    token: ENC[AES256_GCM,data:qcDJfUvIOReFwdQWIRdUkFhEBGVhrHXqZHJDkl/DT6Bt7IvZKsrRiw==,iv:RQDf5ILhXWmVOr/Cn6ahn+DwWn++rq2I6KjF+CzDXE4=,tag:D1DHcoF7nICnh5MlIpJNYg==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2025-02-16T20:56:06Z"
+    mac: ENC[AES256_GCM,data:jQNpW+zn5EcVeWMfLD1581uGpIuXmqnXrNlpyqhTAoGjh2fqG+cVnFI2Hdkj362o3FDN4A7+led9Vmx/A75gFCI96sitfGKfnv0jEAyYn3ADghpHRSXOFMW3le1BKNQfG8JSNn2/9PEZn+4TKYzqtGEDz7CKFXCtmpmSewK+uuo=,iv:FuJcaCwZIDvnbFXIVU5WMmqtB+fdWAX4W3bGFHWX6sg=,tag:UFSwOovvJdGm4wr9bwJDhw==,type:str]
+    pgp:
+        - created_at: "2025-02-16T20:56:06Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA0tk1fhnWD/CAQ//eOBhwEgmqb2iA+qXYOq2+hQD4Pf/mSNDb55hCs2zyHdi
+            K/MGDTSDwZBmYY6ZwdH9h7bTy75jv8zoCi2hzzsTb56Gbj5JCY4i9Rq3z1o2B0j/
+            llwt/l2C1MAaU5FEdOoRTAuhhJ9ZO2mJG59krlpljI4e8UAHi4+3RPhUGJpXc17z
+            JLEhLRgMRP+cP5syuhhtpm/Qt8W833Bdtlak1XPDzBNJxzroJVNGU9sRrjeahVeg
+            yH7hnX0E2HlP+dBd05Mdw5SV1EN6f2jRssm5F99x//cnx0lJXCxz7Bo0Ips49Fyr
+            DAgjAgoz9NtDVBlxJO8xhuaXoo5HKIzZtDGrpeXSYvaYEJ+oZPexFo0Wi7JjRVpt
+            NdOkMPJssDETtWkP0Vv9f0/NO2pJUh0WXa9S0zTACj2AQmv2MMplpKaP5aTkioXl
+            A0jKtMRT7RAQ78XjjefNiwC+EtkAa08ujpPNJ202hRstGhriCBPUDIF680NuXcuO
+            Mxpmy+RuTa411CB2wvFwfNG8Awo2MLgWbsLXJJllHQy5T1rGwZhTrsv35C4cwxfS
+            ug0AcK+8oQllTfmJ2L9GXVP4vAwefS5BvICd0ueHo74Bx5M8yn7Sf9Ya1o/+Jmze
+            4aK9ss4Jfd7SMsNmhL1c+XPQjV1jfUYzEm49YUC2++4+Et7EE9vVutSsnc/zQ+XS
+            XgErC+83a8/gjfH+VDYpFIlVqPPXXi/3BBMT6pc/egaFUBj/o2/Nkkn45HYrFPGb
+            UhaHAvwEiwyoFWpQDh7RPx6SrO1p7o/1l4YSLVMqEIigQJfbD6UOviyvVmhA4K8=
+            =2mIs
+            -----END PGP MESSAGE-----
+          fp: D862C8B21CC95A554ADBF4FB5E766DCE1FF979DB
+    encrypted_regex: ^(data|stringData)$
+    version: 3.9.3

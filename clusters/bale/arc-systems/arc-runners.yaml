@@ -1,0 +1,18 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: arc-runners-set
+  namespace: arc-systems
+spec:
+  interval: 12h
+  chart:
+    spec:
+      chart: gha-runner-scale-set
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: actions-runner-controller-charts
+      version: 0.10.1
+  values:
+    githubConfigSecret: github-token
