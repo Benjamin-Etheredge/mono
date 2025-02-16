@@ -21,7 +21,8 @@ spec:
       type: "kubernetes"  ## type can be set to dind or kubernetes
       kubernetesModeWorkVolumeClaim:
         accessModes: ["ReadWriteOnce"]
-        storageClassName: "nfs-csi"
+        # storageClassName: "nfs-csi"
+        storageClassName: "longhorn"
         resources:
           requests:
             storage: 1Gi
