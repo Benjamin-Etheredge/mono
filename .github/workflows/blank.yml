@@ -20,6 +20,8 @@ jobs:
     container:
         image: ubuntu:24.04
     steps:
+      - name: Apt Stuff
+        run: "apt-get update && apt-get install -y curl"
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -66,6 +68,8 @@ jobs:
         image: ubuntu:24.04
     # needs: [lint, test]
     steps:
+      - name: Apt Stuff
+        run: "apt-get update && apt-get install -y curl"
       - name: Set up Docker
         uses: docker/setup-docker-action@v4
         with:
