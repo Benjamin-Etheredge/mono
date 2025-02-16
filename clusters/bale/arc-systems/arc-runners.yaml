@@ -17,3 +17,11 @@ spec:
   values:
     githubConfigUrl: https://github.com/Benjamin-Etheredge/mono
     githubConfigSecret: github-token
+    containerMode:
+      type: "kubernetes"  ## type can be set to dind or kubernetes
+      kubernetesModeWorkVolumeClaim:
+        accessModes: ["ReadWriteOnce"]
+        storageClassName: "nfs-csi"
+        resources:
+          requests:
+            storage: 1Gi
