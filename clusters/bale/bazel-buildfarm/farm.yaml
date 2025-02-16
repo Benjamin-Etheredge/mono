@@ -5,6 +5,7 @@ metadata:
   name: bazel-buildfarm
   namespace: bazel-buildfarm
 spec:
+  type: "oci"
   interval: 30m0s
   url: oci://ghcr.io/buildfarm/buildfarm
 ---
