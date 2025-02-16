@@ -12,7 +12,7 @@ def basic_app(
 
 
 def basic_pex(
-    entrypoint="app.py", 
+    entrypoint="app.py",
     target_suffix="",
 ):
     pex_binary(
