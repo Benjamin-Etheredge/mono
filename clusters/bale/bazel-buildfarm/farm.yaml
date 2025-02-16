@@ -7,7 +7,7 @@ metadata:
 spec:
   type: "oci"
   interval: 12h
-  url: oci://ghcr.io/buildfarm/buildfarm
+  url: oci://ghcr.io/buildfarm
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
@@ -18,12 +18,12 @@ spec:
   interval: 12h
   chart:
     spec:
-      chart: bazel-buildfarm
+      chart: buildfarm
       reconcileStrategy: ChartVersion
       sourceRef:
         kind: HelmRepository
         name: buildfarm
-      version: 0.2.6
+      version: 0.2.9
   values:
     server:
      resources:
