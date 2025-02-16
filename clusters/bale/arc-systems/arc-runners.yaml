@@ -17,6 +17,10 @@ spec:
   values:
     githubConfigUrl: https://github.com/Benjamin-Etheredge/mono
     githubConfigSecret: github-token
+    controllerServiceAccount:
+      namespace: arc-systems
+      # Name must line up with the above chart release name eg `github-actions-scale-set-controller`. Install the above chart and see what SA name it makes.
+      name: arc-gha-rs-controller
     containerMode:
       # Needed, even if the docs say it isn't.
       type: kubernetes
