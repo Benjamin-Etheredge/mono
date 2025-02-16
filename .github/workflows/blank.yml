@@ -17,6 +17,8 @@ on:
 jobs:
   lint:
     runs-on: arc-runners-set
+    container:
+        image: ubuntu:24.04
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
@@ -53,7 +55,15 @@ jobs:
         run: "pants test ::"
 
   publish:
-    runs-on: ubuntu-24.04
+    runs-on: arc-runners-set
+    services:
+      docker:
+        image: docker:dind
+        options: --privileged
+        ports:
+          - 2375:2375
+    container:
+        image: ubuntu:24.04
     # needs: [lint, test]
     steps:
       - name: Set up Docker
