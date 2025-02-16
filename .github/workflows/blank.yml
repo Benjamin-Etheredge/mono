@@ -16,7 +16,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   lint:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
@@ -30,10 +30,10 @@ jobs:
           gha-cache-key: cache0-py${{ matrix.python_version }}
           named-caches-hash: ${{ hashFiles('lockfiles/*.json', '**/something-else.lock') }}
       - name: Lint
-        run: "pants lint ::"
+        run: "pants tailor --check update-build-files --check lint check ::"
 
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -49,7 +49,7 @@ jobs:
         run: "pants test ::"
 
   publish:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: [lint, test]
     steps:
       - uses: actions/checkout@v4
@@ -67,8 +67,8 @@ jobs:
         uses: pantsbuild/actions/init-pants@main
         with:
           # cache0 makes it easy to bust the cache if needed
-          gha-cache-key: cache0-py${{ matrix.python_version }}
-          named-caches-hash: ${{ hashFiles('lockfiles/*.json', '**/something-else.lock') }}
+          gha-cache-key: cache0-py3.12
+          # gha-cache-key: cache0-py${{ matrix.python_version }}
       - name: Debug0
         run: "docker info"
       - name: Debug
