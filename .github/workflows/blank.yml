@@ -54,11 +54,9 @@ jobs:
 
   publish:
     runs-on: arc-runners-set
-    container: ubuntu:24.04
+    container: etheredgbeb/build-support:ubuntu
     # needs: [lint, test]
     steps:
-      - name: Apt Stuff
-        run: "apt-get update && apt-get install -y curl"
       - name: Set up Docker
         uses: docker/setup-docker-action@v4
         with:
