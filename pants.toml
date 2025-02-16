@@ -1,5 +1,5 @@
 [GLOBAL]
-pants_version = "2.25.0a1"
+pants_version = "2.24.2rc1"
 dynamic_ui = true
 colors = true
 
@@ -22,7 +22,6 @@ backend_packages = [
   "pants.backend.experimental.bsp",
   "pants.backend.experimental.tools.yamllint",
   "pants.backend.tools.taplo",
-
 ]
 
 # Include macros
@@ -46,6 +45,9 @@ assets = true
 [docker]
 default_repository = "etheredgeb/{directory}"
 use_buildx = true
+
+[dockerfile-parser]
+use_rust_parser = true
 
 [docker.registries.dockerhub]
 address = "docker.io"
