@@ -1,2 +1,21 @@
 [GLOBAL]
+# Colors often work in CI, but the shell is usually not a TTY so Pants
+# doesn't attempt to use them by default.
+colors = true
 dynamic_ui = false
+
+[docker]
+env_vars = ["PATH", "REMOTE_CONTAINERS_IPC"]
+
+[stats]
+log = true
+
+[test]
+use_coverage = true
+
+[coverage-py]
+report = ["xml"]
+global_report = true
+
+[pytest]
+args = ["-vv", "--no-header"]
