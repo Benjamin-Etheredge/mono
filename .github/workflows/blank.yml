@@ -71,7 +71,14 @@ jobs:
           named-caches-hash: ${{ hashFiles('lockfiles/*.json', '**/something-else.lock') }}
       - name: Debug
         run: "pants dependencies src/itty:img"
+      - name: Debug2
+        run: "pants package src/itty:img"
       - name: Package
         run: "pants package ::"
       - name: Publish
         run: "pants publish ::"
+      - name: Upload pants log
+        uses: actions/upload-artifact@v2
+        with:
+          name: pants-log-lint
+          path: .pants.d/pants.log
