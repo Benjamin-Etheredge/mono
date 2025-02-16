@@ -15,4 +15,5 @@ spec:
         name: actions-runner-controller-charts
       version: 0.10.1
   values:
+    githubConfigUrl: https://github.com/Benjamin-Etheredge/mono
     githubConfigSecret: github-token
