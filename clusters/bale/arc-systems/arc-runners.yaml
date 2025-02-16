@@ -17,25 +17,26 @@ spec:
   values:
     githubConfigUrl: https://github.com/Benjamin-Etheredge/mono
     githubConfigSecret: github-token
+    minRunners: 1
     controllerServiceAccount:
       namespace: arc-systems
       # Name must line up with the above chart release name eg `github-actions-scale-set-controller`. Install the above chart and see what SA name it makes.
       name: arc-gha-rs-controller
     containerMode:
       # Needed, even if the docs say it isn't.
-      type: kubernetes
-      kubernetesModeWorkVolumeClaim:
-        accessModes: ["ReadWriteOnce"]
-        storageClassName: "nfs-csi"
-        resources:
-          requests:
-            storage: 5Gi
-    template:
-      spec:
+      type: dind
+      # kubernetesModeWorkVolumeClaim:
+      #   accessModes: ["ReadWriteOnce"]
+      #   storageClassName: "nfs-csi"
+      #   resources:
+      #     requests:
+      #       storage: 5Gi
+    # template:
+    #   spec:
         # We must add an init container to change the ownership of the _work directory
         # https://docs.github.com/en/enterprise-server@3.9/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/troubleshooting-actions-runner-controller-errors#error-access-to-the-path-homerunner_work_tool-is-denied
-        securityContext:
-          fsGroup: 123
+        # securityContext:
+        #   fsGroup: 123
         # initContainers:
         #   - name: kube-init
         #     image: ghcr.io/actions/actions-runner:latest
@@ -43,10 +44,10 @@ spec:
         #     volumeMounts:
         #       - name: work
         #         mountPath: /home/runner/_work
-        containers:
-          - name: runner
-            image: ghcr.io/actions/actions-runner:latest
-            command: ["/home/runner/run.sh"]
+        # containers:
+        #   - name: runner
+        #     image: ghcr.io/actions/actions-runner:latest
+        #     command: ["/home/runner/run.sh"]
         #     env:
         #       - name: ACTIONS_RUNNER_CONTAINER_HOOKS
         #         value: /home/runner/k8s/index.js
