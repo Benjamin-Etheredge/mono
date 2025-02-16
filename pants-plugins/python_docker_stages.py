@@ -51,12 +51,12 @@ def multi_stage_docker(
         cache_from=[
             {
                 "type": "registry",
-                "ref": f"etheredgeb/{name}{target_suffix}:deps",
+                "ref": f"etheredgeb/{name}:deps",
             }
         ],
         cache_to={
             "type": "registry",
-            "ref": f"etheredgeb/{name}{target_suffix}:deps",
+            "ref": f"etheredgeb/{name}:deps",
         },
         instructions=[
             f"ARG BASE_IMAGE={base_python_target}",

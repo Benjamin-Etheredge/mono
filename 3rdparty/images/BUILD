@@ -5,5 +5,5 @@ docker_image(
     instructions=[
         "FROM docker.io/library/python:3.12-slim",
     ],
-    skip_push=True,
+    # skip_push=True,
 )

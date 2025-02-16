@@ -69,5 +69,7 @@ jobs:
           # cache0 makes it easy to bust the cache if needed
           gha-cache-key: cache0-py${{ matrix.python_version }}
           named-caches-hash: ${{ hashFiles('lockfiles/*.json', '**/something-else.lock') }}
+      - name: Debug
+        run: "pants dependencies src/itty:img"
       - name: Publish
         run: "pants publish ::"
