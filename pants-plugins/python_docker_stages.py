@@ -59,8 +59,8 @@ def multi_stage_docker(
             "ref": f"etheredgeb/{name}:deps",
         },
         instructions=[
-            f"ARG BASE_IMAGE={base_python_target}",
-            "FROM $BASE_IMAGE",
+            f"ARG PTYHON_IMAGE={base_python_target}",
+            "FROM $PTYHON_IMAGE",
             f"COPY {dot_path}/binary-deps{target_suffix}.pex /binary-deps.pex",
             "RUN PEX_TOOLS=1 python /binary-deps.pex venv --scope=deps --compile /bin/app",
         ],
@@ -82,8 +82,8 @@ def multi_stage_docker(
             "ref": f"etheredgeb/{name}:srcs",
         },
         instructions=[
-            f"ARG BASE_IMAGE={base_python_target}",
-            "FROM $BASE_IMAGE",
+            f"ARG PTYHON_IMAGE={base_python_target}",
+            "FROM $PTYHON_IMAGE",
             f"COPY {dot_path}/binary-srcs{target_suffix}.pex /binary-srcs.pex",
             "RUN PEX_TOOLS=1 python /binary-srcs.pex venv --scope=srcs --compile /bin/app",
         ],
@@ -95,11 +95,11 @@ def multi_stage_docker(
         instructions=[
             "ARG DEP_IMAGE=:img-deps",
             "ARG SRC_IMAGE=:img-srcs",
-            f"ARG BASE_IMAGE={base_python_target}",
+            f"ARG PTYHON_IMAGE={base_python_target}",
             # Have to do this FROM stuff for pants to catch the targets
             "FROM $DEP_IMAGE as deps",
             "FROM $SRC_IMAGE as srcs",
-            "FROM $BASE_IMAGE",
+            "FROM $PTYHON_IMAGE",
             'ENTRYPOINT ["/bin/app/pex"]',
             "COPY --from=deps /bin/app /bin/app",
             "COPY --from=srcs /bin/app /bin/app",
