@@ -54,7 +54,7 @@ jobs:
 
   publish:
     runs-on: arc-runners-set
-    container: etheredgbeb/build-support:ubuntu
+    container: etheredgeb/build-support:ubuntu
     # needs: [lint, test]
     steps:
       - name: Set up Docker
