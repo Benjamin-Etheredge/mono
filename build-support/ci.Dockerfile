@@ -25,24 +25,24 @@ RUN mkdir -p /etc/docker \
     }\
 }' > /etc/docker/daemon.json
 
-RUN useradd -m runner \
-    && echo "runner ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/runner \
-    && chmod 0440 /etc/sudoers.d/runner
+# RUN useradd -m runner \
+#     && echo "runner ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/runner \
+#     && chmod 0440 /etc/sudoers.d/runner
 
-RUN groupadd docker \
-    && usermod -aG docker runner \
-    && newgrp docker
-    # && systemctl enable docker.service \
-    # && systemctl start docker.service
+# RUN groupadd docker \
+#     && usermod -aG docker runner \
+#     && newgrp docker
+#     # && systemctl enable docker.service \
+#     # && systemctl start docker.service
 
-USER runner
+# USER runner
 
-WORKDIR /home/runner/
+# WORKDIR /home/runner/
 
-# Pants install in .local/bin
-RUN mkdir -p /home/runner/_work/_temp \
-    && mkdir -p /home/runner/.local/bin
+# # Pants install in .local/bin
+# RUN mkdir -p /home/runner/_work/_temp \
+#     && mkdir -p /home/runner/.local/bin
 
-ENV AGENT_TOOLSDIRECTORY=/home/runner/tools
-ENV PATH=${AGENT_TOOLSDIRECTORY}:/home/runner/.local/bin:${PATH}
+# ENV AGENT_TOOLSDIRECTORY=/home/runner/tools
+# ENV PATH=${AGENT_TOOLSDIRECTORY}:/home/runner/.local/bin:${PATH}
 # Setup paths for github actions
