@@ -16,7 +16,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   lint:
-    runs-on: arc-runners-set
+    runs-on: arc-runners-set-k8s
     container: etheredgeb/github-runner:ubuntu24.04
     # runs-on: ubuntu-24.04
     steps:
@@ -44,7 +44,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-          cache: 'pip'
+          # cache: 'pip'
       - name: Initialize Pants
         uses: pantsbuild/actions/init-pants@main
         with:
@@ -56,7 +56,7 @@ jobs:
         run: "pants test ::"
 
   publish:
-    runs-on: arc-runners-set
+    runs-on: arc-runners-set-k8s
     container: etheredgeb/github-runner:ubuntu24.04
     # needs: [lint, test]
     steps:
@@ -79,7 +79,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-          cache: 'pip'
+          # cache: 'pip'
       - name: Initialize Pants
         uses: pantsbuild/actions/init-pants@main
         with:
