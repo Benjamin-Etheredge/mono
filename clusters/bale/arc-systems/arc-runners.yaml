@@ -24,13 +24,14 @@ spec:
     #   name: arc-gha-rs-controller
     containerMode:
       # Needed, even if the docs say it isn't.
-      type: dind
-      # kubernetesModeWorkVolumeClaim:
-      #   accessModes: ["ReadWriteOnce"]
-      #   storageClassName: "nfs-csi"
-      #   resources:
-      #     requests:
-      #       storage: 5Gi
+      # type: dind
+      type: kubernetes
+      kubernetesModeWorkVolumeClaim:
+        accessModes: ["ReadWriteOnce"]
+        storageClassName: "nfs-csi"
+        resources:
+          requests:
+            storage: 5Gi
     # template:
     #   spec:
         # We must add an init container to change the ownership of the _work directory
