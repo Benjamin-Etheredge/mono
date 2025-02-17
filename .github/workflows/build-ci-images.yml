@@ -33,7 +33,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.12'      
+          python-version: '3.12'
       - name: Initialize Pants
         uses: pantsbuild/actions/init-pants@main
       - name: Publish CI Image

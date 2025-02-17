@@ -1,7 +1,7 @@
 FROM ubuntu:24.04
 
 RUN apt-get update \
-    && apt-get install -y \
+    && apt-get install --no-install-recommends -y \
         build-essential \
         curl \
         wget \
@@ -9,7 +9,7 @@ RUN apt-get update \
         software-properties-common \
     && add-apt-repository ppa:deadsnakes/ppa \
     && apt-get update \
-    && apt-get install -y \
+    && apt-get install --no-install-recommends -y \
         python3.12 \
         python3.12-dev \
         python3.12-venv \
