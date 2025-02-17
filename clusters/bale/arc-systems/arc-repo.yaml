@@ -2,8 +2,8 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-  name: actions-runner-controller-charts
-  namespace: arc-runners-set
+  url: oci://ghcr.io/actions/actions-runner-controller-charts
+  namespace: arc-systems
 spec:
   type: "oci"
   interval: 12h
