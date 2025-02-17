@@ -1,16 +1,16 @@
 docker_image(
     name="ubuntu",
     source="ci.Dockerfile",
-    repository="etheredgeb/github-runner",
-    image_tags=["ubuntu", "ubuntu24.04", "ubuntu24.04-py3.12"],
+    repository="etheredgeb/gha-ubuntu24.04-py3.12",
+    image_tags=["1.0.0"],
     cache_from=[
         {
             "type": "registry",
-            "ref": f"etheredgeb/github-runner:ubuntu24.04-cache",
+            "ref": f"etheredgeb/gha-ubuntu24.04-py3.12:cache",
         }
     ],
     cache_to={
         "type": "registry",
-        "ref": f"etheredgeb/github-runner:ubuntu24.04-cache",
+        "ref": f"etheredgeb/gha-ubuntu24.04-py3.12:cache",
     },
 )
