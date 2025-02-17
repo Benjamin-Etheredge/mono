@@ -6,10 +6,13 @@ RUN apt-get update \
         curl \
         wget \
         sudo \
-        software-properties-common\
+        software-properties-common \
     && add-apt-repository ppa:deadsnakes/ppa \
     && apt-get update \
-    && apt-get install -y python3.12 \
+    && apt-get install -y \
+        python3.12 \
+        python3.12-dev \
+        python3.12-venv \
     && rm -rf /var/lib/apt/lists/*
 
 COPY --from=docker:latest /usr/local/bin/docker /usr/local/bin/docker
@@ -27,7 +30,8 @@ RUN useradd -m runner \
     && chmod 0440 /etc/sudoers.d/runner
 
 RUN groupadd docker \
-    && usermod -aG docker runner 
+    && usermod -aG docker runner \
+    && newgrp docker
     # && systemctl enable docker.service \
     # && systemctl start docker.service
 
