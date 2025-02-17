@@ -53,7 +53,9 @@ jobs:
         run: "pants test ::"
 
   publish:
-    runs-on: arc-runners-set-k8s
+    # According to random chart from below url, need dind to build containers
+    # https://www.stepsecurity.io/blog/how-to-use-docker-in-actions-runner-controller-runners-securelly
+    runs-on: arc-runners-set-dind
     container: etheredgeb/github-runner:ubuntu24.04
     # needs: [lint, test]
     steps:
