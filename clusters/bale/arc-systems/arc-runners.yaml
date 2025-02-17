@@ -24,7 +24,6 @@ spec:
     #   name: arc-gha-rs-controller
     containerMode:
       # Needed, even if the docs say it isn't.
-      # type: dind
       type: kubernetes
       kubernetesModeWorkVolumeClaim:
         accessModes: ["ReadWriteOnce"]
