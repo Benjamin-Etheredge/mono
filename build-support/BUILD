@@ -2,7 +2,7 @@ docker_image(
     name="ubuntu",
     source="ci.Dockerfile",
     repository="etheredgeb/gha-ubuntu24.04-py3.12",
-    image_tags=["1.0.1"],
+    image_tags=["1.0.2"],
     cache_from=[
         {
             "type": "registry",

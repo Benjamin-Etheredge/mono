@@ -46,3 +46,5 @@ RUN mkdir -p /etc/docker \
 # ENV AGENT_TOOLSDIRECTORY=/home/runner/tools
 # ENV PATH=${AGENT_TOOLSDIRECTORY}:/home/runner/.local/bin:${PATH}
 # Setup paths for github actions
+
+RUN curl --proto '=https' --tlsv1.2 -fsSL https://static.pantsbuild.org/setup/get-pants.sh | bash
