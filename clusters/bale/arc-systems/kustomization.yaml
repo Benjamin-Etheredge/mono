@@ -3,7 +3,6 @@ kind: Kustomization
 namespace: arc-systems
 resources:
   - namespace.yaml
-bases:
   - arc-repo.yaml
   - github-token.yaml
   - arc.yaml
