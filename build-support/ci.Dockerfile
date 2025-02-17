@@ -48,3 +48,6 @@ RUN mkdir -p /etc/docker \
 # Setup paths for github actions
 
 RUN curl --proto '=https' --tlsv1.2 -fsSL https://static.pantsbuild.org/setup/get-pants.sh  | bash -s -- -d /usr/local/bin
+
+# https://github.com/docker/for-mac/issues/7228
+ENV HOME=/root

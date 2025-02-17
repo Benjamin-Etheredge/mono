@@ -56,7 +56,7 @@ jobs:
     # According to random chart from below url, need dind to build containers
     # https://www.stepsecurity.io/blog/how-to-use-docker-in-actions-runner-controller-runners-securelly
     runs-on: arc-runners-set-dind
-    container: etheredgeb/gha-ubuntu24.04-py3.12:1.0.3
+    container: etheredgeb/gha-ubuntu24.04-py3.12:1.0.4
     # needs: [lint, test]
     steps:
       # - name: Set up Docker
