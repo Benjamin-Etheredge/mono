@@ -9,7 +9,9 @@
 			"configureZshAsDefaultShell": true,
 			"installOhMyZsh": true
 		},
-		"ghcr.io/devcontainers/features/docker-in-docker:2": {},
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {
+			"version": "26.1.3"
+		},
 		"ghcr.io/devcontainers/features/git:1": {},
 		"ghcr.io/devcontainers/features/git-lfs:1": {},
 		"ghcr.io/devcontainers/features/github-cli:1": {},
@@ -45,7 +47,8 @@
 				"Iterative.dvc",
 				"redhat.vscode-yaml",
 				"bierner.markdown-mermaid",
-				"eamodio.gitlens"
+				"eamodio.gitlens",
+				"GitHub.vscode-github-actions"
 			]
 		}
 	},
