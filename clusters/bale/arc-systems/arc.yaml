@@ -16,6 +16,8 @@ spec:
         namespace: arc-systems
       version: 0.10.1
   values:
+    flags:
+      runnerMaxConcurrentReconciles: 4
     resources:
       requests:
         cpu: 100m
