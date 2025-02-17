@@ -1,14 +1,15 @@
 FROM ubuntu:24.04
 
-# python3.8 is installed for pants
 RUN apt-get update \
     && apt-get install -y \
         build-essential \
         curl \
         wget \
         sudo \
-        python3.8 \
-        python3.12 \
+        software-properties-common\
+    && add-apt-repository ppa:deadsnakes/ppa \
+    && apt-get update \
+    && apt-get install -y python3.12 \
     && rm -rf /var/lib/apt/lists/*
 
 COPY --from=docker:latest /usr/local/bin/docker /usr/local/bin/docker
@@ -35,8 +36,8 @@ USER runner
 WORKDIR /home/runner/
 
 # Pants install in .local/bin
-RUN mkdir -p _work/_temp \
-    && mkdir -p .local/bin
+RUN mkdir -p /home/runner/_work/_temp \
+    && mkdir -p /home/runner/.local/bin
 
 ENV AGENT_TOOLSDIRECTORY=/home/runner/tools
 ENV PATH=${AGENT_TOOLSDIRECTORY}:/home/runner/.local/bin:${PATH}
