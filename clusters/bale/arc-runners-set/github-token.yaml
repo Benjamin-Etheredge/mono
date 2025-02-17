@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: github-token
+    namespace: arc-runners-set
+type: Opaque
+stringData:
+    github_token: ENC[AES256_GCM,data:18pwH/EgufeWp1t2WpTbCmClu98AgxbatrRWD8T8+J/mcWHA2SzP2Q==,iv:6CNq/7e+6Ek0KjsqDmbRcDv+zV5s9u+B7jYpxsi0PzY=,tag:OMrmQeXb3CxyOdzej0Nnvg==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2025-02-16T21:19:16Z"
+    mac: ENC[AES256_GCM,data:ck7pMTjhPvjvZDOPQGlDXEOeJ2LRNAvzUueQHDt/i9XC84yl0LdaaulmmvNcoyU1TCefOOjMb7KhMhMFbjF+wVQ5N5ByfMVIhMptev3WlNpHywgdVe3YL9sIxdgqmv6TvPziUGlc/IaVabk7fX3B9+kQQwX+65TwgPVk1J6fx6Q=,iv:qiKNbMXbdAZ9qnsB+KZ/dlzvdp0L21vzerz1f22PlE4=,tag:3JNBAuoBasVPgHTT30jryg==,type:str]
+    pgp:
+        - created_at: "2025-02-16T21:19:16Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA0tk1fhnWD/CARAAuIxnYtNysTpoRBZ7HmZhK2RT7sKhtUx1H7g6aWBPQtwy
+            Xx+FxkzIrF6KfqpYjH613myIXe2Pme4SIFr/N+7bJdPkZuCiwWn4O1M3fXDxibOo
+            AJ0cinhdLpzLLCZa92MRKbmfNWxM7SWLmhRE/waBMmSYpw+jDA0HohmDQDO2GxAr
+            jWL5f59abgbG1kjVMGqJz+DkFe6yqsnzGLgH4woAqDD5EDJImIUxCA06qXR1F3cj
+            iX5lWtg2Ki5gAawFhiCQF8DCOd+eOYnDxc0NIlD5v16ad9emPa9GSOmLw+PXkdcV
+            atrpjvZH2BgYFR/3A71YYVmih5A2/rctRkOb+XgWIpnT84oAmxQzdfrsWMKNFFlQ
+            v2iGKMh+ddyct3y/mfTw885RCWQgt1mnuDtlsoiEfFG4BGgkpVJcuNz+HW5kPlcy
+            y0sjqHFele2bsZ6nsVkssnzHUlRHq7zblr8+A4KmeN87hXPoBNyuzI1r8gWavnKT
+            1xA8xES+jJgAFVfMul/sxuB7o1+2QvUHJto/cb9+GvOKDguYO2iVtxQTH0F6/kIY
+            wT8P/EnvW6NRHF00vDOQ5ehi/06thprNyqV5lT0IwWRXO3cxok36cgP3YbuOZ813
+            2dM1abMFUJc5PCVF/lndRGaLb6ddChN4yA6jgBFF552FQEUB90xNOADVj08zuzfS
+            XAHFM88D/JyF9JmFNC77XlPHb18XeOM+IPr6uS7JxVX6mobbdRYT1G0lwj+ZJ1iM
+            SKN0QennL2JiIZhX9dKm/X8yCZqTGdLazHRtUbDlOCgW6WmLEDYnTLRssp6w
+            =sbXX
+            -----END PGP MESSAGE-----
+          fp: D862C8B21CC95A554ADBF4FB5E766DCE1FF979DB
+    encrypted_regex: ^(data|stringData)$
+    version: 3.9.3
