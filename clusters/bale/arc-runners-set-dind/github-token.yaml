@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Secret
 metadata:
     name: github-token
-    namespace: pls
+    namespace: arc-runners-set-dind
 type: Opaque
 stringData:
     github_token: ENC[AES256_GCM,data:18pwH/EgufeWp1t2WpTbCmClu98AgxbatrRWD8T8+J/mcWHA2SzP2Q==,iv:6CNq/7e+6Ek0KjsqDmbRcDv+zV5s9u+B7jYpxsi0PzY=,tag:OMrmQeXb3CxyOdzej0Nnvg==,type:str]
