@@ -3,7 +3,6 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: arc-runners-set-dind
-  namespace: arc-runners-set-dind
 spec:
   interval: 12h
   chart:
