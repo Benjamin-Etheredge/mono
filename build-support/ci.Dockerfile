@@ -1,11 +1,13 @@
 FROM ubuntu:24.04
 
+# python3.8 is installed for pants
 RUN apt-get update \
     && apt-get install -y \
         build-essential \
         curl \
         wget \
         sudo \
+        python3.8 \
         python3.12 \
     && rm -rf /var/lib/apt/lists/*
 
@@ -32,8 +34,10 @@ USER runner
 
 WORKDIR /home/runner/
 
-RUN mkdir -p _work/_temp
+# Pants install in .local/bin
+RUN mkdir -p _work/_temp \
+    && mkdir -p .local/bin
 
 ENV AGENT_TOOLSDIRECTORY=/home/runner/tools
-ENV PATH=${AGENT_TOOLSDIRECTORY}:${PATH}
+ENV PATH=${AGENT_TOOLSDIRECTORY}:/home/runner/.local/bin:${PATH}
 # Setup paths for github actions
