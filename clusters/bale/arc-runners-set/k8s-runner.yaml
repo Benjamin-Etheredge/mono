@@ -2,8 +2,8 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: arc-runners-set
-  namespace: arc-systems
+  name: arc-runners-set-k8s
+  namespace: arc-runners-set
 spec:
   interval: 12h
   chart:
