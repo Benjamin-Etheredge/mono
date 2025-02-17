@@ -4,5 +4,5 @@ resources:
   - namespace.yaml
   - arc-runners-repo.yaml
   - github-token.yaml
-  - k8s-runners.yaml
-  - dind-runners.yaml
+  - k8s-runner.yaml
+  - dind-runner.yaml
