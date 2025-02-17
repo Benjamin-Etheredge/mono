@@ -8,6 +8,15 @@ RUN apt-get update \
         sudo \
     && rm -rf /var/lib/apt/lists/*
 
+RUN mkdir -p /etc/docker \
+    && echo '{\
+    "debug": true,\
+    "features": {\
+        "containerd-snapshotter": true\
+    }\
+}' > /etc/docker/daemon.json
+
+
 RUN useradd -m runner \
     && echo "runner ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/runner \
     && chmod 0440 /etc/sudoers.d/runner
