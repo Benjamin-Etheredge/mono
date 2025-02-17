@@ -22,9 +22,6 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
       - name: Initialize Pants
         uses: pantsbuild/actions/init-pants@main
         with:
@@ -76,10 +73,6 @@ jobs:
         with:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-          # cache: 'pip'
       - name: Initialize Pants
         uses: pantsbuild/actions/init-pants@main
         with:

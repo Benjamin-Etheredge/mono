@@ -2,7 +2,7 @@ docker_image(
     name="ubuntu",
     source="ci.Dockerfile",
     repository="etheredgeb/github-runner",
-    image_tags=["ubuntu", "ubuntu24.04"],
+    image_tags=["ubuntu", "ubuntu24.04", "ubuntu24.04-py3.12"],
     cache_from=[
         {
             "type": "registry",
