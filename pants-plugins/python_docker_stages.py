@@ -48,16 +48,16 @@ def multi_stage_docker(
         image_tags=["deps"],
         skip_push=True,
         repository=f"etheredgeb/{name}",
-        # cache_from=[
-        #     {
-        #         "type": "registry",
-        #         "ref": f"etheredgeb/{name}:deps",
-        #     }
-        # ],
-        # cache_to={
-        #     "type": "registry",
-        #     "ref": f"etheredgeb/{name}:deps",
-        # },
+        cache_from=[
+            {
+                "type": "registry",
+                "ref": f"etheredgeb/{name}:deps",
+            }
+        ],
+        cache_to={
+            "type": "registry",
+            "ref": f"etheredgeb/{name}:deps",
+        },
         instructions=[
             f"ARG PYTHON_IMAGE={base_python_target}",
             "FROM $PYTHON_IMAGE",
@@ -71,16 +71,16 @@ def multi_stage_docker(
         image_tags=["srcs"],
         skip_push=True,
         repository=f"etheredgeb/{name}",
-        # cache_from=[
-        #     {
-        #         "type": "registry",
-        #         "ref": f"etheredgeb/{name}:srcs",
-        #     }
-        # ],
-        # cache_to={
-        #     "type": "registry",
-        #     "ref": f"etheredgeb/{name}:srcs",
-        # },
+        cache_from=[
+            {
+                "type": "registry",
+                "ref": f"etheredgeb/{name}:srcs",
+            }
+        ],
+        cache_to={
+            "type": "registry",
+            "ref": f"etheredgeb/{name}:srcs",
+        },
         instructions=[
             f"ARG PYTHON_IMAGE={base_python_target}",
             "FROM $PYTHON_IMAGE",
