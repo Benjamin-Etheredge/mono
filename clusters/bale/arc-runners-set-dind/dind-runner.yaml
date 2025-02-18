@@ -19,8 +19,8 @@ spec:
     githubConfigUrl: https://github.com/Benjamin-Etheredge/mono
     githubConfigSecret: github-token
     minRunners: 1
-    # containerMode:
-      # type: dind
+    containerMode:
+      type: dind
     template:
       spec:
         initContainers:
