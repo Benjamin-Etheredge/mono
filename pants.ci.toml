@@ -6,6 +6,7 @@ dynamic_ui = false
 
 [docker]
 # env_vars = ["PATH", "REMOTE_CONTAINERS_IPC"]
+env_vars = ["DOCKER_CONFIG", "DOCKER_USERNAME", "DOCKER_PASSWORD"]
 
 [stats]
 log = true
