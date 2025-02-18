@@ -75,8 +75,8 @@ jobs:
         with:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Hello World 1
-        run: "sleep 500"
+      # - name: Hello World 1
+      #   run: "sleep 500"
       # - name: Hello World 2
       #   run: "docker tag hello-world:latest etheredgeb/hello-world:latest"
       # - name: Hello World 3
