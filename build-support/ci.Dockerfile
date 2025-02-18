@@ -16,6 +16,8 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 COPY --from=docker:latest /usr/local/bin/docker /usr/local/bin/docker
+COPY --from=docker:latest /usr/local/libexec/docker/cli-plugins/docker-buildx /usr/local/libexec/docker/cli-plugins/docker-buildx
+COPY --from=docker:latest /usr/local/libexec/docker/cli-plugins/docker-compose /usr/local/libexec/docker/cli-plugins/docker-compose
 
 RUN mkdir -p /etc/docker \
     && echo '{\
