@@ -15,17 +15,20 @@ RUN apt-get update \
         python3.12-venv \
     && rm -rf /var/lib/apt/lists/*
 
+# Setup docker stuff
 COPY --from=docker:latest /usr/local/bin/docker /usr/local/bin/docker
 COPY --from=docker:latest /usr/local/libexec/docker/cli-plugins/docker-buildx /usr/local/libexec/docker/cli-plugins/docker-buildx
 COPY --from=docker:latest /usr/local/libexec/docker/cli-plugins/docker-compose /usr/local/libexec/docker/cli-plugins/docker-compose
 
-RUN mkdir -p /etc/docker \
-    && echo '{\
-    "debug": true,\
-    "features": {\
-        "containerd-snapshotter": true\
-    }\
-}' > /etc/docker/daemon.json
+RUN curl --proto '=https' --tlsv1.2 -fsSL https://static.pantsbuild.org/setup/get-pants.sh  | bash -s -- -d /usr/local/bin
+
+# RUN mkdir -p /etc/docker \
+#     && echo '{\
+#     "debug": true,\
+#     "features": {\
+#         "containerd-snapshotter": true\
+#     }\
+# }' > /etc/docker/daemon.json
 
 # RUN useradd -m runner \
 #     && echo "runner ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/runner \
@@ -34,8 +37,8 @@ RUN mkdir -p /etc/docker \
 # RUN groupadd docker \
 #     && usermod -aG docker runner \
 #     && newgrp docker
-#     # && systemctl enable docker.service \
-#     # && systemctl start docker.service
+# #     # && systemctl enable docker.service \
+# #     # && systemctl start docker.service
 
 # USER runner
 
@@ -49,7 +52,3 @@ RUN mkdir -p /etc/docker \
 # ENV PATH=${AGENT_TOOLSDIRECTORY}:/home/runner/.local/bin:${PATH}
 # Setup paths for github actions
 
-RUN curl --proto '=https' --tlsv1.2 -fsSL https://static.pantsbuild.org/setup/get-pants.sh  | bash -s -- -d /usr/local/bin
-
-# https://github.com/docker/for-mac/issues/7228
-ENV HOME=/root
