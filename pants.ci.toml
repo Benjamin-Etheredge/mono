@@ -6,7 +6,8 @@ dynamic_ui = false
 
 [docker]
 # env_vars = ["PATH", "REMOTE_CONTAINERS_IPC"]
-env_vars = ["HOME", "DOCKER_CONFIG=/github/home/.docker/config.json"]
+env_vars = ["HOME"]
+# env_vars = ["HOME", "DOCKER_CONFIG=/github/home/.docker/config.json"]
 
 [stats]
 log = true
