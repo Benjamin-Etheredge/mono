@@ -20,6 +20,7 @@ COPY --from=docker:latest /usr/local/bin/docker /usr/local/bin/docker
 COPY --from=docker:latest /usr/local/libexec/docker/cli-plugins/docker-buildx /usr/local/libexec/docker/cli-plugins/docker-buildx
 COPY --from=docker:latest /usr/local/libexec/docker/cli-plugins/docker-compose /usr/local/libexec/docker/cli-plugins/docker-compose
 
+# hadolint ignore=DL4006
 RUN curl --proto '=https' --tlsv1.2 -fsSL https://static.pantsbuild.org/setup/get-pants.sh  | bash -s -- -d /usr/local/bin
 
 # RUN mkdir -p /etc/docker \
