@@ -27,7 +27,11 @@ backend_packages = [
 # Include macros
 build_file_prelude_globs = ["pants-plugins/*.py"]
 
-pants_ignore = ["/.devcontainer", "scratch"]
+pants_ignore = [
+  "/.devcontainer",
+  "scratch",
+  "!data/",
+]
 
 [python]
 interpreter_constraints = ['==3.12.*']

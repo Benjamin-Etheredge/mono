@@ -48,7 +48,10 @@
 				"redhat.vscode-yaml",
 				"bierner.markdown-mermaid",
 				"eamodio.gitlens",
-				"GitHub.vscode-github-actions"
+				"GitHub.vscode-github-actions",
+				"ms-toolsai.jupyter",
+				"ms-python.python",
+				"ms-python.vscode-pylance"
 			]
 		}
 	},
@@ -56,10 +59,17 @@
 	"containerEnv": {
 		"PANTS_CONFIG_FILES": "/workspaces/mono/pants.devcontainer.toml",
 		"AWS_ACCESS_KEY_ID": "${localEnv:AWS_ACCESS_KEY}",
-		"AWS_SECRET_ACCESS_KEY": "${localEnv:AWS_SECRET_ACCESS_KEY}"
+		"AWS_SECRET_ACCESS_KEY": "${localEnv:AWS_SECRET_ACCESS_KEY}",
+		"WANDB_API_KEY": "${localEnv:WANDB_API_KEY}"
 	},
 
 	"workspaceFolder": "/workspaces/mono",
 
-	"postCreateCommand": "./scripts/setup_devcontainer.sh"
+	"postCreateCommand": "./scripts/setup_devcontainer.sh",
+
+	"runArgs": ["--ulimit=nofile=1024:8192", "--shm-size=1g"],
+
+	"hostRequirements": {
+		"gpu": "optional"
+	}
 }

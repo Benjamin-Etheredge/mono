@@ -5,7 +5,11 @@ fastapi
 gradio
 gradio-webrtc
 huggingface_hub
+icecream
 inference>=0.30.0
+jsonargparse[signatures]
+jupyterlab
+lightning
 matplotlib
 numpy
 ollama

@@ -1,0 +1,10 @@
+stages:
+  train:
+    cmd: python train.py fit
+    deps:
+      - train.py
+      - model.py
+      - datamodule.py
+      - data/
+    outs:
+      - models/

@@ -45,6 +45,7 @@ anyio==4.8.0
     #   anthropic
     #   gradio
     #   httpx
+    #   jupyter-server
     #   openai
     #   starlette
     #   watchfiles
@@ -52,10 +53,20 @@ appdirs==1.4.4
     # via iterative-telemetry
 apscheduler==3.11.0
     # via inference
+argon2-cffi==23.1.0
+    # via jupyter-server
+argon2-cffi-bindings==21.2.0
+    # via argon2-cffi
+arrow==1.3.0
+    # via isoduration
 asgiref==3.8.1
     # via opentelemetry-instrumentation-asgi
 asttokens==3.0.0
-    # via stack-data
+    # via
+    #   icecream
+    #   stack-data
+async-lru==2.0.4
+    # via jupyterlab
 asyncssh==2.19.0
     # via scmrepo
 asyncua==1.1.5
@@ -72,14 +83,20 @@ attrs==24.3.0
     #   sqltrie
 av==12.3.0
     # via aiortc
+babel==2.17.0
+    # via jupyterlab-server
 backoff==2.2.1
     # via
     #   inference
     #   posthog
 bcrypt==4.2.1
     # via chromadb
+beautifulsoup4==4.13.3
+    # via nbconvert
 billiard==4.2.1
     # via celery
+bleach==6.2.0
+    # via nbconvert
 blinker==1.9.0
     # via streamlit
 boto3==1.35.60
@@ -108,6 +125,7 @@ certifi==2024.12.14
 cffi==1.17.1
     # via
     #   aiortc
+    #   argon2-cffi-bindings
     #   cryptography
     #   pygit2
     #   pylibsrtp
@@ -134,11 +152,15 @@ click-plugins==1.1.1
 click-repl==0.3.0
     # via celery
 colorama==0.4.6
-    # via dvc
+    # via
+    #   dvc
+    #   icecream
 coloredlogs==15.0.1
     # via
     #   onnxruntime
     #   onnxruntime-gpu
+comm==0.2.2
+    # via ipykernel
 commonmark==0.9.1
     # via rich
 configobj==5.0.9
@@ -161,10 +183,14 @@ dataclasses-json==0.6.7
     # via inference
 datasets==3.2.0
     # via -r requirements.in
+debugpy==1.8.12
+    # via ipykernel
 decorator==5.1.1
     # via ipython
 defusedxml==0.7.1
-    # via supervision
+    # via
+    #   nbconvert
+    #   supervision
 deprecated==1.2.15
     # via
     #   opentelemetry-api
@@ -190,6 +216,8 @@ docker==7.1.0
     # via inference
 docker-pycreds==0.4.0
     # via wandb
+docstring-parser==0.16
+    # via jsonargparse
 dpath==2.2.0
     # via dvc
 dulwich==0.22.7
@@ -218,7 +246,9 @@ dvc-task==0.40.2
 entrypoints==0.4
     # via gto
 executing==2.1.0
-    # via stack-data
+    # via
+    #   icecream
+    #   stack-data
 fastapi==0.110.3
     # via
     #   -r requirements.in
@@ -226,6 +256,8 @@ fastapi==0.110.3
     #   gradio
     #   inference
     #   prometheus-fastapi-instrumentator
+fastjsonschema==2.21.1
+    # via nbformat
 ffmpy==0.5.0
     # via gradio
 filelock==3.16.1
@@ -247,6 +279,8 @@ flufl-lock==8.1.0
     # via dvc
 fonttools==4.55.3
     # via matplotlib
+fqdn==1.5.1
+    # via jsonschema
 frozenlist==1.5.0
     # via
     #   aiohttp
@@ -260,6 +294,8 @@ fsspec==2024.9.0
     #   dvc-objects
     #   gradio-client
     #   huggingface-hub
+    #   lightning
+    #   pytorch-lightning
     #   scmrepo
     #   torch
 funcy==2.0
@@ -314,6 +350,7 @@ httpx==0.27.2
     #   gradio
     #   gradio-client
     #   inference
+    #   jupyterlab
     #   ollama
     #   openai
     #   spaces
@@ -329,10 +366,13 @@ humanfriendly==10.0
     # via coloredlogs
 hydra-core==1.3.2
     # via dvc
+icecream==2.1.4
+    # via -r requirements.in
 idna==3.10
     # via
     #   anyio
     #   httpx
+    #   jsonschema
     #   requests
     #   tldextract
     #   yarl
@@ -343,13 +383,21 @@ imageio==2.36.1
 importlib-metadata==8.5.0
     # via opentelemetry-api
 importlib-resources==6.5.2
-    # via chromadb
+    # via
+    #   chromadb
+    #   typeshed-client
 inference==0.34.0
     # via -r requirements.in
 iniconfig==2.0.0
     # via pytest
+ipykernel==6.29.5
+    # via jupyterlab
 ipython==8.31.0
-    # via pyvis
+    # via
+    #   ipykernel
+    #   pyvis
+isoduration==20.11.0
+    # via jsonschema
 iterative-telemetry==0.0.9
     # via dvc
 jedi==0.19.2
@@ -358,6 +406,10 @@ jinja2==3.1.5
     # via
     #   altair
     #   gradio
+    #   jupyter-server
+    #   jupyterlab
+    #   jupyterlab-server
+    #   nbconvert
     #   pydeck
     #   pyvis
     #   torch
@@ -371,12 +423,54 @@ jmespath==1.0.1
     #   botocore
 joblib==1.4.2
     # via scikit-learn
+json5==0.10.0
+    # via jupyterlab-server
+jsonargparse==4.37.0
+    # via -r requirements.in
 jsonpickle==4.0.1
     # via pyvis
+jsonpointer==3.0.0
+    # via jsonschema
 jsonschema==4.23.0
-    # via altair
+    # via
+    #   altair
+    #   jupyter-events
+    #   jupyterlab-server
+    #   nbformat
 jsonschema-specifications==2024.10.1
     # via jsonschema
+jupyter-client==8.6.3
+    # via
+    #   ipykernel
+    #   jupyter-server
+    #   nbclient
+jupyter-core==5.7.2
+    # via
+    #   ipykernel
+    #   jupyter-client
+    #   jupyter-server
+    #   jupyterlab
+    #   nbclient
+    #   nbconvert
+    #   nbformat
+jupyter-events==0.12.0
+    # via jupyter-server
+jupyter-lsp==2.2.5
+    # via jupyterlab
+jupyter-server==2.15.0
+    # via
+    #   jupyter-lsp
+    #   jupyterlab
+    #   jupyterlab-server
+    #   notebook-shim
+jupyter-server-terminals==0.5.3
+    # via jupyter-server
+jupyterlab==4.3.5
+    # via -r requirements.in
+jupyterlab-pygments==0.3.0
+    # via nbconvert
+jupyterlab-server==2.27.3
+    # via jupyterlab
 kiwisolver==1.4.8
     # via matplotlib
 kombu==5.4.2
@@ -388,10 +482,18 @@ kubernetes==31.0.0
     # via chromadb
 lazy-loader==0.4
     # via scikit-image
+lightning==2.5.0.post0
+    # via -r requirements.in
+lightning-utilities==0.12.0
+    # via
+    #   lightning
+    #   pytorch-lightning
+    #   torchmetrics
 markupsafe==2.1.5
     # via
     #   gradio
     #   jinja2
+    #   nbconvert
 marshmallow==3.25.1
     # via dataclasses-json
 matplotlib==3.10.0
@@ -400,11 +502,15 @@ matplotlib==3.10.0
     #   seaborn
     #   supervision
 matplotlib-inline==0.1.7
-    # via ipython
+    # via
+    #   ipykernel
+    #   ipython
 milvus-lite==2.4.11
     # via pymilvus
 milvus-model==0.2.12
     # via pymilvus
+mistune==3.1.2
+    # via nbconvert
 mmh3==5.0.1
     # via chromadb
 monotonic==1.6
@@ -421,6 +527,17 @@ mypy-extensions==1.0.0
     # via typing-inspect
 narwhals==1.22.0
     # via altair
+nbclient==0.10.2
+    # via nbconvert
+nbconvert==7.16.6
+    # via jupyter-server
+nbformat==5.10.4
+    # via
+    #   jupyter-server
+    #   nbclient
+    #   nbconvert
+nest-asyncio==1.6.0
+    # via ipykernel
 networkx==3.4.2
     # via
     #   dvc
@@ -428,6 +545,8 @@ networkx==3.4.2
     #   pyvis
     #   scikit-image
     #   torch
+notebook-shim==0.2.4
+    # via jupyterlab
 numpy==1.26.4
     # via
     #   -r requirements.in
@@ -453,6 +572,7 @@ numpy==1.26.4
     #   streamlit
     #   supervision
     #   tifffile
+    #   torchmetrics
     #   torchvision
     #   transformers
 nvidia-cublas-cu12==12.4.5.8
@@ -559,7 +679,9 @@ orjson==3.10.14
     #   gradio
     #   sqltrie
 overrides==7.7.0
-    # via chromadb
+    # via
+    #   chromadb
+    #   jupyter-server
 packaging==24.2
     # via
     #   altair
@@ -571,17 +693,27 @@ packaging==24.2
     #   huggingface-hub
     #   hydra-core
     #   inference
+    #   ipykernel
+    #   jupyter-events
+    #   jupyter-server
+    #   jupyterlab
+    #   jupyterlab-server
     #   lazy-loader
+    #   lightning
+    #   lightning-utilities
     #   marshmallow
     #   matplotlib
+    #   nbconvert
     #   onnxruntime
     #   onnxruntime-gpu
     #   opentelemetry-instrumentation
     #   plotly
     #   pytest
+    #   pytorch-lightning
     #   scikit-image
     #   spaces
     #   streamlit
+    #   torchmetrics
     #   transformers
 paho-mqtt==1.6.1
     # via inference
@@ -594,6 +726,8 @@ pandas==2.2.3
     #   pymilvus
     #   seaborn
     #   streamlit
+pandocfilters==1.5.1
+    # via nbconvert
 parso==0.8.4
     # via jedi
 pathspec==0.12.1
@@ -616,6 +750,7 @@ pillow==10.4.0
 platformdirs==4.3.6
     # via
     #   dvc
+    #   jupyter-core
     #   wandb
 plotly==5.24.1
     # via -r requirements.in
@@ -628,7 +763,9 @@ praw==7.8.1
 prawcore==2.4.0
     # via praw
 prometheus-client==0.21.1
-    # via prometheus-fastapi-instrumentator
+    # via
+    #   jupyter-server
+    #   prometheus-fastapi-instrumentator
 prometheus-fastapi-instrumentator==6.0.0
     # via inference
 prompt-toolkit==3.0.48
@@ -651,10 +788,13 @@ psutil==5.9.8
     # via
     #   dvc
     #   flufl-lock
+    #   ipykernel
     #   spaces
     #   wandb
 ptyprocess==0.7.0
-    # via pexpect
+    # via
+    #   pexpect
+    #   terminado
 pure-eval==0.2.3
     # via stack-data
 py-cpuinfo==9.0.0
@@ -705,7 +845,9 @@ pygit2==1.17.0
     # via scmrepo
 pygments==2.19.1
     # via
+    #   icecream
     #   ipython
+    #   nbconvert
     #   rich
 pygtrie==2.5.0
     # via
@@ -739,9 +881,11 @@ pytest==8.3.4
     # via inference
 python-dateutil==2.9.0.post0
     # via
+    #   arrow
     #   asyncua
     #   botocore
     #   celery
+    #   jupyter-client
     #   kubernetes
     #   matplotlib
     #   pandas
@@ -752,8 +896,12 @@ python-dotenv==1.0.1
     #   pydantic-settings
     #   pymilvus
     #   uvicorn
+python-json-logger==3.2.1
+    # via jupyter-events
 python-multipart==0.0.20
     # via gradio
+pytorch-lightning==2.5.0.post0
+    # via lightning
 pytz==2024.2
     # via
     #   asyncua
@@ -767,12 +915,21 @@ pyyaml==6.0.2
     #   gradio
     #   huggingface-hub
     #   inference
+    #   jsonargparse
+    #   jupyter-events
     #   kubernetes
+    #   lightning
     #   omegaconf
+    #   pytorch-lightning
     #   supervision
     #   transformers
     #   uvicorn
     #   wandb
+pyzmq==26.2.1
+    # via
+    #   ipykernel
+    #   jupyter-client
+    #   jupyter-server
 redis==5.0.8
     # via
     #   -r requirements.in
@@ -781,6 +938,7 @@ referencing==0.36.1
     # via
     #   jsonschema
     #   jsonschema-specifications
+    #   jupyter-events
 regex==2024.11.6
     # via transformers
 requests==2.32.3
@@ -792,6 +950,7 @@ requests==2.32.3
     #   huggingface-hub
     #   inference
     #   iterative-telemetry
+    #   jupyterlab-server
     #   kubernetes
     #   posthog
     #   prawcore
@@ -812,6 +971,14 @@ requests-oauthlib==2.0.0
     # via kubernetes
 requests-toolbelt==1.0.0
     # via inference
+rfc3339-validator==0.1.4
+    # via
+    #   jsonschema
+    #   jupyter-events
+rfc3986-validator==0.1.1
+    # via
+    #   jsonschema
+    #   jupyter-events
 rich==13.0.1
     # via
     #   chromadb
@@ -859,6 +1026,8 @@ semantic-version==2.10.0
     # via gradio
 semver==3.0.3
     # via gto
+send2trash==1.8.3
+    # via jupyter-server
 sentry-sdk==2.20.0
     # via wandb
 setproctitle==1.3.4
@@ -866,6 +1035,8 @@ setproctitle==1.3.4
 setuptools==75.8.0
     # via
     #   inference
+    #   jupyterlab
+    #   lightning-utilities
     #   pymilvus
     #   torch
     #   wandb
@@ -887,6 +1058,7 @@ six==1.17.0
     #   kubernetes
     #   posthog
     #   python-dateutil
+    #   rfc3339-validator
 slack-sdk==3.33.5
     # via inference
 smmap==5.0.2
@@ -899,6 +1071,8 @@ sniffio==1.3.1
     #   openai
 sortedcontainers==2.4.0
     # via asyncua
+soupsieve==2.6
+    # via beautifulsoup4
 spaces==0.32.0
     # via -r requirements.in
 sqltrie==0.11.1
@@ -927,10 +1101,16 @@ tenacity==9.0.0
     #   chromadb
     #   plotly
     #   streamlit
+terminado==0.18.1
+    # via
+    #   jupyter-server
+    #   jupyter-server-terminals
 threadpoolctl==3.5.0
     # via scikit-learn
 tifffile==2025.1.10
     # via scikit-image
+tinycss2==1.4.0
+    # via bleach
 tldextract==5.1.3
     # via inference
 tokenizers==0.20.3
@@ -948,11 +1128,24 @@ tomlkit==0.12.0
 torch==2.5.1
     # via
     #   -r requirements.in
+    #   lightning
+    #   pytorch-lightning
+    #   torchmetrics
     #   torchvision
+torchmetrics==1.6.1
+    # via
+    #   lightning
+    #   pytorch-lightning
 torchvision==0.20.1
     # via -r requirements.in
 tornado==6.4.2
-    # via streamlit
+    # via
+    #   ipykernel
+    #   jupyter-client
+    #   jupyter-server
+    #   jupyterlab
+    #   streamlit
+    #   terminado
 tqdm==4.67.1
     # via
     #   -r requirements.in
@@ -963,15 +1156,27 @@ tqdm==4.67.1
     #   fsspec
     #   huggingface-hub
     #   inference
+    #   lightning
     #   milvus-lite
     #   openai
+    #   pytorch-lightning
     #   scmrepo
     #   supervision
     #   transformers
 traitlets==5.14.3
     # via
+    #   comm
+    #   ipykernel
     #   ipython
+    #   jupyter-client
+    #   jupyter-core
+    #   jupyter-events
+    #   jupyter-server
+    #   jupyterlab
     #   matplotlib-inline
+    #   nbclient
+    #   nbconvert
+    #   nbformat
 transformers==4.46.3
     # via
     #   -r requirements.in
@@ -988,6 +1193,10 @@ typer==0.12.5
     #   gradio
     #   gto
     #   inference
+types-python-dateutil==2.9.0.20241206
+    # via arrow
+typeshed-client==2.7.0
+    # via jsonargparse
 typing-extensions==4.12.2
     # via
     #   aiosqlite
@@ -996,23 +1205,28 @@ typing-extensions==4.12.2
     #   anyio
     #   asyncssh
     #   asyncua
+    #   beautifulsoup4
     #   chromadb
     #   fastapi
     #   gradio
     #   gradio-client
     #   huggingface-hub
     #   inference
+    #   lightning
+    #   lightning-utilities
     #   openai
     #   opentelemetry-sdk
     #   pydantic
     #   pydantic-core
     #   pyee
     #   pyopenssl
+    #   pytorch-lightning
     #   referencing
     #   spaces
     #   streamlit
     #   torch
     #   typer
+    #   typeshed-client
     #   typing-inspect
 typing-inspect==0.9.0
     # via dataclasses-json
@@ -1027,6 +1241,8 @@ ujson==5.10.0
     # via pymilvus
 update-checker==0.18.0
     # via praw
+uri-template==1.3.0
+    # via jsonschema
 urllib3==2.3.0
     # via
     #   botocore
@@ -1059,8 +1275,15 @@ watchfiles==1.0.4
     # via uvicorn
 wcwidth==0.2.13
     # via prompt-toolkit
+webcolors==24.11.1
+    # via jsonschema
+webencodings==0.5.1
+    # via
+    #   bleach
+    #   tinycss2
 websocket-client==1.8.0
     # via
+    #   jupyter-server
     #   kubernetes
     #   praw
 websockets==12.0
