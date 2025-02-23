@@ -19,9 +19,16 @@ spec:
       containers:
         - name: proxpi
           image: epicwink/proxpi
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
           env:
             - name: PROXPI_CACHE_SIZE
-              value: "32GB"
+              value: "34359738368"
             - name: PROXPI_CACHE_DIR
               value: "/cache"
           ports:
