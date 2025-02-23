@@ -33,8 +33,8 @@ spec:
       enabled: true
       ingressClassName: nginx
       hosts:
-        - minio.k8s.local
         - minio.etheredge.dev
+        - minio.k8s.local
       annotations:
         nginx.ingress.kubernetes.io/proxy-body-size: "0"
         nginx.ingress.kubernetes.io/server-snippet: |
@@ -48,5 +48,5 @@ spec:
       enabled: true
       ingressClassName: nginx
       hosts:
-        - console-minio.k8s.local
         - console-minio.etheredge.dev
+        - console-minio.k8s.local
