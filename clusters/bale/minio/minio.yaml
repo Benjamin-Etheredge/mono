@@ -41,12 +41,12 @@ spec:
           client_max_body_size 0;
         nginx.ingress.kubernetes.io/configuration-snippet: |
           chunked_transfer_encoding off;
-    persistence:
-      enabled: true
-      storageClass: "nfs-csi"
     consoleIngress:
       enabled: true
       ingressClassName: nginx
       hosts:
         - console-minio.etheredge.dev
         - console-minio.k8s.local
+    persistence:
+      enabled: true
+      storageClass: "nfs-csi"
