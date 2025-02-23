@@ -48,4 +48,4 @@ spec:
         - console-minio.k8s.local
     persistence:
       enabled: true
-      storageClass: "nfs-csi"
+      storageClass: "longhorn"
