@@ -49,7 +49,7 @@ spec:
     persistentVolume:
       enabled: true
       size: 200Gi
-      storageClass: "nfs-csi"
+      storageClass: "longhorn-single"
     ingress:
       enabled: true
       annotations:

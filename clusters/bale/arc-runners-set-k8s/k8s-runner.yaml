@@ -28,7 +28,7 @@ spec:
       type: kubernetes
       kubernetesModeWorkVolumeClaim:
         accessModes: ["ReadWriteOnce"]
-        storageClassName: "nfs-csi"
+        storageClassName: "longhorn-single"
         resources:
           requests:
             storage: 1Gi
