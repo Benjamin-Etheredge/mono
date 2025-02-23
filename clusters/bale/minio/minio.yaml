@@ -35,6 +35,10 @@ spec:
       hosts:
         - minio.k8s.local
         - minio.etheredge.dev
+      annotations:
+        nginx.ingress.kubernetes.io/proxy-body-size: "0"
+        nginx.ingress.kubernetes.io/server-snippet: client_max_body_size 0;
+        nginx.ingress.kubernetes.io/configuration-snippet: chunked_transfer_encoding off;
     persistence:
       enabled: true
       storageClass: "nfs-csi"
