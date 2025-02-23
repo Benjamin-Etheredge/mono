@@ -60,6 +60,7 @@
 		"PANTS_CONFIG_FILES": "/workspaces/mono/pants.devcontainer.toml",
 		"AWS_ACCESS_KEY_ID": "${localEnv:AWS_ACCESS_KEY}",
 		"AWS_SECRET_ACCESS_KEY": "${localEnv:AWS_SECRET_ACCESS_KEY}",
+		"PIP_INDEX_URL": "https://proxpi.etheredge.dev",
 		"WANDB_API_KEY": "${localEnv:WANDB_API_KEY}"
 	},
 
