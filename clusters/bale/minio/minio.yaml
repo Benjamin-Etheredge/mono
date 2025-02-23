@@ -45,7 +45,6 @@ spec:
       enabled: true
       ingressClassName: nginx
       hosts:
-        - console-minio.etheredge.dev
         - console-minio.k8s.local
     persistence:
       enabled: true
