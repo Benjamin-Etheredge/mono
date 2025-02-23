@@ -1,0 +1,90 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: proxpi
+  namespace:
+  labels:
+    app: proxpi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: proxpi
+  template:
+    metadata:
+      labels:
+        app: proxpi
+    spec:
+      containers:
+        - name: proxpi
+          image: epicwink/proxpi
+          env:
+            - name: PROXPI_CACHE_SIZE
+              value: "32GB"
+            - name: PROXPI_CACHE_DIR
+              value: "/cache"
+          ports:
+            - containerPort: 5000
+          volumeMounts:
+            - mountPath: "/cache"
+              name: cache-volume
+      volumes:
+        - name: cache-volume
+          persistentVolumeClaim:
+            claimName: cache-pvc
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: cache-pvc
+  namespace:
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 32Gi
+  storageClassName: longhorn
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: proxpi
+  namespace: proxpi
+spec:
+  selector:
+    app: proxpi
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: proxpi
+  namespace:
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: proxpi.k8s.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: proxpi
+                port:
+                  number: 80
+    - host: proxpi.etheredge.dev
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: proxpi
+                port:
+                  number: 80
