@@ -1,6 +1,6 @@
 chromadb
 datasets
-dvc
+dvc[s3]
 fastapi
 gradio
 gradio-webrtc
