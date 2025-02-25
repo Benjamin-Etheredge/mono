@@ -24,7 +24,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: ollama-helm
-      version: 1.2.0
+      version: 1.6.0
   values:
     ollama:
       gpu:
@@ -53,10 +53,6 @@ spec:
         nginx.ingress.kubernetes.io/proxy-body-size: "4096m"
         nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
       hosts:
-        # - host: ollama.etheredge.dev
-        #   paths:
-        #     - path: /
-        #       pathType: Prefix
         - host: ollama.k8s.local
           paths:
             - path: /
