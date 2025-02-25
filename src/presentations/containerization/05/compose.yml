@@ -1,0 +1,14 @@
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+  
+  ubuntu:
+    image: ubuntu:latest
+    command: ["sleep", "infinity"]
+
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password

@@ -1,0 +1,61 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+	"name": "Ubuntu",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/base:jammy",
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"configureZshAsDefaultShell": true,
+			"installOhMyZsh": true
+		},
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {
+			"version": "28.0.0"
+		},
+		"ghcr.io/devcontainers/features/git:1": {},
+		"ghcr.io/devcontainers/features/git-lfs:1": {},
+		"ghcr.io/devcontainers/features/github-cli:1": {},
+		"ghcr.io/devcontainers/features/python:1": {
+			"version": "3.12"
+		},
+		"ghcr.io/va-h/devcontainers-features/uv:1": {},
+		"ghcr.io/devcontainers-extra/features/ruff:1": {}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"GitHub.copilot",
+				"GitHub.copilot-chat",
+				"robotpajamas.vscode-suspenders@prerelease",
+				"tamasfe.even-better-toml",
+				"charliermarsh.ruff",
+				"Iterative.dvc",
+				"redhat.vscode-yaml",
+				"bierner.markdown-mermaid",
+				"eamodio.gitlens",
+				"GitHub.vscode-github-actions",
+				"ms-toolsai.jupyter",
+				"ms-python.python",
+				"ms-python.vscode-pylance"
+			]
+		}
+	},
+
+	"containerEnv": {
+		"PANTS_CONFIG_FILES": "/workspaces/mono/pants.devcontainer.toml",
+		"AWS_ACCESS_KEY_ID": "${localEnv:AWS_ACCESS_KEY}",
+		"AWS_SECRET_ACCESS_KEY": "${localEnv:AWS_SECRET_ACCESS_KEY}",
+		"PIP_INDEX_URL": "https://proxpi.etheredge.dev",
+		"WANDB_API_KEY": "${localEnv:WANDB_API_KEY}"
+	},
+
+	"workspaceFolder": "/workspaces/mono",
+
+	"postCreateCommand": "./scripts/setup_devcontainer.sh",
+
+	"runArgs": ["--ulimit=nofile=1024:8192", "--shm-size=1g"],
+
+	"hostRequirements": {
+		"gpu": "optional"
+	}
+}

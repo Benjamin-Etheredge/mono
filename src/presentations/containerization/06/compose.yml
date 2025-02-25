@@ -1,0 +1,21 @@
+services:
+  app1:
+    image: myapp1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - NAME=app1
+    ports:
+      - "8000:8000"
+
+  app2:
+    image: myapp2
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - NAME=app2
+    ports:
+      - "8001:8000"
+
