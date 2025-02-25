@@ -38,12 +38,9 @@ spec:
           - nomic-embed-text
           - qwen2.5-coder:7b
           - qwen2.5-coder:14b
-          - qwen2.5-coder:32b
           - llama3.2-vision:11b
           - deepseek-r1:7b
           - deepseek-r1:14b
-          - deepseek-r1:32b
-          - deepseek-r1:70b
     # nodeSelector:
     #   nvidia.com/gpu.product: NVIDIA-GeForce-RTX-3090-Ti
     persistentVolume:
