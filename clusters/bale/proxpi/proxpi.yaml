@@ -24,8 +24,8 @@ spec:
               memory: "256Mi"
               cpu: "250m"
             limits:
-              memory: "512Mi"
-              cpu: "500m"
+              memory: "1Gi"
+              cpu: "1000m"
           env:
             - name: PROXPI_CACHE_SIZE
               value: "34359738368"
@@ -51,8 +51,8 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 32Gi
-  storageClassName: longhorn
+      storage: 64Gi
+  storageClassName: longhorn-single
 ---
 apiVersion: v1
 kind: Service
