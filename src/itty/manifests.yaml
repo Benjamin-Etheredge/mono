@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: itty
-          image: docker.io/etheredgeb/itty:1.0.1 # {"$imagepolicy": "flux-system:itty"}
+          image: docker.io/etheredgeb/itty:1.0.2 # {"$imagepolicy": "flux-system:itty"}
           ports:
             - containerPort: 7860
           env:
