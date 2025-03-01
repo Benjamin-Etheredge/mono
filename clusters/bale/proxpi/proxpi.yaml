@@ -30,7 +30,7 @@ spec:
             - name: PROXPI_CACHE_SIZE
               value: "34359738368"
             - name: PROXPI_CACHE_DIR
-              value: "/cache"
+              value: "/cache-pls"
           ports:
             - containerPort: 5000
           volumeMounts:
