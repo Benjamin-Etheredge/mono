@@ -8,3 +8,4 @@ resources:
   - ../../../src/papers
   - tremap.yaml
   - ../../../src/reddit-sums
+  - ../../../src/itty
