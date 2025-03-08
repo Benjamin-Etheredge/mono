@@ -68,7 +68,7 @@
 
 	"postCreateCommand": "./scripts/setup_devcontainer.sh",
 
-	"runArgs": ["--ulimit=nofile=1024:8192", "--shm-size=1g"],
+	"runArgs": ["--ulimit=nofile=1024:8192", "--shm-size=8g"],
 
 	"hostRequirements": {
 		"gpu": "optional"
