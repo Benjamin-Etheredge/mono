@@ -23,14 +23,14 @@ spec:
             requests:
               memory: "256Mi"
               cpu: "250m"
-            limits:
-              memory: "1Gi"
-              cpu: "1000m"
+            # limits:
+            #   memory: "1Gi"
+            #   cpu: "1000m"
           env:
             - name: PROXPI_CACHE_SIZE
               value: "34359738368"
             - name: PROXPI_CACHE_DIR
-              value: "/cache-pls"
+              value: "/cache"
           ports:
             - containerPort: 5000
           volumeMounts:
