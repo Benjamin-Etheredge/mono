@@ -2,7 +2,7 @@
   "mergeBehavior": "overwrite",
   "models": [
     {
-      "model": "quen2.5-coder:7b",
+      "model": "qwen2.5-coder:7b",
       "provider": "ollama",
       "title": "Local Ollama",
       "apiBase": "http://ollama.k8s.local"
