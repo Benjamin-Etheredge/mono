@@ -31,6 +31,9 @@ spec:
               value: "34359738368"
             - name: PROXPI_CACHE_DIR
               value: "/cache"
+            # Seems to fix of invalid hashes
+            - name: PROXPI_BINARY_FILE_MIME_TYPE
+              value: "1"
           ports:
             - containerPort: 5000
           volumeMounts:
