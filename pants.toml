@@ -42,9 +42,16 @@ default_resolve = "default"
 [python.resolves]
 default = "3rdparty/python/default.lock"
 itty = "src/itty/requirements.lock"
+overcooked = "src/overcooked/requirements.lock"
 
 [python-infer]
 assets = true
+
+[python-repos]
+indexes = [
+  "https://proxpi.etheredge.dev/index/", 
+  # "https://pypi.org/simple/",
+]
 
 [docker]
 default_repository = "etheredgeb/{directory}"

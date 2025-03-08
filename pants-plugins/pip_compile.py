@@ -4,7 +4,7 @@ def pip_compile(resolve=None):
 
     run_shell_command(
         name="pip-compile",
-        command="uv pip compile requirements.in --output-file requirements.txt",
+        command="uv --python-preference only-system pip compile -U requirements.in --output-file requirements.txt",
         tags=["pip-compile"],
     )
 

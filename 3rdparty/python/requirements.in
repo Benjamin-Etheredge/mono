@@ -27,8 +27,9 @@ scikit-learn
 scipy
 seaborn
 spaces
+stable-baselines3[extra]
 streamlit
-torch>=2.5.0
+torch
 torchvision
 tqdm
 transformers

@@ -1,0 +1,18 @@
+# allow-insecure-host = ["proxpi.k8s.local"]
+# index-url = "http://proxpi.k8s.local/index"
+# index-url = "https://proxpi.etheredge.dev/index"
+
+[[index]]
+name = "mirror"
+url = "https://proxpi.etheredge.dev/index"
+default = true
+
+# [[index]]
+# name = "local-mirror"
+# url = "http://proxpi.k8s.local/index/"
+# default = true
+
+# [[index]]
+# name = "pypi"
+# url = "https://pypi.org/simple"
+# default = false

@@ -6,5 +6,3 @@ for target in $targets; do
 done
 
 pants generate-lockfiles
-
-pants venv
