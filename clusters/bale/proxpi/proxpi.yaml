@@ -61,7 +61,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: proxpi
-  namespace: proxpi
+  namespace:
 spec:
   selector:
     app: proxpi
