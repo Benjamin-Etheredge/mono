@@ -36,6 +36,7 @@ spec:
     pulsar:
       enabled: false
     pulsarv3:
+      enabled: false
       zookeeper:
         replicaCount: 1
       bookkeeper:
