@@ -30,6 +30,7 @@ spec:
       mode: standalone
       persistence:
         size: 200Gi
+        storage: longhorn-single
     etcd:
       replicaCount: 1
     pulsar:

@@ -67,21 +67,21 @@ spec:
                 name: papers
                 port:
                   number: 80
-# ---
-# apiVersion: batch/v1
-# kind: CronJob
-# metadata:
-#   name: papers-harvest
-#   namespace: apps
-# spec:
-#   schedule: "0 0 * * *" # Every day at midnight UTC
-#   concurrentPolicy: Forbid # Skip job if previous one is still running
-#   jobTemplate:
-#     spec:
-#       template:
-#         spec:
-#           restartPolicy: Never
-#           containers:
-#             - name: papers-harvest
-#               image: docker.io/etheredgeb/papers-harvest:1.0.4 # {"$imagepolicy": "flux-system:papers-harvest"}
-#               imagePullPolicy: Always
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: papers-harvest
+  namespace: apps
+spec:
+  schedule: "0 0 * * 0" # Once a week
+  concurrentPolicy: Forbid # Skip job if previous one is still running
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+            - name: papers-harvest
+              image: docker.io/etheredgeb/papers-harvest:1.0.4 # {"$imagepolicy": "flux-system:papers-harvest"}
+              imagePullPolicy: Always
