@@ -64,6 +64,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: tremap
+                name: semantic
                 port:
                   number: 80
