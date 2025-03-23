@@ -7,5 +7,6 @@ resources:
   - ../../../src/webcam-demo/manifests.yaml
   - ../../../src/papers
   - tremap.yaml
+  - semantic.yaml
   - ../../../src/reddit-sums
   - ../../../src/itty
