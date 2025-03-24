@@ -13,7 +13,7 @@ basic_app(
     target_suffix="-harvest",
     docker_image_kwargs=dict(
         extra_run_args=["--network=host"],
-        image_tags=["1.0.4"],
+        image_tags=["1.0.5"],
     ),
 )
 

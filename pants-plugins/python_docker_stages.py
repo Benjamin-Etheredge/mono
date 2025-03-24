@@ -43,8 +43,11 @@ def multi_stage_docker(
     dot_path = ".".join(str(build_file_dir()).split("/"))
     name = build_file_dir().name + target_suffix
 
+    src_name = f"img-srcs{target_suffix}"
+    deps_name = f"img-deps{target_suffix}"
+
     docker_image(
-        name=f"img-deps{target_suffix}",
+        name=deps_name,
         image_tags=["deps"],
         skip_push=True,
         repository=f"etheredgeb/{name}",
@@ -67,7 +70,7 @@ def multi_stage_docker(
     )
 
     docker_image(
-        name=f"img-srcs{target_suffix}",
+        name=src_name,
         image_tags=["srcs"],
         skip_push=True,
         repository=f"etheredgeb/{name}",
@@ -93,8 +96,8 @@ def multi_stage_docker(
         name=f"img{target_suffix}",
         repository=f"etheredgeb/{name}",
         instructions=[
-            "ARG DEP_IMAGE=:img-deps",
-            "ARG SRC_IMAGE=:img-srcs",
+            f"ARG DEP_IMAGE=:{deps_name}",
+            f"ARG SRC_IMAGE=:{src_name}",
             f"ARG PYTHON_IMAGE={base_python_target}",
             # Have to do this FROM stuff for pants to catch the targets
             "FROM $DEP_IMAGE as deps",
