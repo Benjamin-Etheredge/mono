@@ -83,5 +83,5 @@ spec:
           restartPolicy: Never
           containers:
             - name: papers-harvest
-              image: docker.io/etheredgeb/papers-harvest:1.0.4 # {"$imagepolicy": "flux-system:papers-harvest"}
+              image: docker.io/etheredgeb/papers-harvest:1.0.5 # {"$imagepolicy": "flux-system:papers-harvest"}
               imagePullPolicy: Always
