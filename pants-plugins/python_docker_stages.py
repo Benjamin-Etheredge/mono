@@ -103,6 +103,7 @@ def multi_stage_docker(
             "FROM $DEP_IMAGE as deps",
             "FROM $SRC_IMAGE as srcs",
             "FROM $PYTHON_IMAGE",
+            "ENV PYTHONPYTHONUNBUFFERED=1",  # For logging to work
             'ENTRYPOINT ["/bin/app/pex"]',
             "COPY --from=deps /bin/app /bin/app",
             "COPY --from=srcs /bin/app /bin/app",

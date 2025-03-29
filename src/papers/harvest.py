@@ -4,6 +4,7 @@
 import os
 import time
 from datetime import datetime, timedelta
+from multiprocessing import Pool
 from xml.etree import ElementTree as ET
 
 import pymilvus
@@ -55,14 +56,14 @@ def create_collection(colleciton_name):
             dtype=pymilvus.DataType.ARRAY,
             element_type=pymilvus.DataType.VARCHAR,
             max_capacity=512,
-            max_length=256,
+            max_length=512,
         ),
         pymilvus.FieldSchema(
             name="subject",
             dtype=pymilvus.DataType.ARRAY,
             element_type=pymilvus.DataType.VARCHAR,
             max_capacity=64,
-            max_length=256,
+            max_length=512,
         ),
         pymilvus.FieldSchema(
             name="date",
@@ -71,13 +72,13 @@ def create_collection(colleciton_name):
             max_capacity=256,
             max_length=64,
         ),
-        pymilvus.FieldSchema(name="identifier", is_primary=True, dtype=pymilvus.DataType.VARCHAR, max_length=256),
+        pymilvus.FieldSchema(name="identifier", is_primary=True, dtype=pymilvus.DataType.VARCHAR, max_length=512),
         pymilvus.FieldSchema(
             name="identifiers",
             dtype=pymilvus.DataType.ARRAY,
             element_type=pymilvus.DataType.VARCHAR,
             max_capacity=128,
-            max_length=256,
+            max_length=512,
         ),
         pymilvus.FieldSchema(name="last_date_epoch", dtype=pymilvus.DataType.INT64),
     ]
@@ -105,6 +106,8 @@ def insert_paper(collection, paper):
 
 def generate_embedding(text):
     prompt = f"search_document: {text}"  # nomic requires prefix
+    # NOTE: could convert to ollama.embed for batching, but this is fine for now
+    #       since the bottleneck is the api call timeouts
     return ollama_client.embeddings(model=EMBED_MODEL, prompt=prompt)["embedding"]
 
 
@@ -132,37 +135,37 @@ def prepare_records(records):
     Returns:
        list: A list of dictionaries containing prepared paper data.
     """
-    prepared_records = []
-    for record in records:
-        dates = record["date"] if isinstance(record["date"], list) else [record["date"]]
-        epoch_dates = [int(datetime.strptime(date, "%Y-%m-%d").timestamp()) for date in dates]
-        last_date_epoch = min(epoch_dates)  # min date is how the api indexes
-
-        arxiv_idenitifier = record["identifier"][0] if isinstance(record["identifier"], list) else record["identifier"]
-
-        # Example datetime: "2007-03-30"
-        prepared_records.append(
-            {
-                "title": record["title"],
-                "authors": record["creator"] if isinstance(record["creator"], list) else [record["creator"]],
-                "subject": record["subject"] if isinstance(record["subject"], list) else [record["subject"]],
-                "summary": record["description"]
-                if isinstance(record["description"], list)
-                else [record["description"]],
-                "date": record["date"] if isinstance(record["date"], list) else [record["date"]],
-                "type": record["type"],
-                "identifier": arxiv_idenitifier,
-                "identifiers": record["identifier"]
-                if isinstance(record["identifier"], list)
-                else [record["identifier"]],
-                "last_date_epoch": last_date_epoch,
-                # TODO do we embed the title? or the summary? or both?
-                **generate_embedding_kwargs(record),
-                # 'embedding': generate_embedding(record['description']) if record['description'] else None,
-            }
-        )
+    pool = Pool(os.cpu_count())
+    prepared_records = pool.map(prepare_record, records)
+    pool.close()
     return prepared_records
 
+def prepare_record(record):
+    dates = record["date"] if isinstance(record["date"], list) else [record["date"]]
+    epoch_dates = [int(datetime.strptime(date, "%Y-%m-%d").timestamp()) for date in dates]
+    last_date_epoch = min(epoch_dates)  # min date is how the api indexes
+
+    arxiv_idenitifier = record["identifier"][0] if isinstance(record["identifier"], list) else record["identifier"]
+
+    # Example datetime: "2007-03-30"
+    return {
+        "title": record["title"],
+        "authors": record["creator"] if isinstance(record["creator"], list) else [record["creator"]],
+        "subject": record["subject"] if isinstance(record["subject"], list) else [record["subject"]],
+        "summary": record["description"]
+        if isinstance(record["description"], list)
+        else [record["description"]],
+        "date": record["date"] if isinstance(record["date"], list) else [record["date"]],
+        "type": record["type"],
+        "identifier": arxiv_idenitifier,
+        "identifiers": record["identifier"]
+        if isinstance(record["identifier"], list)
+        else [record["identifier"]],
+        "last_date_epoch": last_date_epoch,
+        # TODO do we embed the title? or the summary? or both?
+        **generate_embedding_kwargs(record),
+        # 'embedding': generate_embedding(record['description']) if record['description'] else None,
+    }
 
 def harvest_papers(collection, set_spec, from_date=None, until_date=None):
     """
@@ -181,13 +184,13 @@ def harvest_papers(collection, set_spec, from_date=None, until_date=None):
         print(f"Fetching batch {i}...")
         response_records, resumption_token = fetch_records(set_spec, from_date, until_date, resumption_token)
         prepared_records = prepare_records(response_records)
-        for record in prepared_records:  # Print each record for debugging
+        for record in prepared_records:
             try:
                 collection.upsert(record)  # Insert each record into the database
             except Exception as e:
                 print(f"Error inserting record {record}: {e}")
                 raise e
-        print(f"Inserted {len(prepared_records)} records.")  # Print the number of inserted records
+        print(f"Inserted {len(prepared_records)} records.")
         if not resumption_token:
             print("No more records to fetch.")
             break
@@ -229,7 +232,7 @@ def fetch_records(set_spec=None, from_date=None, until_date=None, resumption_tok
         response = requests.get(url, params=params)
         if response.status_code == 503:
             # Handle waiting as long as they ask
-            wait_seconds = int(response.headers.get("Retry-After", 5))
+            wait_seconds = int(response.headers.get("Retry-After", 5)) * 10
             print(f"Server is busy, retrying after {wait_seconds} seconds...")
             time.sleep(wait_seconds)
         else:
@@ -291,7 +294,7 @@ def get_last_date(collection: pymilvus.Collection):
     # Milvus makes this super hard for no reason
     collection.load()
     if collection.num_entities == 0:
-        return datetime.fromtimestamp(0)
+        return datetime.fromtimestamp(0).strftime("%Y-%m-%d")
 
     iterator = collection.search_iterator(
         data=[[0.0] * 768],  # Dummy data, not used for aggregation
@@ -302,7 +305,7 @@ def get_last_date(collection: pymilvus.Collection):
         # limit=20_000_000,
     )
 
-    last_time = 0
+    last_time = -1 * float('inf')
     i = 0
     while True:
         result = iterator.next()
@@ -312,11 +315,8 @@ def get_last_date(collection: pymilvus.Collection):
             break
         for hit in result:
             i += 1
-            print(i)
-            if last_time == 0:
-                last_time = hit.to_dict()["entity"]["last_date_epoch"]
-            else:
-                last_time = min(last_time, hit.to_dict()["entity"]["last_date_epoch"])
+            # print(i)
+            last_time = max(last_time, hit.to_dict()["entity"]["last_date_epoch"])
 
     last_date = datetime.fromtimestamp(last_time)
     # Go back 2 days to be sure we don't miss anything on edges
@@ -330,5 +330,6 @@ if __name__ == "__main__":
 
     START_DATE = get_last_date(collection)
     print("Start date: ", START_DATE)
+    print("End date: ", END_DATE)
 
     papers = harvest_papers(collection, SET_NAME, START_DATE, END_DATE)
