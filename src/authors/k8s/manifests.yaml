@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: authors
-          image: docker.io/etheredgeb/authors:1.0.0 # {"$imagepolicy": "flux-system:authors"}
+          image: docker.io/etheredgeb/authors:1.0.1 # {"$imagepolicy": "flux-system:authors"}
           ports:
             - containerPort: 8501
           env:
