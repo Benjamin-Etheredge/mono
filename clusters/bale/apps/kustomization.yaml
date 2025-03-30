@@ -8,4 +8,4 @@ resources:
   - tremap.yaml
   - semantic.yaml
   - ../../../src/reddit-sums
-  - ../../../src/itty
+  - ../../../src/itty/k8s
