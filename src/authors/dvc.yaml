@@ -1,0 +1,20 @@
+stages:
+  process:
+    desc: Embed data and write to Milvus
+    cmd: pants run process.py
+    deps:
+      - process.py
+      - data/ge
+      - data/ghl
+      - data/mt_data
+    outs:
+      - data/embedding.log
+
+  cluster:
+    desc: Cluster data using HDBSCAN and UMAP
+    cmd: pants run cluster.py
+    deps:
+      - data/embedding.log
+      - cluster.py
+    outs:
+      - data/clustered_authors.parquet

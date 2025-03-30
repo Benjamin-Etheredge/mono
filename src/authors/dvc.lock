@@ -1,0 +1,45 @@
+schema: '2.0'
+stages:
+  process:
+    cmd: pants run process.py
+    deps:
+    - path: data/ge
+      hash: md5
+      md5: 5fec7d0ee8aa80e24100cdee957e7f38.dir
+      size: 3891816
+      nfiles: 68
+    - path: data/ghl
+      hash: md5
+      md5: ce01c649645c1f19733626bc52d5169a.dir
+      size: 5631945
+      nfiles: 11
+    - path: data/mt_data
+      hash: md5
+      md5: ae07f89b76ef4ba24b81aae654e2a075.dir
+      size: 1156906
+      nfiles: 11
+    - path: process.py
+      hash: md5
+      md5: 3eebf9a30429c04ffd403583eeb44351
+      size: 4010
+    outs:
+    - path: data/embedding.log
+      hash: md5
+      md5: 6e5418538e6f659d408c957b6a3a5e25
+      size: 89
+  cluster:
+    cmd: pants run cluster.py
+    deps:
+    - path: cluster.py
+      hash: md5
+      md5: e9216b5b1dd611b5bcac9b2b18b022c8
+      size: 3541
+    - path: data/embedding.log
+      hash: md5
+      md5: 6e5418538e6f659d408c957b6a3a5e25
+      size: 89
+    outs:
+    - path: data/clustered_authors.parquet
+      hash: md5
+      md5: 93aed6ed686d3ce106501f90285b0180
+      size: 40382

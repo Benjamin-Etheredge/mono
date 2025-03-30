@@ -1,0 +1,21 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: authors
+  namespace: flux-system
+spec:
+  image: docker.io/etheredgeb/authors
+  interval: 1h
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: papers
+  namespace: flux-system
+spec:
+  imageRepositoryRef:
+    name: authors
+  policy:
+    semver:
+      range: '>=1.0.0'

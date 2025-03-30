@@ -3,12 +3,13 @@ def basic_app(
     base_docker_target="//3rdparty/images:python3.12",
     target_suffix="",
     docker_image_kwargs=None,
+    extra_instructions=None,
 ):
     if docker_image_kwargs is None:
         docker_image_kwargs = dict(extra_run_args=["--network=host"])
 
     basic_pex(entrypoint, target_suffix)
-    multi_stage_docker(base_docker_target, target_suffix, docker_image_kwargs)
+    multi_stage_docker(base_docker_target, target_suffix, docker_image_kwargs, extra_instructions)
 
 
 def basic_pex(
@@ -36,9 +37,13 @@ def multi_stage_docker(
     base_python_target="//3rdparty/images:python3.12",
     target_suffix="",
     docker_image_kwargs=None,
+    extra_instructions=None,
 ):
     if docker_image_kwargs is None:
         docker_image_kwargs = {}
+    
+    if extra_instructions is None:
+        extra_instructions = []
 
     dot_path = ".".join(str(build_file_dir()).split("/"))
     name = build_file_dir().name + target_suffix
@@ -105,6 +110,7 @@ def multi_stage_docker(
             "FROM $PYTHON_IMAGE",
             "ENV PYTHONPYTHONUNBUFFERED=1",  # For logging to work
             'ENTRYPOINT ["/bin/app/pex"]',
+            *extra_instructions, # TODO should this be after the COPY?
             "COPY --from=deps /bin/app /bin/app",
             "COPY --from=srcs /bin/app /bin/app",
         ],
