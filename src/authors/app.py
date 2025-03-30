@@ -30,6 +30,7 @@ def load_fig():
 st.title("Author Clustering")
 st.write("Creater: Ben Etheredge")
 st.write("This is a clustering of authors based on their works.")
+st.write("This is for my own exploration of the data.")
 st.write("""
 ## Process
 1. Load the data
