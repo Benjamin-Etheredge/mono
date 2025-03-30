@@ -41,6 +41,7 @@ spec:
           - llama3.2-vision:11b
           - deepseek-r1:7b
           - deepseek-r1:14b
+          - nomic-embed-text:v1.5
     # nodeSelector:
     #   nvidia.com/gpu.product: NVIDIA-GeForce-RTX-3090-Ti
     persistentVolume:
