@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   image: docker.io/etheredgeb/authors
-  interval: 5m
+  interval: 15m
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImagePolicy
