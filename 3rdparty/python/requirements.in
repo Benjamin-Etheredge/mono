@@ -4,15 +4,18 @@ dvc[s3]
 fastapi
 gradio
 gradio-webrtc
+hdbscan
 huggingface_hub
 icecream
 inference>=0.30.0
 jsonargparse[signatures]
 jupyterlab
+kaleido
+langchain
 lightning
 matplotlib
 numpy
-ollama
+ollama>=0.4.0
 onnxruntime-gpu
 opencv-python
 pandas
@@ -34,5 +37,6 @@ torchvision
 tqdm
 transformers
 twilio
+umap-learn
 uvicorn
 wandb

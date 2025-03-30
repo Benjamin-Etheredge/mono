@@ -9,7 +9,7 @@
 //     "CPython==3.12.*"
 //   ],
 //   "generated_with_requirements": [
-//     "absl-py==2.1.0",
+//     "absl-py==2.2.1",
 //     "ale-py==0.10.2",
 //     "annotated-types==0.7.0",
 //     "certifi==2025.1.31",
@@ -20,13 +20,13 @@
 //     "cycler==0.12.1",
 //     "docker-pycreds==0.4.0",
 //     "farama-notifications==0.0.4",
-//     "filelock==3.17.0",
+//     "filelock==3.18.0",
 //     "fonttools==4.56.0",
 //     "fsspec==2025.3.0",
 //     "gitdb==4.0.12",
 //     "gitpython==3.1.44",
-//     "grpcio==1.70.0",
-//     "gymnasium==1.0.0",
+//     "grpcio==1.71.0",
+//     "gymnasium==1.1.1",
 //     "idna==3.10",
 //     "jinja2==3.1.6",
 //     "kiwisolver==1.4.8",
@@ -37,7 +37,7 @@
 //     "mdurl==0.1.2",
 //     "mpmath==1.3.0",
 //     "networkx==3.4.2",
-//     "numpy==2.2.3",
+//     "numpy==2.2.4",
 //     "nvidia-cublas-cu12==12.4.5.8",
 //     "nvidia-cuda-cupti-cu12==12.4.127",
 //     "nvidia-cuda-nvrtc-cu12==12.4.127",
@@ -55,25 +55,25 @@
 //     "packaging==24.2",
 //     "pandas==2.2.3",
 //     "pillow==11.1.0",
-//     "platformdirs==4.3.6",
-//     "protobuf==5.29.3",
+//     "platformdirs==4.3.7",
+//     "protobuf==5.29.4",
 //     "psutil==7.0.0",
-//     "pydantic-core==2.27.2",
-//     "pydantic==2.10.6",
+//     "pydantic-core==2.33.0",
+//     "pydantic==2.11.1",
 //     "pygame==2.6.1",
 //     "pygments==2.19.1",
-//     "pyparsing==3.2.1",
+//     "pyparsing==3.2.3",
 //     "python-dateutil==2.9.0.post0",
-//     "pytz==2025.1",
+//     "pytz==2025.2",
 //     "pyyaml==6.0.2",
 //     "requests==2.32.3",
-//     "rich==13.9.4",
-//     "sentry-sdk==2.22.0",
+//     "rich==14.0.0",
+//     "sentry-sdk==2.24.1",
 //     "setproctitle==1.3.5",
-//     "setuptools==75.8.2",
+//     "setuptools==78.1.0",
 //     "six==1.17.0",
 //     "smmap==5.0.2",
-//     "stable-baselines3==2.5.0",
+//     "stable-baselines3==2.6.0",
 //     "sympy==1.13.1",
 //     "tensorboard-data-server==0.7.2",
 //     "tensorboard==2.19.0",
@@ -81,8 +81,9 @@
 //     "torchvision==0.21.0",
 //     "tqdm==4.67.1",
 //     "triton==3.2.0",
-//     "typing-extensions==4.12.2",
-//     "tzdata==2025.1",
+//     "typing-extensions==4.13.0",
+//     "typing-inspection==0.4.0",
+//     "tzdata==2025.2",
 //     "urllib3==2.3.0",
 //     "wandb==0.19.8",
 //     "werkzeug==3.1.3"
@@ -108,19 +109,19 @@
           "artifacts": [
             {
               "algorithm": "sha256",
-              "hash": "526a04eadab8b4ee719ce68f204172ead1027549089702d99b9059f129ff1308",
-              "url": "https://proxpi.etheredge.dev/index/absl-py/absl_py-2.1.0-py3-none-any.whl"
+              "hash": "ca8209abd5005ae6e700ef36e2edc84ad5338678f95625a3f15275410a89ffbc",
+              "url": "https://proxpi.etheredge.dev/index/absl-py/absl_py-2.2.1-py3-none-any.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "7820790efbb316739cde8b4e19357243fc3608a152024288513dd968d7d959ff",
-              "url": "https://proxpi.etheredge.dev/index/absl-py/absl-py-2.1.0.tar.gz"
+              "hash": "4c7bc50d42d021c12d4f31b7001167925e0bd71ade853069f64af410f5565ff9",
+              "url": "https://proxpi.etheredge.dev/index/absl-py/absl_py-2.2.1.tar.gz"
             }
           ],
           "project_name": "absl-py",
           "requires_dists": [],
-          "requires_python": ">=3.7",
-          "version": "2.1.0"
+          "requires_python": ">=3.8",
+          "version": "2.2.1"
         },
         {
           "artifacts": [
@@ -442,13 +443,13 @@
           "artifacts": [
             {
               "algorithm": "sha256",
-              "hash": "533dc2f7ba78dc2f0f531fc6c4940addf7b70a481e269a5a3b93be94ffbe8338",
-              "url": "https://proxpi.etheredge.dev/index/filelock/filelock-3.17.0-py3-none-any.whl"
+              "hash": "c401f4f8377c4464e6db25fff06205fd89bdd83b65eb0488ed1b160f780e21de",
+              "url": "https://proxpi.etheredge.dev/index/filelock/filelock-3.18.0-py3-none-any.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "ee4e77401ef576ebb38cd7f13b9b28893194acc20a8e68e18730ba9c0e54660e",
-              "url": "https://proxpi.etheredge.dev/index/filelock/filelock-3.17.0.tar.gz"
+              "hash": "adbc88eabb99d2fec8c9c1b229b171f18afa655400173ddc653d5d01501fb9f2",
+              "url": "https://proxpi.etheredge.dev/index/filelock/filelock-3.18.0.tar.gz"
             }
           ],
           "project_name": "filelock",
@@ -468,7 +469,7 @@
             "virtualenv>=20.28.1; extra == \"testing\""
           ],
           "requires_python": ">=3.9",
-          "version": "3.17.0"
+          "version": "3.18.0"
         },
         {
           "artifacts": [
@@ -728,69 +729,74 @@
           "artifacts": [
             {
               "algorithm": "sha256",
-              "hash": "ac073fe1c4cd856ebcf49e9ed6240f4f84d7a4e6ee95baa5d66ea05d3dd0df7f",
-              "url": "https://proxpi.etheredge.dev/index/grpcio/grpcio-1.70.0-cp312-cp312-musllinux_1_1_x86_64.whl"
+              "hash": "469f42a0b410883185eab4689060a20488a1a0a00f8bbb3cbc1061197b4c5a79",
+              "url": "https://proxpi.etheredge.dev/index/grpcio/grpcio-1.71.0-cp312-cp312-musllinux_1_1_x86_64.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "ef4c14508299b1406c32bdbb9fb7b47612ab979b04cf2b27686ea31882387cff",
-              "url": "https://proxpi.etheredge.dev/index/grpcio/grpcio-1.70.0-cp312-cp312-linux_armv7l.whl"
+              "hash": "0ff35c8d807c1c7531d3002be03221ff9ae15712b53ab46e2a0b4bb271f38537",
+              "url": "https://proxpi.etheredge.dev/index/grpcio/grpcio-1.71.0-cp312-cp312-linux_armv7l.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "aa47688a65643afd8b166928a1da6247d3f46a2784d301e48ca1cc394d2ffb40",
-              "url": "https://proxpi.etheredge.dev/index/grpcio/grpcio-1.70.0-cp312-cp312-macosx_10_14_universal2.whl"
+              "hash": "b78a99cd1ece4be92ab7c07765a0b038194ded2e0a26fd654591ee136088d8d7",
+              "url": "https://proxpi.etheredge.dev/index/grpcio/grpcio-1.71.0-cp312-cp312-macosx_10_14_universal2.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "880bfb43b1bb8905701b926274eafce5c70a105bc6b99e25f62e98ad59cb278e",
-              "url": "https://proxpi.etheredge.dev/index/grpcio/grpcio-1.70.0-cp312-cp312-manylinux_2_17_aarch64.whl"
+              "hash": "dc1a1231ed23caac1de9f943d031f1bc38d0f69d2a3b243ea0d664fc1fbd7fec",
+              "url": "https://proxpi.etheredge.dev/index/grpcio/grpcio-1.71.0-cp312-cp312-manylinux_2_17_aarch64.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "9e654c4b17d07eab259d392e12b149c3a134ec52b11ecdc6a515b39aceeec898",
-              "url": "https://proxpi.etheredge.dev/index/grpcio/grpcio-1.70.0-cp312-cp312-manylinux_2_17_i686.manylinux2014_i686.whl"
+              "hash": "e6beeea5566092c5e3c4896c6d1d307fb46b1d4bdf3e70c8340b190a69198594",
+              "url": "https://proxpi.etheredge.dev/index/grpcio/grpcio-1.71.0-cp312-cp312-manylinux_2_17_i686.manylinux2014_i686.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "2394e3381071045a706ee2eeb6e08962dd87e8999b90ac15c55f56fa5a8c9597",
-              "url": "https://proxpi.etheredge.dev/index/grpcio/grpcio-1.70.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl"
+              "hash": "d5170929109450a2c031cfe87d6716f2fae39695ad5335d9106ae88cc32dc84c",
+              "url": "https://proxpi.etheredge.dev/index/grpcio/grpcio-1.71.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "b3c76701428d2df01964bc6479422f20e62fcbc0a37d82ebd58050b86926ef8c",
-              "url": "https://proxpi.etheredge.dev/index/grpcio/grpcio-1.70.0-cp312-cp312-musllinux_1_1_i686.whl"
+              "hash": "5b08d03ace7aca7b2fadd4baf291139b4a5f058805a8327bfe9aece7253b6d67",
+              "url": "https://proxpi.etheredge.dev/index/grpcio/grpcio-1.71.0-cp312-cp312-musllinux_1_1_aarch64.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "8d1584a68d5922330025881e63a6c1b54cc8117291d382e4fa69339b6d914c56",
-              "url": "https://proxpi.etheredge.dev/index/grpcio/grpcio-1.70.0.tar.gz"
+              "hash": "f903017db76bf9cc2b2d8bdd37bf04b505bbccad6be8a81e1542206875d0e9db",
+              "url": "https://proxpi.etheredge.dev/index/grpcio/grpcio-1.71.0-cp312-cp312-musllinux_1_1_i686.whl"
+            },
+            {
+              "algorithm": "sha256",
+              "hash": "2b85f7820475ad3edec209d3d89a7909ada16caab05d3f2e08a7e8ae3200a55c",
+              "url": "https://proxpi.etheredge.dev/index/grpcio/grpcio-1.71.0.tar.gz"
             }
           ],
           "project_name": "grpcio",
           "requires_dists": [
-            "grpcio-tools>=1.70.0; extra == \"protobuf\""
+            "grpcio-tools>=1.71.0; extra == \"protobuf\""
           ],
-          "requires_python": ">=3.8",
-          "version": "1.70.0"
+          "requires_python": ">=3.9",
+          "version": "1.71.0"
         },
         {
           "artifacts": [
             {
               "algorithm": "sha256",
-              "hash": "b6f40e1e24c5bd419361e1a5b86a9117d2499baecc3a660d44dfff4c465393ad",
-              "url": "https://proxpi.etheredge.dev/index/gymnasium/gymnasium-1.0.0-py3-none-any.whl"
+              "hash": "9c167ec0a2b388666e37f63b2849cd2552f7f5b71938574c637bb36487eb928a",
+              "url": "https://proxpi.etheredge.dev/index/gymnasium/gymnasium-1.1.1-py3-none-any.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "9d2b66f30c1b34fe3c2ce7fae65ecf365d0e9982d2b3d860235e773328a3b403",
-              "url": "https://proxpi.etheredge.dev/index/gymnasium/gymnasium-1.0.0.tar.gz"
+              "hash": "8bd9ea9bdef32c950a444ff36afc785e1d81051ec32d30435058953c20d2456d",
+              "url": "https://proxpi.etheredge.dev/index/gymnasium/gymnasium-1.1.1.tar.gz"
             }
           ],
           "project_name": "gymnasium",
           "requires_dists": [
-            "ale-py>=0.9; extra == \"all\"",
-            "ale-py>=0.9; extra == \"atari\"",
+            "ale_py>=0.9; extra == \"all\"",
+            "ale_py>=0.9; extra == \"atari\"",
             "box2d-py==2.3.5; extra == \"all\"",
             "box2d-py==2.3.5; extra == \"box2d\"",
             "cloudpickle>=1.2.0",
@@ -804,10 +810,10 @@
             "imageio>=2.14.1; extra == \"all\"",
             "imageio>=2.14.1; extra == \"mujoco\"",
             "importlib-metadata>=4.8.0; python_version < \"3.10\"",
-            "jax>=0.4.0; extra == \"all\"",
-            "jax>=0.4.0; extra == \"jax\"",
-            "jaxlib>=0.4.0; extra == \"all\"",
-            "jaxlib>=0.4.0; extra == \"jax\"",
+            "jax>=0.4.16; extra == \"all\"",
+            "jax>=0.4.16; extra == \"jax\"",
+            "jaxlib>=0.4.16; extra == \"all\"",
+            "jaxlib>=0.4.16; extra == \"jax\"",
             "matplotlib>=3.0; extra == \"all\"",
             "matplotlib>=3.0; extra == \"other\"",
             "moviepy>=1.0.0; extra == \"all\"",
@@ -821,21 +827,24 @@
             "opencv-python>=3.0; extra == \"all\"",
             "opencv-python>=3.0; extra == \"other\"",
             "pygame>=2.1.3; extra == \"all\"",
+            "pygame>=2.1.3; extra == \"all\"",
+            "pygame>=2.1.3; extra == \"all\"",
             "pygame>=2.1.3; extra == \"box2d\"",
             "pygame>=2.1.3; extra == \"classic-control\"",
             "pygame>=2.1.3; extra == \"classic-control\"",
             "pygame>=2.1.3; extra == \"toy-text\"",
             "pygame>=2.1.3; extra == \"toy-text\"",
-            "pytest==7.1.3; extra == \"testing\"",
+            "pytest>=7.1.3; extra == \"testing\"",
             "scipy>=1.7.3; extra == \"testing\"",
+            "seaborn>=0.13; extra == \"other\"",
             "swig==4.*; extra == \"all\"",
             "swig==4.*; extra == \"box2d\"",
-            "torch>=1.0.0; extra == \"all\"",
-            "torch>=1.0.0; extra == \"torch\"",
+            "torch>=1.13.0; extra == \"all\"",
+            "torch>=1.13.0; extra == \"torch\"",
             "typing-extensions>=4.3.0"
           ],
           "requires_python": ">=3.8",
-          "version": "1.0.0"
+          "version": "1.1.1"
         },
         {
           "artifacts": [
@@ -1234,54 +1243,54 @@
           "artifacts": [
             {
               "algorithm": "sha256",
-              "hash": "4d8335b5f1b6e2bce120d55fb17064b0262ff29b459e8493d1785c18ae2553b8",
-              "url": "https://proxpi.etheredge.dev/index/numpy/numpy-2.2.3-cp312-cp312-musllinux_1_2_x86_64.whl"
+              "hash": "11c43995255eb4127115956495f43e9343736edb7fcdb0d973defd9de14cd84f",
+              "url": "https://proxpi.etheredge.dev/index/numpy/numpy-2.2.4-cp312-cp312-musllinux_1_2_x86_64.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "12c045f43b1d2915eca6b880a7f4a256f59d62df4f044788c8ba67709412128d",
-              "url": "https://proxpi.etheredge.dev/index/numpy/numpy-2.2.3-cp312-cp312-macosx_10_13_x86_64.whl"
+              "hash": "a7b9084668aa0f64e64bd00d27ba5146ef1c3a8835f3bd912e7a9e01326804c4",
+              "url": "https://proxpi.etheredge.dev/index/numpy/numpy-2.2.4-cp312-cp312-macosx_10_13_x86_64.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "87eed225fd415bbae787f93a457af7f5990b92a334e346f72070bf569b9c9c95",
-              "url": "https://proxpi.etheredge.dev/index/numpy/numpy-2.2.3-cp312-cp312-macosx_11_0_arm64.whl"
+              "hash": "dbe512c511956b893d2dacd007d955a3f03d555ae05cfa3ff1c1ff6df8851854",
+              "url": "https://proxpi.etheredge.dev/index/numpy/numpy-2.2.4-cp312-cp312-macosx_11_0_arm64.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "712a64103d97c404e87d4d7c47fb0c7ff9acccc625ca2002848e0d53288b90ea",
-              "url": "https://proxpi.etheredge.dev/index/numpy/numpy-2.2.3-cp312-cp312-macosx_14_0_arm64.whl"
+              "hash": "bb649f8b207ab07caebba230d851b579a3c8711a851d29efe15008e31bb4de24",
+              "url": "https://proxpi.etheredge.dev/index/numpy/numpy-2.2.4-cp312-cp312-macosx_14_0_arm64.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "a5ae282abe60a2db0fd407072aff4599c279bcd6e9a2475500fc35b00a57c532",
-              "url": "https://proxpi.etheredge.dev/index/numpy/numpy-2.2.3-cp312-cp312-macosx_14_0_x86_64.whl"
+              "hash": "f34dc300df798742b3d06515aa2a0aee20941c13579d7a2f2e10af01ae4901ee",
+              "url": "https://proxpi.etheredge.dev/index/numpy/numpy-2.2.4-cp312-cp312-macosx_14_0_x86_64.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "5266de33d4c3420973cf9ae3b98b54a2a6d53a559310e3236c4b2b06b9c07d4e",
-              "url": "https://proxpi.etheredge.dev/index/numpy/numpy-2.2.3-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl"
+              "hash": "c3f7ac96b16955634e223b579a3e5798df59007ca43e8d451a0e6a50f6bfdfba",
+              "url": "https://proxpi.etheredge.dev/index/numpy/numpy-2.2.4-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "3b787adbf04b0db1967798dba8da1af07e387908ed1553a0d6e74c084d1ceafe",
-              "url": "https://proxpi.etheredge.dev/index/numpy/numpy-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl"
+              "hash": "4f92084defa704deadd4e0a5ab1dc52d8ac9e8a8ef617f3fbb853e79b0ea3592",
+              "url": "https://proxpi.etheredge.dev/index/numpy/numpy-2.2.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "34c1b7e83f94f3b564b35f480f5652a47007dd91f7c839f404d03279cc8dd021",
-              "url": "https://proxpi.etheredge.dev/index/numpy/numpy-2.2.3-cp312-cp312-musllinux_1_2_aarch64.whl"
+              "hash": "7a4e84a6283b36632e2a5b56e121961f6542ab886bc9e12f8f9818b3c266bfbb",
+              "url": "https://proxpi.etheredge.dev/index/numpy/numpy-2.2.4-cp312-cp312-musllinux_1_2_aarch64.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "dbdc15f0c81611925f382dfa97b3bd0bc2c1ce19d4fe50482cb0ddc12ba30020",
-              "url": "https://proxpi.etheredge.dev/index/numpy/numpy-2.2.3.tar.gz"
+              "hash": "9ba03692a45d3eef66559efe1d1096c4b9b75c0986b5dff5530c378fb8331d4f",
+              "url": "https://proxpi.etheredge.dev/index/numpy/numpy-2.2.4.tar.gz"
             }
           ],
           "project_name": "numpy",
           "requires_dists": [],
           "requires_python": ">=3.10",
-          "version": "2.2.3"
+          "version": "2.2.4"
         },
         {
           "artifacts": [
@@ -1785,13 +1794,13 @@
           "artifacts": [
             {
               "algorithm": "sha256",
-              "hash": "73e575e1408ab8103900836b97580d5307456908a03e92031bab39e4554cc3fb",
-              "url": "https://proxpi.etheredge.dev/index/platformdirs/platformdirs-4.3.6-py3-none-any.whl"
+              "hash": "a03875334331946f13c549dbd8f4bac7a13a50a895a0eb1e8c6a8ace80d40a94",
+              "url": "https://proxpi.etheredge.dev/index/platformdirs/platformdirs-4.3.7-py3-none-any.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "357fb2acbc885b0419afd3ce3ed34564c13c9b95c89360cd9563f73aa5e2b907",
-              "url": "https://proxpi.etheredge.dev/index/platformdirs/platformdirs-4.3.6.tar.gz"
+              "hash": "eb437d586b6a0986388f0d6f74aa0cde27b48d0e3d66843640bfb6bdcdb6e351",
+              "url": "https://proxpi.etheredge.dev/index/platformdirs/platformdirs-4.3.7.tar.gz"
             }
           ],
           "project_name": "platformdirs",
@@ -1799,49 +1808,49 @@
             "appdirs==1.4.4; extra == \"test\"",
             "covdefaults>=2.3; extra == \"test\"",
             "furo>=2024.8.6; extra == \"docs\"",
-            "mypy>=1.11.2; extra == \"type\"",
+            "mypy>=1.14.1; extra == \"type\"",
             "proselint>=0.14; extra == \"docs\"",
-            "pytest-cov>=5; extra == \"test\"",
+            "pytest-cov>=6; extra == \"test\"",
             "pytest-mock>=3.14; extra == \"test\"",
-            "pytest>=8.3.2; extra == \"test\"",
-            "sphinx-autodoc-typehints>=2.4; extra == \"docs\"",
-            "sphinx>=8.0.2; extra == \"docs\""
+            "pytest>=8.3.4; extra == \"test\"",
+            "sphinx-autodoc-typehints>=3; extra == \"docs\"",
+            "sphinx>=8.1.3; extra == \"docs\""
           ],
-          "requires_python": ">=3.8",
-          "version": "4.3.6"
+          "requires_python": ">=3.9",
+          "version": "4.3.7"
         },
         {
           "artifacts": [
             {
               "algorithm": "sha256",
-              "hash": "0a18ed4a24198528f2333802eb075e59dea9d679ab7a6c5efb017a59004d849f",
-              "url": "https://proxpi.etheredge.dev/index/protobuf/protobuf-5.29.3-py3-none-any.whl"
+              "hash": "3fde11b505e1597f71b875ef2fc52062b6a9740e5f7c8997ce878b6009145862",
+              "url": "https://proxpi.etheredge.dev/index/protobuf/protobuf-5.29.4-py3-none-any.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "a8434404bbf139aa9e1300dbf989667a83d42ddda9153d8ab76e0d5dcaca484e",
-              "url": "https://proxpi.etheredge.dev/index/protobuf/protobuf-5.29.3-cp38-abi3-macosx_10_9_universal2.whl"
+              "hash": "307ecba1d852ec237e9ba668e087326a67564ef83e45a0189a772ede9e854dd0",
+              "url": "https://proxpi.etheredge.dev/index/protobuf/protobuf-5.29.4-cp38-abi3-macosx_10_9_universal2.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "daaf63f70f25e8689c072cfad4334ca0ac1d1e05a92fc15c54eb9cf23c3efd84",
-              "url": "https://proxpi.etheredge.dev/index/protobuf/protobuf-5.29.3-cp38-abi3-manylinux2014_aarch64.whl"
+              "hash": "aec4962f9ea93c431d5714ed1be1c93f13e1a8618e70035ba2b0564d9e633f2e",
+              "url": "https://proxpi.etheredge.dev/index/protobuf/protobuf-5.29.4-cp38-abi3-manylinux2014_aarch64.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "c027e08a08be10b67c06bf2370b99c811c466398c357e615ca88c91c07f0910f",
-              "url": "https://proxpi.etheredge.dev/index/protobuf/protobuf-5.29.3-cp38-abi3-manylinux2014_x86_64.whl"
+              "hash": "d7d3f7d1d5a66ed4942d4fefb12ac4b14a29028b209d4bfb25c68ae172059922",
+              "url": "https://proxpi.etheredge.dev/index/protobuf/protobuf-5.29.4-cp38-abi3-manylinux2014_x86_64.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "5da0f41edaf117bde316404bad1a486cb4ededf8e4a54891296f648e8e076620",
-              "url": "https://proxpi.etheredge.dev/index/protobuf/protobuf-5.29.3.tar.gz"
+              "hash": "4f1dfcd7997b31ef8f53ec82781ff434a28bf71d9102ddde14d076adcfc78c99",
+              "url": "https://proxpi.etheredge.dev/index/protobuf/protobuf-5.29.4.tar.gz"
             }
           ],
           "project_name": "protobuf",
           "requires_dists": [],
           "requires_python": ">=3.8",
-          "version": "5.29.3"
+          "version": "5.29.4"
         },
         {
           "artifacts": [
@@ -1911,95 +1920,96 @@
           "artifacts": [
             {
               "algorithm": "sha256",
-              "hash": "427d664bf0b8a2b34ff5dd0f5a18df00591adcee7198fbd71981054cef37b584",
-              "url": "https://proxpi.etheredge.dev/index/pydantic/pydantic-2.10.6-py3-none-any.whl"
+              "hash": "5b6c415eee9f8123a14d859be0c84363fec6b1feb6b688d6435801230b56e0b8",
+              "url": "https://proxpi.etheredge.dev/index/pydantic/pydantic-2.11.1-py3-none-any.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "ca5daa827cce33de7a42be142548b0096bf05a7e7b365aebfa5f8eeec7128236",
-              "url": "https://proxpi.etheredge.dev/index/pydantic/pydantic-2.10.6.tar.gz"
+              "hash": "442557d2910e75c991c39f4b4ab18963d57b9b55122c8b2a9cd176d8c29ce968",
+              "url": "https://proxpi.etheredge.dev/index/pydantic/pydantic-2.11.1.tar.gz"
             }
           ],
           "project_name": "pydantic",
           "requires_dists": [
             "annotated-types>=0.6.0",
             "email-validator>=2.0.0; extra == \"email\"",
-            "pydantic-core==2.27.2",
+            "pydantic-core==2.33.0",
             "typing-extensions>=4.12.2",
+            "typing-inspection>=0.4.0",
             "tzdata; (python_version >= \"3.9\" and platform_system == \"Windows\") and extra == \"timezone\""
           ],
-          "requires_python": ">=3.8",
-          "version": "2.10.6"
+          "requires_python": ">=3.9",
+          "version": "2.11.1"
         },
         {
           "artifacts": [
             {
               "algorithm": "sha256",
-              "hash": "a0fcd29cd6b4e74fe8ddd2c90330fd8edf2e30cb52acda47f06dd615ae72da57",
-              "url": "https://proxpi.etheredge.dev/index/pydantic-core/pydantic_core-2.27.2-cp312-cp312-musllinux_1_1_x86_64.whl"
+              "hash": "20d4275f3c4659d92048c70797e5fdc396c6e4446caf517ba5cad2db60cd39d3",
+              "url": "https://proxpi.etheredge.dev/index/pydantic-core/pydantic_core-2.33.0-cp312-cp312-musllinux_1_1_x86_64.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "9e0c8cfefa0ef83b4da9588448b6d8d2a2bf1a53c3f1ae5fca39eb3061e2f0b0",
-              "url": "https://proxpi.etheredge.dev/index/pydantic-core/pydantic_core-2.27.2-cp312-cp312-macosx_10_12_x86_64.whl"
+              "hash": "6c32a40712e3662bebe524abe8abb757f2fa2000028d64cc5a1006016c06af43",
+              "url": "https://proxpi.etheredge.dev/index/pydantic-core/pydantic_core-2.33.0-cp312-cp312-macosx_10_12_x86_64.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "83097677b8e3bd7eaa6775720ec8e0405f1575015a463285a92bfdfe254529ef",
-              "url": "https://proxpi.etheredge.dev/index/pydantic-core/pydantic_core-2.27.2-cp312-cp312-macosx_11_0_arm64.whl"
+              "hash": "8ec86b5baa36f0a0bfb37db86c7d52652f8e8aa076ab745ef7725784183c3fdd",
+              "url": "https://proxpi.etheredge.dev/index/pydantic-core/pydantic_core-2.33.0-cp312-cp312-macosx_11_0_arm64.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "172fce187655fece0c90d90a678424b013f8fbb0ca8b036ac266749c09438cb7",
-              "url": "https://proxpi.etheredge.dev/index/pydantic-core/pydantic_core-2.27.2-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl"
+              "hash": "4deac83a8cc1d09e40683be0bc6d1fa4cde8df0a9bf0cda5693f9b0569ac01b6",
+              "url": "https://proxpi.etheredge.dev/index/pydantic-core/pydantic_core-2.33.0-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "519f29f5213271eeeeb3093f662ba2fd512b91c5f188f3bb7b27bc5973816934",
-              "url": "https://proxpi.etheredge.dev/index/pydantic-core/pydantic_core-2.27.2-cp312-cp312-manylinux_2_17_armv7l.manylinux2014_armv7l.whl"
+              "hash": "175ab598fb457a9aee63206a1993874badf3ed9a456e0654273e56f00747bbd6",
+              "url": "https://proxpi.etheredge.dev/index/pydantic-core/pydantic_core-2.33.0-cp312-cp312-manylinux_2_17_armv7l.manylinux2014_armv7l.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "05e3a55d124407fffba0dd6b0c0cd056d10e983ceb4e5dbd10dda135c31071d6",
-              "url": "https://proxpi.etheredge.dev/index/pydantic-core/pydantic_core-2.27.2-cp312-cp312-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl"
+              "hash": "5f36afd0d56a6c42cf4e8465b6441cf546ed69d3a4ec92724cc9c8c61bd6ecf4",
+              "url": "https://proxpi.etheredge.dev/index/pydantic-core/pydantic_core-2.33.0-cp312-cp312-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "9c3ed807c7b91de05e63930188f19e921d1fe90de6b4f5cd43ee7fcc3525cb8c",
-              "url": "https://proxpi.etheredge.dev/index/pydantic-core/pydantic_core-2.27.2-cp312-cp312-manylinux_2_17_s390x.manylinux2014_s390x.whl"
+              "hash": "0a98257451164666afafc7cbf5fb00d613e33f7e7ebb322fbcd99345695a9a61",
+              "url": "https://proxpi.etheredge.dev/index/pydantic-core/pydantic_core-2.33.0-cp312-cp312-manylinux_2_17_s390x.manylinux2014_s390x.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "6fb4aadc0b9a0c063206846d603b92030eb6f03069151a625667f982887153e2",
-              "url": "https://proxpi.etheredge.dev/index/pydantic-core/pydantic_core-2.27.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl"
+              "hash": "ecc6d02d69b54a2eb83ebcc6f29df04957f734bcf309d346b4f83354d8376862",
+              "url": "https://proxpi.etheredge.dev/index/pydantic-core/pydantic_core-2.33.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "28ccb213807e037460326424ceb8b5245acb88f32f3d2777427476e1b32c48c4",
-              "url": "https://proxpi.etheredge.dev/index/pydantic-core/pydantic_core-2.27.2-cp312-cp312-manylinux_2_5_i686.manylinux1_i686.whl"
+              "hash": "1a69b7596c6603afd049ce7f3835bcf57dd3892fc7279f0ddf987bebed8caa5a",
+              "url": "https://proxpi.etheredge.dev/index/pydantic-core/pydantic_core-2.33.0-cp312-cp312-manylinux_2_5_i686.manylinux1_i686.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "de3cd1899e2c279b140adde9357c4495ed9d47131b4a4eaff9052f23398076b3",
-              "url": "https://proxpi.etheredge.dev/index/pydantic-core/pydantic_core-2.27.2-cp312-cp312-musllinux_1_1_aarch64.whl"
+              "hash": "ea30239c148b6ef41364c6f51d103c2988965b643d62e10b233b5efdca8c0099",
+              "url": "https://proxpi.etheredge.dev/index/pydantic-core/pydantic_core-2.33.0-cp312-cp312-musllinux_1_1_aarch64.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "220f892729375e2d736b97d0e51466252ad84c51857d4d15f5e9692f9ef12be4",
-              "url": "https://proxpi.etheredge.dev/index/pydantic-core/pydantic_core-2.27.2-cp312-cp312-musllinux_1_1_armv7l.whl"
+              "hash": "abfa44cf2f7f7d7a199be6c6ec141c9024063205545aa09304349781b9a125e6",
+              "url": "https://proxpi.etheredge.dev/index/pydantic-core/pydantic_core-2.33.0-cp312-cp312-musllinux_1_1_armv7l.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "eb026e5a4c1fee05726072337ff51d1efb6f59090b7da90d30ea58625b1ffb39",
-              "url": "https://proxpi.etheredge.dev/index/pydantic-core/pydantic_core-2.27.2.tar.gz"
+              "hash": "40eb8af662ba409c3cbf4a8150ad32ae73514cd7cb1f1a2113af39763dd616b3",
+              "url": "https://proxpi.etheredge.dev/index/pydantic-core/pydantic_core-2.33.0.tar.gz"
             }
           ],
           "project_name": "pydantic-core",
           "requires_dists": [
             "typing-extensions!=4.7.0,>=4.6.0"
           ],
-          "requires_python": ">=3.8",
-          "version": "2.27.2"
+          "requires_python": ">=3.9",
+          "version": "2.33.0"
         },
         {
           "artifacts": [
@@ -2063,13 +2073,13 @@
           "artifacts": [
             {
               "algorithm": "sha256",
-              "hash": "506ff4f4386c4cec0590ec19e6302d3aedb992fdc02c761e90416f158dacf8e1",
-              "url": "https://proxpi.etheredge.dev/index/pyparsing/pyparsing-3.2.1-py3-none-any.whl"
+              "hash": "a749938e02d6fd0b59b356ca504a24982314bb090c383e3cf201c95ef7e2bfcf",
+              "url": "https://proxpi.etheredge.dev/index/pyparsing/pyparsing-3.2.3-py3-none-any.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "61980854fd66de3a90028d679a954d5f2623e83144b5afe5ee86f43d762e5f0a",
-              "url": "https://proxpi.etheredge.dev/index/pyparsing/pyparsing-3.2.1.tar.gz"
+              "hash": "b9c13f1ab8b3b542f72e28f634bad4de758ab3ce4546e4301970ad6fa77c38be",
+              "url": "https://proxpi.etheredge.dev/index/pyparsing/pyparsing-3.2.3.tar.gz"
             }
           ],
           "project_name": "pyparsing",
@@ -2078,7 +2088,7 @@
             "railroad-diagrams; extra == \"diagrams\""
           ],
           "requires_python": ">=3.9",
-          "version": "3.2.1"
+          "version": "3.2.3"
         },
         {
           "artifacts": [
@@ -2104,19 +2114,19 @@
           "artifacts": [
             {
               "algorithm": "sha256",
-              "hash": "89dd22dca55b46eac6eda23b2d72721bf1bdfef212645d81513ef5d03038de57",
-              "url": "https://proxpi.etheredge.dev/index/pytz/pytz-2025.1-py2.py3-none-any.whl"
+              "hash": "5ddf76296dd8c44c26eb8f4b6f35488f3ccbf6fbbd7adee0b7262d43f0ec2f00",
+              "url": "https://proxpi.etheredge.dev/index/pytz/pytz-2025.2-py2.py3-none-any.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "c2db42be2a2518b28e65f9207c4d05e6ff547d1efa4086469ef855e4ab70178e",
-              "url": "https://proxpi.etheredge.dev/index/pytz/pytz-2025.1.tar.gz"
+              "hash": "360b9e3dbb49a209c21ad61809c7fb453643e048b38924c765813546746e81c3",
+              "url": "https://proxpi.etheredge.dev/index/pytz/pytz-2025.2.tar.gz"
             }
           ],
           "project_name": "pytz",
           "requires_dists": [],
           "requires_python": null,
-          "version": "2025.1"
+          "version": "2025.2"
         },
         {
           "artifacts": [
@@ -2195,13 +2205,13 @@
           "artifacts": [
             {
               "algorithm": "sha256",
-              "hash": "6049d5e6ec054bf2779ab3358186963bac2ea89175919d699e378b99738c2a90",
-              "url": "https://proxpi.etheredge.dev/index/rich/rich-13.9.4-py3-none-any.whl"
+              "hash": "1c9491e1951aac09caffd42f448ee3d04e58923ffe14993f6e83068dc395d7e0",
+              "url": "https://proxpi.etheredge.dev/index/rich/rich-14.0.0-py3-none-any.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "439594978a49a09530cff7ebc4b5c7103ef57baf48d5ea3184f21d9a2befa098",
-              "url": "https://proxpi.etheredge.dev/index/rich/rich-13.9.4.tar.gz"
+              "hash": "82f1bc23a6a21ebca4ae0c45af9bdbc492ed20231dcb63f297d6d1021a9d5725",
+              "url": "https://proxpi.etheredge.dev/index/rich/rich-14.0.0.tar.gz"
             }
           ],
           "project_name": "rich",
@@ -2212,19 +2222,19 @@
             "typing-extensions<5.0,>=4.0.0; python_version < \"3.11\""
           ],
           "requires_python": ">=3.8.0",
-          "version": "13.9.4"
+          "version": "14.0.0"
         },
         {
           "artifacts": [
             {
               "algorithm": "sha256",
-              "hash": "3d791d631a6c97aad4da7074081a57073126c69487560c6f8bffcf586461de66",
-              "url": "https://proxpi.etheredge.dev/index/sentry-sdk/sentry_sdk-2.22.0-py2.py3-none-any.whl"
+              "hash": "36baa6a1128b9d98d2adc5e9b2f887eff0a6af558fc2b96ed51919042413556d",
+              "url": "https://proxpi.etheredge.dev/index/sentry-sdk/sentry_sdk-2.24.1-py2.py3-none-any.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "b4bf43bb38f547c84b2eadcefbe389b36ef75f3f38253d7a74d6b928c07ae944",
-              "url": "https://proxpi.etheredge.dev/index/sentry-sdk/sentry_sdk-2.22.0.tar.gz"
+              "hash": "8ba3c29990fa48865b908b3b9dc5ae7fa7e72407c7c9e91303e5206b32d7b8b1",
+              "url": "https://proxpi.etheredge.dev/index/sentry-sdk/sentry_sdk-2.24.1.tar.gz"
             }
           ],
           "project_name": "sentry-sdk",
@@ -2279,7 +2289,7 @@
             "urllib3>=1.26.11"
           ],
           "requires_python": ">=3.6",
-          "version": "2.22.0"
+          "version": "2.24.1"
         },
         {
           "artifacts": [
@@ -2350,13 +2360,13 @@
           "artifacts": [
             {
               "algorithm": "sha256",
-              "hash": "558e47c15f1811c1fa7adbd0096669bf76c1d3f433f58324df69f3f5ecac4e8f",
-              "url": "https://proxpi.etheredge.dev/index/setuptools/setuptools-75.8.2-py3-none-any.whl"
+              "hash": "3e386e96793c8702ae83d17b853fb93d3e09ef82ec62722e61da5cd22376dcd8",
+              "url": "https://proxpi.etheredge.dev/index/setuptools/setuptools-78.1.0-py3-none-any.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "4880473a969e5f23f2a2be3646b2dfd84af9028716d398e46192f84bc36900d2",
-              "url": "https://proxpi.etheredge.dev/index/setuptools/setuptools-75.8.2.tar.gz"
+              "hash": "18fd474d4a82a5f83dac888df697af65afa82dec7323d09c3e37d1f14288da54",
+              "url": "https://proxpi.etheredge.dev/index/setuptools/setuptools-78.1.0.tar.gz"
             }
           ],
           "project_name": "setuptools",
@@ -2367,7 +2377,6 @@
             "importlib_metadata>=6; python_version < \"3.10\" and extra == \"core\"",
             "importlib_metadata>=7.0.2; python_version < \"3.10\" and extra == \"type\"",
             "ini2toml[lite]>=0.14; extra == \"test\"",
-            "jaraco.collections; extra == \"core\"",
             "jaraco.develop>=7.21; (python_version >= \"3.9\" and sys_platform != \"cygwin\") and extra == \"test\"",
             "jaraco.develop>=7.21; sys_platform != \"cygwin\" and extra == \"type\"",
             "jaraco.envs>=2.2; extra == \"test\"",
@@ -2380,7 +2389,6 @@
             "more_itertools; extra == \"core\"",
             "more_itertools>=8.8; extra == \"core\"",
             "mypy==1.14.*; extra == \"type\"",
-            "packaging; extra == \"core\"",
             "packaging>=24.2; extra == \"core\"",
             "packaging>=24.2; extra == \"test\"",
             "pip>=19.1; extra == \"test\"",
@@ -2416,7 +2424,7 @@
             "wheel>=0.44.0; extra == \"test\""
           ],
           "requires_python": ">=3.9",
-          "version": "75.8.2"
+          "version": "78.1.0"
         },
         {
           "artifacts": [
@@ -2458,21 +2466,21 @@
           "artifacts": [
             {
               "algorithm": "sha256",
-              "hash": "cd9ff4201794ee724f693d5380d40cbe8fd2f08c454a5d5aadda737e937244f0",
-              "url": "https://proxpi.etheredge.dev/index/stable-baselines3/stable_baselines3-2.5.0-py3-none-any.whl"
+              "hash": "d4a4c95b5593c6135a5764767d829498677559069110aa3768fe1254f1c457e3",
+              "url": "https://proxpi.etheredge.dev/index/stable-baselines3/stable_baselines3-2.6.0-py3-none-any.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "97c953b3f8f1a7a06024f0e3165a6c633444ddaea43be20617023d924aaa1e96",
-              "url": "https://proxpi.etheredge.dev/index/stable-baselines3/stable_baselines3-2.5.0.tar.gz"
+              "hash": "972ef537a9a8f2b9de06cdca87ef1f33df5fc8239cfe64fed88976d7c799c2f7",
+              "url": "https://proxpi.etheredge.dev/index/stable-baselines3/stable_baselines3-2.6.0.tar.gz"
             }
           ],
           "project_name": "stable-baselines3",
           "requires_dists": [
             "ale-py>=0.9.0; extra == \"extra\"",
-            "black<25,>=24.2.0; extra == \"tests\"",
+            "black<26,>=25.1.0; extra == \"tests\"",
             "cloudpickle",
-            "gymnasium<1.1.0,>=0.29.1",
+            "gymnasium<1.2.0,>=0.29.1",
             "matplotlib",
             "mypy; extra == \"tests\"",
             "numpy<3.0,>=1.20",
@@ -2497,7 +2505,7 @@
             "tqdm; extra == \"extra\""
           ],
           "requires_python": ">=3.9",
-          "version": "2.5.0"
+          "version": "2.6.0"
         },
         {
           "artifacts": [
@@ -2639,8 +2647,8 @@
           "artifacts": [
             {
               "algorithm": "sha256",
-              "hash": "5083a5b1fec2351bf5ea9900a741d54086db75baec4b1d21e39451e00977f1b1",
-              "url": "https://proxpi.etheredge.dev/index/torchvision/torchvision-0.21.0-cp312-cp312-manylinux_2_28_aarch64.whl"
+              "hash": "ffa2a16499508fe6798323e455f312c7c55f2a88901c9a7c0fb1efa86cf7e327",
+              "url": "https://proxpi.etheredge.dev/index/torchvision/torchvision-0.21.0-1-cp312-cp312-manylinux_2_28_aarch64.whl"
             },
             {
               "algorithm": "sha256",
@@ -2651,6 +2659,11 @@
               "algorithm": "sha256",
               "hash": "b578bcad8a4083b40d34f689b19ca9f7c63e511758d806510ea03c29ac568f7b",
               "url": "https://proxpi.etheredge.dev/index/torchvision/torchvision-0.21.0-cp312-cp312-manylinux1_x86_64.whl"
+            },
+            {
+              "algorithm": "sha256",
+              "hash": "5083a5b1fec2351bf5ea9900a741d54086db75baec4b1d21e39451e00977f1b1",
+              "url": "https://proxpi.etheredge.dev/index/torchvision/torchvision-0.21.0-cp312-cp312-manylinux_2_28_aarch64.whl"
             }
           ],
           "project_name": "torchvision",
@@ -2723,37 +2736,57 @@
           "artifacts": [
             {
               "algorithm": "sha256",
-              "hash": "04e5ca0351e0f3f85c6853954072df659d0d13fac324d0072316b67d7794700d",
-              "url": "https://proxpi.etheredge.dev/index/typing-extensions/typing_extensions-4.12.2-py3-none-any.whl"
+              "hash": "c8dd92cc0d6425a97c18fbb9d1954e5ff92c1ca881a309c45f06ebc0b79058e5",
+              "url": "https://proxpi.etheredge.dev/index/typing-extensions/typing_extensions-4.13.0-py3-none-any.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8",
-              "url": "https://proxpi.etheredge.dev/index/typing-extensions/typing_extensions-4.12.2.tar.gz"
+              "hash": "0a4ac55a5820789d87e297727d229866c9650f6521b64206413c4fbada24d95b",
+              "url": "https://proxpi.etheredge.dev/index/typing-extensions/typing_extensions-4.13.0.tar.gz"
             }
           ],
           "project_name": "typing-extensions",
           "requires_dists": [],
           "requires_python": ">=3.8",
-          "version": "4.12.2"
+          "version": "4.13.0"
         },
         {
           "artifacts": [
             {
               "algorithm": "sha256",
-              "hash": "7e127113816800496f027041c570f50bcd464a020098a3b6b199517772303639",
-              "url": "https://proxpi.etheredge.dev/index/tzdata/tzdata-2025.1-py2.py3-none-any.whl"
+              "hash": "50e72559fcd2a6367a19f7a7e610e6afcb9fac940c650290eed893d61386832f",
+              "url": "https://proxpi.etheredge.dev/index/typing-inspection/typing_inspection-0.4.0-py3-none-any.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "24894909e88cdb28bd1636c6887801df64cb485bd593f2fd83ef29075a81d694",
-              "url": "https://proxpi.etheredge.dev/index/tzdata/tzdata-2025.1.tar.gz"
+              "hash": "9765c87de36671694a67904bf2c96e395be9c6439bb6c87b5142569dcdd65122",
+              "url": "https://proxpi.etheredge.dev/index/typing-inspection/typing_inspection-0.4.0.tar.gz"
+            }
+          ],
+          "project_name": "typing-inspection",
+          "requires_dists": [
+            "typing-extensions>=4.12.0"
+          ],
+          "requires_python": ">=3.9",
+          "version": "0.4.0"
+        },
+        {
+          "artifacts": [
+            {
+              "algorithm": "sha256",
+              "hash": "1a403fada01ff9221ca8044d701868fa132215d84beb92242d9acd2147f667a8",
+              "url": "https://proxpi.etheredge.dev/index/tzdata/tzdata-2025.2-py2.py3-none-any.whl"
+            },
+            {
+              "algorithm": "sha256",
+              "hash": "b60a638fcc0daffadf82fe0f57e53d06bdec2f36c4df66280ae79bce6bd6f2b9",
+              "url": "https://proxpi.etheredge.dev/index/tzdata/tzdata-2025.2.tar.gz"
             }
           ],
           "project_name": "tzdata",
           "requires_dists": [],
           "requires_python": ">=2",
-          "version": "2025.1"
+          "version": "2025.2"
         },
         {
           "artifacts": [
@@ -2932,7 +2965,7 @@
   "pip_version": "24.2",
   "prefer_older_binary": false,
   "requirements": [
-    "absl-py==2.1.0",
+    "absl-py==2.2.1",
     "ale-py==0.10.2",
     "annotated-types==0.7.0",
     "certifi==2025.1.31",
@@ -2943,13 +2976,13 @@
     "cycler==0.12.1",
     "docker-pycreds==0.4.0",
     "farama-notifications==0.0.4",
-    "filelock==3.17.0",
+    "filelock==3.18.0",
     "fonttools==4.56.0",
     "fsspec==2025.3.0",
     "gitdb==4.0.12",
     "gitpython==3.1.44",
-    "grpcio==1.70.0",
-    "gymnasium==1.0.0",
+    "grpcio==1.71.0",
+    "gymnasium==1.1.1",
     "idna==3.10",
     "jinja2==3.1.6",
     "kiwisolver==1.4.8",
@@ -2960,7 +2993,7 @@
     "mdurl==0.1.2",
     "mpmath==1.3.0",
     "networkx==3.4.2",
-    "numpy==2.2.3",
+    "numpy==2.2.4",
     "nvidia-cublas-cu12==12.4.5.8",
     "nvidia-cuda-cupti-cu12==12.4.127",
     "nvidia-cuda-nvrtc-cu12==12.4.127",
@@ -2978,25 +3011,25 @@
     "packaging==24.2",
     "pandas==2.2.3",
     "pillow==11.1.0",
-    "platformdirs==4.3.6",
-    "protobuf==5.29.3",
+    "platformdirs==4.3.7",
+    "protobuf==5.29.4",
     "psutil==7.0.0",
-    "pydantic-core==2.27.2",
-    "pydantic==2.10.6",
+    "pydantic-core==2.33.0",
+    "pydantic==2.11.1",
     "pygame==2.6.1",
     "pygments==2.19.1",
-    "pyparsing==3.2.1",
+    "pyparsing==3.2.3",
     "python-dateutil==2.9.0.post0",
-    "pytz==2025.1",
+    "pytz==2025.2",
     "pyyaml==6.0.2",
     "requests==2.32.3",
-    "rich==13.9.4",
-    "sentry-sdk==2.22.0",
+    "rich==14.0.0",
+    "sentry-sdk==2.24.1",
     "setproctitle==1.3.5",
-    "setuptools==75.8.2",
+    "setuptools==78.1.0",
     "six==1.17.0",
     "smmap==5.0.2",
-    "stable-baselines3==2.5.0",
+    "stable-baselines3==2.6.0",
     "sympy==1.13.1",
     "tensorboard-data-server==0.7.2",
     "tensorboard==2.19.0",
@@ -3004,8 +3037,9 @@
     "torchvision==0.21.0",
     "tqdm==4.67.1",
     "triton==3.2.0",
-    "typing-extensions==4.12.2",
-    "tzdata==2025.1",
+    "typing-extensions==4.13.0",
+    "typing-inspection==0.4.0",
+    "tzdata==2025.2",
     "urllib3==2.3.0",
     "wandb==0.19.8",
     "werkzeug==3.1.3"

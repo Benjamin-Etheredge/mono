@@ -8,6 +8,7 @@ python_requirements(
     name="requirements",
     source="requirements.txt",
     resolve="default",
+    module_mapping={"umap-learn": ["umap"]},
     overrides={
         "transformers": {"dependencies": [":requirements#torch"]},
     },
