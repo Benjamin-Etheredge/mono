@@ -16,6 +16,7 @@ metadata:
 spec:
   imageRepositoryRef:
     name: authors
+    namespace: flux-system
   policy:
     semver:
       range: '>=1.0.0'
