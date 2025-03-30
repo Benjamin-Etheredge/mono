@@ -895,6 +895,7 @@ py-cpuinfo==9.0.0
     # via inference
 pyarrow==19.0.1
     # via
+    #   -r requirements.in
     #   datasets
     #   streamlit
 pyasn1==0.6.1

@@ -30,7 +30,7 @@ filelock==3.18.0
     # via torch
 fonttools==4.56.0
     # via matplotlib
-fsspec==2025.3.0
+fsspec==2025.3.1
     # via torch
 gitdb==4.0.12
     # via gitpython

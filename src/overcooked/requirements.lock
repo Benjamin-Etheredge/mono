@@ -22,7 +22,7 @@
 //     "farama-notifications==0.0.4",
 //     "filelock==3.18.0",
 //     "fonttools==4.56.0",
-//     "fsspec==2025.3.0",
+//     "fsspec==2025.3.1",
 //     "gitdb==4.0.12",
 //     "gitpython==3.1.44",
 //     "grpcio==1.71.0",
@@ -554,13 +554,13 @@
           "artifacts": [
             {
               "algorithm": "sha256",
-              "hash": "efb87af3efa9103f94ca91a7f8cb7a4df91af9f74fc106c9c7ea0efd7277c1b3",
-              "url": "https://proxpi.etheredge.dev/index/fsspec/fsspec-2025.3.0-py3-none-any.whl"
+              "hash": "2ce85886f37dfa12d5ad4764f1342efbf00ec0a4fe164f070038499d80142887",
+              "url": "https://proxpi.etheredge.dev/index/fsspec/fsspec-2025.3.1-py3-none-any.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "a935fd1ea872591f2b5148907d103488fc523295e6c64b835cfad8c3eca44972",
-              "url": "https://proxpi.etheredge.dev/index/fsspec/fsspec-2025.3.0.tar.gz"
+              "hash": "b3ec826bd18ed4ff0e5d172a8c6421ea5258e83d4f28369001369733d658a5f6",
+              "url": "https://proxpi.etheredge.dev/index/fsspec/fsspec-2025.3.1.tar.gz"
             }
           ],
           "project_name": "fsspec",
@@ -668,7 +668,7 @@
             "zstandard; extra == \"test-full\""
           ],
           "requires_python": ">=3.8",
-          "version": "2025.3.0"
+          "version": "2025.3.1"
         },
         {
           "artifacts": [
@@ -2978,7 +2978,7 @@
     "farama-notifications==0.0.4",
     "filelock==3.18.0",
     "fonttools==4.56.0",
-    "fsspec==2025.3.0",
+    "fsspec==2025.3.1",
     "gitdb==4.0.12",
     "gitpython==3.1.44",
     "grpcio==1.71.0",

@@ -22,6 +22,7 @@ pandas
 pillow
 plotly
 praw
+pyarrow
 pydantic
 pymilvus[model]
 pyvis
