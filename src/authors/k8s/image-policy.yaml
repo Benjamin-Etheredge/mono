@@ -3,16 +3,16 @@ apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageRepository
 metadata:
   name: authors
-  namespace: flux-system
+  namespace: authors
 spec:
   image: docker.io/etheredgeb/authors
-  interval: 1h
+  interval: 5m
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImagePolicy
 metadata:
-  name: papers
-  namespace: flux-system
+  name: authors
+  namespace: authors
 spec:
   imageRepositoryRef:
     name: authors
