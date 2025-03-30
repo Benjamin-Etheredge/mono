@@ -3,7 +3,7 @@ apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageRepository
 metadata:
   name: authors
-  namespace: authors
+  namespace: flux-system
 spec:
   image: docker.io/etheredgeb/authors
   interval: 5m
@@ -12,11 +12,10 @@ apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImagePolicy
 metadata:
   name: authors
-  namespace: authors
+  namespace: flux-system
 spec:
   imageRepositoryRef:
     name: authors
-    namespace: flux-system
   policy:
     semver:
       range: '>=1.0.0'
