@@ -140,6 +140,7 @@ def prepare_records(records):
     pool.close()
     return prepared_records
 
+
 def prepare_record(record):
     dates = record["date"] if isinstance(record["date"], list) else [record["date"]]
     epoch_dates = [int(datetime.strptime(date, "%Y-%m-%d").timestamp()) for date in dates]
@@ -152,20 +153,17 @@ def prepare_record(record):
         "title": record["title"],
         "authors": record["creator"] if isinstance(record["creator"], list) else [record["creator"]],
         "subject": record["subject"] if isinstance(record["subject"], list) else [record["subject"]],
-        "summary": record["description"]
-        if isinstance(record["description"], list)
-        else [record["description"]],
+        "summary": record["description"] if isinstance(record["description"], list) else [record["description"]],
         "date": record["date"] if isinstance(record["date"], list) else [record["date"]],
         "type": record["type"],
         "identifier": arxiv_idenitifier,
-        "identifiers": record["identifier"]
-        if isinstance(record["identifier"], list)
-        else [record["identifier"]],
+        "identifiers": record["identifier"] if isinstance(record["identifier"], list) else [record["identifier"]],
         "last_date_epoch": last_date_epoch,
         # TODO do we embed the title? or the summary? or both?
         **generate_embedding_kwargs(record),
         # 'embedding': generate_embedding(record['description']) if record['description'] else None,
     }
+
 
 def harvest_papers(collection, set_spec, from_date=None, until_date=None):
     """
@@ -305,7 +303,7 @@ def get_last_date(collection: pymilvus.Collection):
         # limit=20_000_000,
     )
 
-    last_time = -1 * float('inf')
+    last_time = -1 * float("inf")
     i = 0
     while True:
         result = iterator.next()

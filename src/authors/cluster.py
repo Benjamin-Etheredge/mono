@@ -3,6 +3,7 @@ import hdbscan
 
 # needed for visualization
 import kaleido  # noqa: F401
+
 # needed for parquet
 import pyarrow  # noqa: F401
 import numpy as np
@@ -18,9 +19,7 @@ connections.connect(
 collection = Collection(name="authors")
 collection.load()
 
-iterator = collection.query_iterator(
-    batch_size=10, expr="id >= 0", output_fields=["id", "vector"]
-)
+iterator = collection.query_iterator(batch_size=10, expr="id >= 0", output_fields=["id", "vector"])
 
 search_params = {
     "metric_type": "COSINE",
@@ -67,11 +66,7 @@ for id in dist:
     for result in dist[id]:
         dist_metric[ids2index[id]][ids2index[result[0]]] = result[1]
 
-h = hdbscan.HDBSCAN(
-    min_samples=2, 
-    min_cluster_size=2, 
-    metric="precomputed"
-)
+h = hdbscan.HDBSCAN(min_samples=2, min_cluster_size=2, metric="precomputed")
 hdb = h.fit(dist_metric)
 
 import plotly.io as pio
@@ -79,9 +74,9 @@ import plotly.io as pio
 pio.renderers.default = "notebook"
 
 umap = UMAP(
-    n_components=2, 
-    # random_state=42, 
-    n_neighbors=15, 
+    n_components=2,
+    # random_state=42,
+    n_neighbors=15,
     min_dist=0.1,
     metric="cosine",
     # output_metric="cosine",
@@ -125,11 +120,11 @@ df_umap["author"] = show_authors
 df_umap["idx"] = show_indexes
 df_umap.to_parquet("src/authors/data/clustered_authors.parquet")
 # fig = px.scatter(
-#     df_umap, 
-#     x="x", 
-#     y="y", 
-#     color="author", 
-#     # color="cluster", 
+#     df_umap,
+#     x="x",
+#     y="y",
+#     color="author",
+#     # color="cluster",
 #     hover_data={
 #         "title": True,
 #         "author": True,

@@ -31,6 +31,7 @@ def get_author_from_path(file_path: Path):
             return parts[idx + 1]
     raise ValueError(f"Author not found in path: {file_path}")
 
+
 def get_title_from_path(file_path: Path):
     # Really simply way to grap author from path
     parts = file_path.parts
@@ -38,6 +39,7 @@ def get_title_from_path(file_path: Path):
     if last_part.endswith(".txt"):
         return last_part[:-4]
     raise ValueError(f"Title not found in path: {file_path}")
+
 
 def load_data(data_dir: str):
     logging.info(f"Loading data from {data_dir}")

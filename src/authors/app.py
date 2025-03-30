@@ -4,27 +4,30 @@ import plotly.express as px
 
 import plotly.graph_objects as go
 
+
 @st.cache_resource
 def load_data():
     return pd.read_parquet("src/authors/data/clustered_authors.parquet")
+
 
 @st.cache_resource
 def load_fig():
     df = load_data()
     fig = px.scatter(
         df,
-        x="x", 
-        y="y", 
-        color="author", 
-        # color="cluster", 
+        x="x",
+        y="y",
+        color="author",
+        # color="cluster",
         hover_data={
             "title": True,
             "author": True,
             "cluster": True,
             "idx": True,
-        }
+        },
     )
     return fig
+
 
 # def main():
 st.title("Author Clustering")

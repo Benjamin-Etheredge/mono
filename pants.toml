@@ -56,7 +56,7 @@ assets = true
 
 [python-repos]
 indexes = [
-  "https://proxpi.etheredge.dev/index/", 
+  "https://proxpi.etheredge.dev/index/",
   # "https://pypi.org/simple/",
 ]
 

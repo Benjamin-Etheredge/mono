@@ -12,13 +12,14 @@ def cli_main():
         IttyDataModule,
         trainer_defaults=dict(
             max_epochs=10000,
-            accelerator='gpu',
+            accelerator="gpu",
             logger=lazy_instance(WandbLogger, project="itty"),
             callbacks=[
                 EarlyStopping(monitor="val/loss", patience=10),
                 ModelCheckpoint("checkpoints", filename="best"),
             ],
-        ))
+        ),
+    )
 
 
 if __name__ == "__main__":
