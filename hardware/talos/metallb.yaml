@@ -1,0 +1,7 @@
+# Talos machine config for MetalLB compatibility
+
+cluster:
+  proxy:
+    mode: ipvs
+    extraArgs:
+      ipvs-strict-arp: "true"    # Required for MetalLB L2 mode with IPVS

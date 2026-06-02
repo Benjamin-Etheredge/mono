@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: traefik
+$patch: delete
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: traefik-external
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: traefik-external
+  namespace: traefik-external
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: traefik-external
+  namespace: traefik-external
+spec:
+  chart:
+    spec:
+      sourceRef:
+        kind: HelmRepository
+        name: traefik-external
+        namespace: traefik-external
+  valuesFrom:
+    - kind: ConfigMap
+      name: traefik-values-external
+      valuesKey: values.yaml

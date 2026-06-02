@@ -1,0 +1,38 @@
+apiVersion: fluxcd.controlplane.io/v1
+kind: FluxInstance
+metadata:
+  name: creep
+  namespace: flux-system
+  annotations:
+    fluxcd.controlplane.io/reconcileEvery: "1h"
+    fluxcd.controlplane.io/reconcileArtifactEvery: "10m"
+    fluxcd.controlplane.io/reconcileTimeout: "10m"
+spec:
+  distribution:
+    version: "2.x"
+    registry: "ghcr.io/fluxcd"
+    artifact: "oci://ghcr.io/controlplaneio-fluxcd/flux-operator-manifests"
+
+  components:
+    - source-controller
+    - kustomize-controller
+    - helm-controller
+    - notification-controller
+    - image-reflector-controller
+    - image-automation-controller
+
+  cluster:
+    type: kubernetes
+    size: medium
+    multitenant: false
+    networkPolicy: true
+    domain: cluster.local
+
+  sync:
+    name: creep
+    kind: OCIRepository
+    url: "oci://ghcr.io/benjamin-etheredge/mono"
+    ref: "latest"
+    path: "clusters/creep"
+    pullSecret: "ghcr-auth"
+    interval: "5m"

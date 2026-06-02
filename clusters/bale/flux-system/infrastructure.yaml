@@ -1,0 +1,164 @@
+# x-defaults: &kustomizationDefaults
+#   interval: 10m
+#   retryInterval: 2m
+#   timeout: 10m
+#   prune: true
+#   wait: true
+#   sourceRef:
+#     kind: OCIRepository
+#     name: bale
+
+# ---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: monitoring
+spec: 
+  path: ./infrastructure/monitoring
+  interval: 24h
+  # retryInterval: 2m
+  timeout: 10m
+  prune: true
+  wait: true
+  sourceRef:
+    kind: OCIRepository
+    name: bale
+
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: metallb
+spec:
+  interval: 24h
+  # retryInterval: 2m
+  timeout: 10m
+  prune: true
+  wait: true
+  sourceRef:
+    kind: OCIRepository
+    name: bale
+  path: ./infrastructure/metallb
+
+---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1
+# kind: Kustomization
+# metadata:
+#   name: traefik-external
+# spec:
+#   interval: 24h
+#   retryInterval: 2m
+#   timeout: 10m
+#   prune: true
+#   wait: true
+#   sourceRef:
+#     kind: OCIRepository
+#     name: bale
+#   dependsOn:
+#     - name: cert-manager
+#     - name: traefik-secrets
+#     - name: metallb
+#   path: ./infrastructure/traefik/overlays/external
+#   postBuild:
+#     substituteFrom:
+#       - kind: Secret
+#         name: traefik-lb-ips
+
+# ---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: traefik-internal
+spec:
+  interval: 24h
+  # retryInterval: m
+  timeout: 10m
+  prune: true
+  wait: true
+  sourceRef:
+    kind: OCIRepository
+    name: bale
+  dependsOn:
+    - name: cert-manager-issuer
+    - name: bale-secrets
+    - name: metallb
+  path: ./infrastructure/traefik/overlays/internal
+  postBuild:
+    substituteFrom:
+      - kind: Secret
+        name: traefik-lb-ips
+
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1
+# kind: Kustomization
+# metadata:
+#   name: cert-manager
+# spec:
+#   interval: 24h
+#   retryInterval: 2m
+#   timeout: 10m
+#   prune: true
+#   wait: true
+#   sourceRef:
+#     kind: OCIRepository
+#     name: bale
+#   dependsOn:
+#     - name: bale-secrets
+#   path: ./infrastructure/cert-manager
+
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: cert-manager-secrets
+  namespace: flux-system
+spec:
+  interval: 24h
+  retryInterval: 5m
+  timeout: 10m
+  prune: true
+  wait: true
+  sourceRef:
+    kind: OCIRepository
+    name: bale
+  targetNamespace: cert-manager
+  dependsOn:
+    - name: cert-manager
+  path: ./infrastructure/cert-manager/secrets
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: cert-manager
+  namespace: flux-system
+spec:
+  interval: 24h
+  retryInterval: 5m
+  timeout: 10m
+  prune: true
+  wait: true
+  targetNamespace: cert-manager
+  sourceRef:
+    kind: OCIRepository
+    name: bale
+  path: ./infrastructure/cert-manager/flux
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: cert-manager-issuer
+  namespace: flux-system
+spec:
+  interval: 24h
+  retryInterval: 30m
+  timeout: 20m
+  prune: true
+  wait: true
+  targetNamespace: cert-manager
+  dependsOn:
+    - name: cert-manager-secrets
+    - name: cert-manager
+  sourceRef:
+    kind: OCIRepository
+    name: bale
+  path: ./infrastructure/cert-manager/crds

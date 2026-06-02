@@ -1,0 +1,59 @@
+fullnameOverride: traefik-external
+
+ingressClass:
+  enabled: true
+  isDefaultClass: false
+  name: traefik-external
+
+providers:
+  kubernetesCRD:
+    enabled: true
+    ingressClass: traefik-external
+  kubernetesIngress:
+    enabled: true
+    ingressClass: traefik-external
+    publishedService:
+      enabled: true
+
+service:
+  enabled: true
+  single: true
+  type: LoadBalancer
+  spec:
+    loadBalancerIP: ${TRAEFIK_EXTERNAL_LB_IP}
+    externalTrafficPolicy: Local
+
+ports:
+  web:
+    port: 8000
+    expose:
+      default: true
+    exposedPort: 80
+    protocol: TCP
+    redirections:
+      entryPoint:
+        to: websecure
+        scheme: https
+        permanent: true
+
+  websecure:
+    port: 8443
+    expose:
+      default: true
+    exposedPort: 443
+    protocol: TCP
+    tls:
+      enabled: true
+
+deployment:
+  replicas: 1
+
+logs:
+  general:
+    level: INFO
+  access:
+    enabled: true
+
+globalArguments:
+  - "--global.checknewversion=false"
+  - "--global.sendanonymoususage=false"

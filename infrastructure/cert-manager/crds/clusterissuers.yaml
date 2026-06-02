@@ -1,0 +1,38 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-staging
+spec:
+  acme:
+    email: benjamin.etheredge@gmail.com
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: cloudflare-secret
+      key: account-key
+    solvers:
+    - dns01:
+        cloudflare:
+          # email: benjamin.etheredge@gmail.com
+          apiTokenSecretRef:
+            name: cloudflare-secret
+            key: api-token
+
+---
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-prod
+spec:
+  acme:
+    email: benjamin.etheredge@gmail.com
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: cloudflare-secret
+      key: account-key
+    solvers:
+    - dns01:
+        cloudflare:
+          # email: benjamin.etheredge@gmail.com
+          apiTokenSecretRef:
+            name: cloudflare-secret
+            key: api-token

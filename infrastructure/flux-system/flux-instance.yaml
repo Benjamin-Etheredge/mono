@@ -23,7 +23,7 @@ spec:
     spec:
   sync:
     kind: OCIRepository
-    url: oci://ghcr.io/benjamin-etheredge/mono
-    ref: bale-main
+    url: oci://ghcr.io/benjamin-etheredge/clusters
+    ref: latest
     path: clusters/bale
     pullSecret: ghcr-auth

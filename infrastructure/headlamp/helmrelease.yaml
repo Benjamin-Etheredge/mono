@@ -1,0 +1,32 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: headlamp
+spec:
+  chart:
+    spec:
+      chart: headlamp 
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: headlamp 
+      version: "*"
+  interval: 12h
+  values:
+    ingress:
+      enabled: true
+      className: traefik-internal
+
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-staging
+      tls:
+        - hosts:
+            - headlamp.k8s.etheredge.dev
+          secretName: headlamp-tls
+
+      hosts:
+        - host: headlamp.k8s.etheredge.dev
+          paths:
+            - path: "/"
+              type: ImplementationSpecific

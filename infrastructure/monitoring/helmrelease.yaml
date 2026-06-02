@@ -3,7 +3,6 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: kube-prometheus-stack
-  namespace: monitoring
 spec:
   chart:
     spec:
@@ -12,11 +11,6 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: prometheus-community
-      version: 66.3.0
-  values:
-    grafana:
-      ingress:
-        enabled: true
-        hosts:
-          - grafana.k8s.local
+      version: "86.1.0"
   interval: 12h
+  timeout: 10m

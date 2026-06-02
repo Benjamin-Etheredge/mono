@@ -1,0 +1,56 @@
+name: publish-gitops-artifact
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    # strategy:
+    #   matrix:
+    #     cluster_name: [bale, creep]
+    env:
+    #   CLUSTER_NAME: ${{ matrix.cluster_name }}
+    #   GITOPS_IMAGE: ghcr.io/${{ github.repository_owner }}/clusters/${{ matrix.cluster_name }}
+      GITOPS_IMAGE: ghcr.io/${{ github.repository_owner }}/mono
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Flux CLI
+        uses: fluxcd/flux2/action@main
+
+      - name: Login to GHCR
+        run: |
+          echo "${{ github.token }}" | docker login ghcr.io \
+            -u "${{ github.actor }}" \
+            --password-stdin
+
+      - name: Stage GitOps artifact
+        run: |
+            mkdir -p /tmp/gitops-artifact-root
+            rsync -av --exclude='.git' \
+              --exclude='.github' \
+              --exclude='.gitlab' \
+              --exclude='node_modules' \
+              --exclude='.venv' \
+              --exclude='dist' \
+              --exclude='build' \
+              clusters infrastructure apps \
+              /tmp/gitops-artifact-root/
+            
+      - name: Push Flux OCI artifact
+        run: |
+          flux push artifact "oci://${GITOPS_IMAGE}:${GITHUB_SHA::12}" \
+            --path=/tmp/gitops-artifact-root \
+            --source="${{ github.server_url }}/${{ github.repository }}" \
+            --revision="${GITHUB_SHA}"
+
+          flux push artifact "oci://${GITOPS_IMAGE}:main" \
+            --path=/tmp/gitops-artifact-root \
+            --source="${{ github.server_url }}/${{ github.repository }}" \
+            --revision="${GITHUB_SHA}"
